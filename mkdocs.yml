@@ -1,0 +1,90 @@
+site_name: 155GISE
+nav:
+  - Charakterisika předmětu: index.md
+  - Cvičení:
+      - Cvičení 1: cviceni/cviceni1.md
+      - Cvičení 2: cviceni/cviceni2.md
+      - Cvičení 3: cviceni/cviceni3.md
+      - Cvičení 4: cviceni/cviceni4.md
+      - Cvičení 5: cviceni/cviceni5.md
+      - Cvičení 6: cviceni/cviceni6.md
+      - Cvičení 7: cviceni/cviceni7.md
+      - Cvičení 8: cviceni/cviceni8.md
+      - Cvičení 9: cviceni/cviceni9.md
+      - Cvičení 10: cviceni/cviceni10.md
+      - Cvičení 11: cviceni/cviceni11.md
+      - Cvičení 12: cviceni/cviceni12.md
+  - Data: data.md
+  - Hodnocení: hodnoceni.md
+  - Semestrální práce: semestralka.md
+  - Výuková videa: videa.md
+plugins:
+  - search
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: cs
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: teal
+      accent: purple
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: teal
+      accent: lime
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/CTUGeomatics
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/geomatics.ctu
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/geomatics.ctu
+copyright: <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
