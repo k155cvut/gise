@@ -35,9 +35,9 @@
 - mkdocs.yml - konfigurační soubor MkDocs Material pluginu: nízev stránky, navigace, pluginy, nastavení motivu, lokalizace, další rozšíření..
 - README.md
 
-**instalace**
+**Instalace**
 
-1. Naklonování repozitáře (GitHub Desktop / GitHub CLI - nutná instalace)
+1. Naklonování repozitáře na lokální zařízení (GitHub Desktop / GitHub CLI - nutná instalace)
 2. Otevřít naklonovanou složku ve VSCode
 3. Otevřít terminál ve VSCode (CTRL + SHIT + ;)
 4. Instalace MkDocs Material
@@ -52,7 +52,7 @@
    python -m mkdocs serve
    ```
 
-   http://127.0.0.1:8000/
+   http://127.0.0.1:8000/ (nemusí být stejný)
 
 6. Nahrát změny na GitHub
 
