@@ -38,28 +38,34 @@
 **Instalace**
 
 1. Naklonování repozitáře na lokální zařízení (GitHub Desktop / GitHub CLI - nutná instalace)
+   ```
+   git clone https://github.com/k155cvut/gise.git
+   ```
 2. Otevřít naklonovanou složku ve VSCode
+   ```
+   cd gise
+   code .
+   ```
 3. Otevřít terminál ve VSCode (CTRL + SHIT + ;)
 4. Instalace MkDocs Material
-
    ```
-   pip install mkdocs-material
+   pip install mkdocs-material --user
    ```
-
-5. Spuštění lokálního webového serveru (sleduje změny v kódu a znovu generuje stránku)
-
+5. Instalace MkDocs Glightbox pluginu
+   ```
+   pip install mkdocs-glightbox
+   ```
+7. Spuštění lokálního webového serveru (sleduje změny v kódu a znovu generuje stránku)
    ```
    python -m mkdocs serve
    ```
-
    http://127.0.0.1:8000/ (nemusí být stejný)
 
-6. Nahrát změny na GitHub
-
+8. Nahrát změny na GitHub
    v GitHub desktop nebo pomocí GitHub CLI v terminálu:
-
    ```
    git add .
    git commit -m $'popis změn v kódu od posledního commitu'
    git push origin main
    ```
+
