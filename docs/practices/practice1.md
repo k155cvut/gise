@@ -60,11 +60,8 @@ Users can create and edit **attributes** and **geometry** of features, perform a
 ![](../assets/cviceni1/agp_logo2.png#only-dark){ .off-glb width=200px style="filter:none !important;"}
 {: align=center}
 
-???+ note "&nbsp;<span style="color:#448aff">Note.</span>"
+<span style="color:#448aff">Note:</span>
 Due to the high acquisition costs, ArcGIS is mainly used in large companies and government agencies. Its open source alternative QGIS is more widespread in smaller companies (this will be discussed at the end of the course).
-
-???+ note "&nbsp;<span style="color:#448aff">Pozn.</span>"
-Vzhledem k vysokým pořizovacím nákladům se systém ArcGIS využívá především ve velkých firmách a orgánech státní správy. V menších podnicích je rozšířenější jeho open source alternativa QGIS (tomu bude věnována pozornost v závěru kurzu).
 
 ### Spatial (GIS) data <span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;">(vector)</span>
 
