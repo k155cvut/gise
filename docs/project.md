@@ -1,3 +1,3 @@
-# Semestrální práce
+# Semestral project
 
 Zadání semestrální práce.

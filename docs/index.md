@@ -1,44 +1,30 @@
-# Charakteristika předmětu
+# Course characteristics
 
-Cvičení z předmětu GIS 1 vás seznámí ze základy geografických informačních systémů (GIS).
+The practices in GIS 1 will introduce you to the basics of geographic information systems (GIS).
 
-Naučíte se:
+You will learn:
 
-- **zpracovávat** a **analyzovat** prostorová (geografická, mapová) data
-- porozumět rozdílu mezi **vektorovými** a **rastrovými** daty
-- **filtrovat** data pomocí atributových a prostorových dotazů
-- aplikovat základní **prostorové funkce** (nástroje geoprocessingu)
-- **tvořit** a **editovat** data
-- tvořit modely pro **automatizované zpracování** (nástroj _ModelBuilder_)
-- **sdílet** data prostřednictvím webu (systém _ArcGIS Online_, webové mapové aplikace)
-- používat **alternativní GIS software** (_QGIS_)
+- **process** and **analyze** spatial (geographic, map) data
+- understand the difference between **vector** and **raster** data
+- **filter** data using attribute and spatial queries
+- apply basic **spatial functions** (geoprocessing tools)
+- **create** and **edit** data
+- create models for **automated processing** (_ModelBuilder_ tool)
+- **share** data via the web (_ArcGIS Online_, web mapping applications)
 
-Během výuky bude používán zpravidla software Esri ArcGIS Pro, ke konci kurzu bude pak věnován prostor i možným alternativám (program QGIS).
+Esri ArcGIS Pro software will generally be used during the course.
 
-Princip geografických informačních systémů, čas a prostor v GIS, možnosti prostorové reprezentace, prostorová analýza, analýza kvality dat, technické nástroje GIS.
+Principles of geographic information systems, time and space in GIS, spatial representation options, spatial analysis, data quality analysis, GIS technical tools.
 
-## Doporučená literatura
+## Literature
 
-1. Kolář, J.: Geografické informační systémy 10. Vydavatelství ČVUT, Praha 1998.
-2. Rapant, P. (2006): Geoinformatika a geoinformační technologie. VŠB-TU Ostrava, 500 str. ISBN 80-248-1264-9.
-3. Břehovský, M., Jedlička, K. (2005): Přednáškové texty pro Úvod do GIS. ZČU Plzeň, 116 s.
-4. Hrubý M.: Geografické Informační Systémy (GIS) - Studijní opora. VÚT v Brně, 91 str.
-5. Tuček J.: Geografické informační systémy, Praha Computer Press, 1998.
+1. Bolstad, P. (2005) GIS Fundamentals: A First Text on Geographic Information Systems. 2nd Edition, Eider Press, White Bear Lake, Minnesota.
+2. De Smith, M.J., Goodchild, M.F. and Longley, P.A. (2015) Geospatial Analysis A Comprehensive Guide to Principles, Techniques, and Software Tools.
+3. P. A. Burrough, Rachael McDonnell (1998) Principles of Geographical Information Systems. Oxford University Press.
 
-## Přednášky
+## Lectures
 
-Přednášející: doc. Ing. Lena Halounová, CSc.
-
-1. Definice GIS, informatika, základní pojmy, aplikační oblasti GIS, prostor, topologie, historie GIS
-2. Reálný svět x GIS, model v GIS, vztahy objektů, typy modelů, geometrické typy objektů, rozlišovací schopnost
-3. Geografická poloha v GIS, prostorové vztahy, atributy
-4. Čas v GIS, modelování, druhy modelů, chyby v modelování v GIS
-5. Vektorový a rastrový GIS, datová struktura
-6. Rastrový GIS, atributová data
-7. Vektorový GIS, druhy objektů
-8. Geometrické a topologické vlastnosti objektů ve vektorovém GIS
-9. Vektorová a rastrová reprezentace prostorových objektů
-10. Rastrová reprezentace prostorových objektů, způsob ukládání rastrových objektů
+Lecturers: prof. Ing. Jiří Cajthaml, Ph.D. & Ing. Tomáš Janata, Ph.D.
 
 <!-- <div class="container" style="">
   <div class="list_item" style="background-color:inherit;padding:10px;border-radius:10px;border:2px solid #ddd;">
@@ -57,131 +43,7 @@ Přednášející: doc. Ing. Lena Halounová, CSc.
   </div>
 </div> -->
 
-<div style="margin:3cm">&nbsp;</div>
-
-<style>
-  /*tbody {width: 100% !important;display: table !important;}*/
-  /* .md-typeset__table {width:100%;} */
-  /* tbody{width: 100% !important;} */
-  /* tr{width:100%;} */
-  .md-typeset__scrollwrap {text-align: center;}
-</style>
-
-<h2 style="font-weight:bold;margin-bottom:0;">Přednášky</h2>
-
-účast doporučená
-{: style="opacity:50%;margin-top:0;"}
-
-<table style="border-radius:.5rem;">
-  <tbody>
-    <tr>
-      <td style="text-align:center;vertical-align:middle;color:var(--md-primary-fg-color);border-top:none;padding-right:0;">
-        <div style="border-right:1px solid var(--md-typeset-table-color); padding-right:calc(1.25em + 10px); padding-left:10px;">
-          <div class="month" style="font-size:.6rem;line-height:1.3;">leden</div>
-          <div class="day" style="font-size:1.5rem;font-weight:bold;line-height:1;">28</div>
-        </div>
-      </td>
-      <td style="border-top:none;vertical-align:middle;">
-        <div>
-          <div class="time" style="white-space: nowrap;">
-            <span style="display:inline-block;height:1em;width:1em;vertical-align:-6%;margin-right:5px;color:#999;"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-            10:00</div>
-          <div class="place" style="white-space: nowrap;">
-            <span style="display:inline-block;height:1em;width:1em;vertical-align:-10%;margin-right:5px;color:#999;"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-            C-212</div>
-        </div>
-      </td>
-      <td style="border-top:none;vertical-align:middle;width:1000px;white-space: nowrap;">
-        <div>Přednáška 1</div>
-        <div>Lena Halounová</div>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:center;vertical-align:middle;color:var(--md-primary-fg-color);border-top:none;padding-right:0;">
-        <div style="border-right:1px solid var(--md-typeset-table-color); padding-right:calc(1.25em + 10px); padding-left:10px;">
-          <div class="month" style="font-size:.6rem;line-height:1.3;">únor</div>
-          <div class="day" style="font-size:1.5rem;font-weight:bold;line-height:1;">4</div>
-        </div>
-      </td>
-      <td style="border-top:none;vertical-align:middle;">
-        <div>
-          <div class="time" style="white-space: nowrap;">
-            <span style="display:inline-block;height:1em;width:1em;vertical-align:-6%;margin-right:5px;color:#999;"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-            10:00</div>
-          <div class="place" style="white-space: nowrap;">
-            <span style="display:inline-block;height:1em;width:1em;vertical-align:-10%;margin-right:5px;color:#999;"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-            C-212</div>
-        </div>
-      </td>
-      <td style="border-top:none;vertical-align:middle;width:1000px;white-space: nowrap;">
-        <div>Přednáška 2</div>
-        <div>Lena Halounová</div>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<div style="margin:3cm">&nbsp;</div>
-
-<style>
-  :root {--md-admonition-icon--presentation: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2,3H10A2,2 0 0,1 12,1A2,2 0 0,1 14,3H22V5H21V16H15.25L17,22H15L13.25,16H10.75L9,22H7L8.75,16H3V5H2V3M5,5V14H19V5H5Z" /></svg>');
-  --md-admonition-icon--material-numeric-1-box: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>numeric-1-box</title><path d="M14,17H12V9H10V7H14M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>');}
-  .lecture summary::before{-webkit-mask-image: var(--md-admonition-icon--presentation) !important; mask-image: var(--md-admonition-icon--presentation) !important;}
-  details.lecture {border-color: var(--md-primary-fg-color) !important;/*margin:50px 0px;*/}
-  details.lecture summary {background-color: #0094851a !important;}
-  details.lecture summary:first-child::before {background-color:var(--md-primary-fg-color) !important;}
-  details.lecture summary:first-child::after  {color:var(--md-primary-fg-color) !important;}
-</style>
-
-??? lecture "Přednáška 1" - definice GIS - informatika - základní pojmy - aplikační oblasti GIS - prostor - topologie - historie GIS
-
-??? lecture "Přednáška 2" - reálný svět x GIS - model v GIS - vztahy objektů - typy modelů - geometrické typy objektů - rozlišovací schopnost
-
-??? lecture "Přednáška 3" - geografická poloha v GIS - prostorové vztahy - atributy
-
-??? lecture "Přednáška 4" - čas v GIS - modelování - druhy modelů - chyby v modelování v GIS
-
-??? lecture "Přednáška 5" - vektorový a rastrový GIS - datová struktura
-
-??? lecture "Přednáška 6" - rastrový GIS - atributová data
-
-??? lecture "Přednáška 7" - vektorový GIS - druhy objektů
-
-??? lecture "Přednáška 8" - geometrické a topologické vlastnosti objektů ve vektorovém GIS
-
-??? lecture "Přednáška 9" - vektorová a rastrová reprezentace prostorových objektů
-
-??? lecture "Přednáška 10" - rastrová reprezentace prostorových objektů - způsob ukládání rastrových objektů
-
-<div style="margin:3cm">&nbsp;</div>
-
-<style>
-  .connected{margin:0 !important;border-top:none !important; border-bottom:none !important;border-radius:0 !important;box-shadow:none !important;}
-  .connected.first{border-radius: .1rem .1rem 0 0 !important; border-top:   .05rem solid var(--md-primary-fg-color) !important;}
-  .connected.last {border-radius: 0 0 .1rem .1rem !important; border-bottom:.05rem solid var(--md-primary-fg-color) !important;}
-</style>
-
-??? lecture connected first "Přednáška 1" - definice GIS - informatika - základní pojmy - aplikační oblasti GIS - prostor - topologie - historie GIS
-
-??? lecture connected "Přednáška 2" - reálný svět x GIS - model v GIS - vztahy objektů - typy modelů - geometrické typy objektů - rozlišovací schopnost
-
-??? lecture connected "Přednáška 3" - geografická poloha v GIS - prostorové vztahy - atributy
-
-??? lecture connected "Přednáška 4" - čas v GIS - modelování - druhy modelů - chyby v modelování v GIS
-
-??? lecture connected "Přednáška 5" - vektorový a rastrový GIS - datová struktura
-
-??? lecture connected "Přednáška 6" - rastrový GIS - atributová data
-
-??? lecture connected "Přednáška 7" - vektorový GIS - druhy objektů
-
-??? lecture connected "Přednáška 8" - geometrické a topologické vlastnosti objektů ve vektorovém GIS
-
-??? lecture connected "Přednáška 9" - vektorová a rastrová reprezentace prostorových objektů
-
-??? lecture connected last "Přednáška 10" - rastrová reprezentace prostorových objektů - způsob ukládání rastrových objektů
-
-<div style="margin:3cm">&nbsp;</div>
+## Courses schedule
 
 <style>
   .connected{margin:0 !important;border-top:none !important; border-bottom:none !important;border-radius:0 !important;box-shadow:none !important;}
@@ -217,271 +79,268 @@ Přednášející: doc. Ing. Lena Halounová, CSc.
   <details class="details_event_item connected table">
     <summary>
       <div class="date">
-        <div class="month">leden</div>
+        <div class="month">October</div>
+        <div class="day">5</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 1</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Course introduction, ArcGIS Pro basics </p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">October</div>
+        <div class="day">12</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 2</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Coordinate systems, geodatabase, shapefile, reference scale </p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">October</div>
+        <div class="day">19</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 3</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Vector data (Feature Classes), selections, attribute query, location query	</p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">October</div>
+        <div class="day">26</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 4</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Attribute table, join, spatial join, calculate field, calculate geometry</p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">November</div>
+        <div class="day">2</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 5</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Creating vector data, editing tools (constraints, snapping, absolute location,
+fixed angle/distance, move, rotate, scale, split, merge, copy geometry between layers) </p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">November</div>
+        <div class="day">9</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 6</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Geoprocessing tools (Buffer, Clip, Union, Intersect, Project),
+specific use case (finding the best location for a new city bus stop)</p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">November</div>
+        <div class="day">16</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 7</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Data resource overview, web data services, geoportals</p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">November</div>
+        <div class="day">23</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 8</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Raster data, raster parameters (extent, px size, px depth, bands, pyramids, spatial reference),
+basic symbology, terrain representation in GIS</p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">November</div>
+        <div class="day">30</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 9</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Geoprocessing tools for raster data (Slope, Aspect, Reclassify, Raster Calculator)	</p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">December</div>
+        <div class="day">7</div>
+      </div>
+      <div class="time_loc">
+        <div class="time">
+          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
+          14:00</div>
+        <div class="location">
+          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
+          B973</div>
+      </div>
+      <div class="title_staff">
+        <div class="title">Practice 10</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
+      </div>
+    </summary>
+    <p>Raster/vector conversion, subsequent conversion GP tools</p>
+  </details>
+
+  <details class="details_event_item connected table">
+    <summary>
+      <div class="date">
+        <div class="month">December</div>
         <div class="day">14</div>
       </div>
       <div class="time_loc">
         <div class="time">
           <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-          10:00</div>
+          14:00</div>
         <div class="location">
           <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-          C-212</div>
+          B973</div>
       </div>
       <div class="title_staff">
-        <div class="title">Přednáška 1</div>
-        <div class="staff"><img src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg">Lena Halounová</div>
+        <div class="title">Practice 11</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
       </div>
     </summary>
-    <ul>
-      <li>definice GIS</li>
-      <li>informatika</li>
-      <li>základní pojmy</li>
-      <li>aplikační oblasti GIS</li>
-      <li>prostor</li>
-      <li>topologie</li>
-      <li>historie GIS</li>
-    </ul>
+    <p>ArcGIS Online, sharing data from ArcGIS Pro</p>
   </details>
 
   <details class="details_event_item connected table">
     <summary>
       <div class="date">
-        <div class="month">leden</div>
+        <div class="month">December</div>
         <div class="day">21</div>
       </div>
       <div class="time_loc">
         <div class="time">
           <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-          10:00</div>
+          14:00</div>
         <div class="location">
           <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-          C-212</div>
+          B973</div>
       </div>
       <div class="title_staff">
-        <div class="title">Přednáška 2</div>
-        <div class="staff"><img src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg">Lena Halounová</div>
+        <div class="title">Practice 12</div>
+        <div class="staff">Marek Hoffmann, Jozef Münzberger, Vojtěch Cehák</div>
       </div>
     </summary>
-    <ul>
-      <li>definice GIS</li>
-      <li>informatika</li>
-      <li>základní pojmy</li>
-      <li>aplikační oblasti GIS</li>
-      <li>prostor</li>
-      <li>topologie</li>
-      <li>historie GIS</li>
-    </ul>
-  </details>
-
-  <details class="details_event_item connected table">
-    <summary>
-      <div class="date">
-        <div class="month">leden</div>
-        <div class="day">28</div>
-      </div>
-      <div class="time_loc">
-        <div class="time">
-          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-          10:00</div>
-        <div class="location">
-          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-          C-212</div>
-      </div>
-      <div class="title_staff">
-        <div class="title">Přednáška 3</div>
-        <div class="staff"><img src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg">Lena Halounová</div>
-      </div>
-    </summary>
-    <ul>
-      <li>definice GIS</li>
-      <li>informatika</li>
-      <li>základní pojmy</li>
-      <li>aplikační oblasti GIS</li>
-      <li>prostor</li>
-      <li>topologie</li>
-      <li>historie GIS</li>
-    </ul>
-  </details>
-
-  <details class="details_event_item connected table">
-    <summary>
-      <div class="date">
-        <div class="month">únor</div>
-        <div class="day">4</div>
-      </div>
-      <div class="time_loc">
-        <div class="time">
-          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-          10:00</div>
-        <div class="location">
-          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-          C-212</div>
-      </div>
-      <div class="title_staff">
-        <div class="title">Přednáška 4</div>
-        <div class="staff"><img src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg">Lena Halounová</div>
-      </div>
-    </summary>
-    <ul>
-      <li>definice GIS</li>
-      <li>informatika</li>
-      <li>základní pojmy</li>
-      <li>aplikační oblasti GIS</li>
-      <li>prostor</li>
-      <li>topologie</li>
-      <li>historie GIS</li>
-    </ul>
-  </details>
-
-  <details class="details_event_item connected table">
-    <summary>
-      <div class="date">
-        <div class="month">únor</div>
-        <div class="day">11</div>
-      </div>
-      <div class="time_loc">
-        <div class="time">
-          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-          10:00</div>
-        <div class="location">
-          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-          C-212</div>
-      </div>
-      <div class="title_staff">
-        <div class="title">Přednáška 5</div>
-        <div class="staff"><img src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg">Lena Halounová</div>
-      </div>
-    </summary>
-    <ul>
-      <li>definice GIS</li>
-      <li>informatika</li>
-      <li>základní pojmy</li>
-      <li>aplikační oblasti GIS</li>
-      <li>prostor</li>
-      <li>topologie</li>
-      <li>historie GIS</li>
-    </ul>
-  </details>
-
-  <details class="details_event_item connected table">
-    <summary>
-      <div class="date">
-        <div class="month">únor</div>
-        <div class="day">18</div>
-      </div>
-      <div class="time_loc">
-        <div class="time">
-          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-          10:00</div>
-        <div class="location">
-          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-          C-212</div>
-      </div>
-      <div class="title_staff">
-        <div class="title">Přednáška 6</div>
-        <div class="staff"><img src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg">Lena Halounová</div>
-      </div>
-    </summary>
-    <ul>
-      <li>definice GIS</li>
-      <li>informatika</li>
-      <li>základní pojmy</li>
-      <li>aplikační oblasti GIS</li>
-      <li>prostor</li>
-      <li>topologie</li>
-      <li>historie GIS</li>
-    </ul>
-  </details>
-
-  <details class="details_event_item connected table">
-    <summary>
-      <div class="date">
-        <div class="month">únor</div>
-        <div class="day">25</div>
-      </div>
-      <div class="time_loc">
-        <div class="time">
-          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-          10:00</div>
-        <div class="location">
-          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-          C-212</div>
-      </div>
-      <div class="title_staff">
-        <div class="title">Přednáška 7</div>
-        <div class="staff"><img src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg">Lena Halounová</div>
-      </div>
-    </summary>
-    <ul>
-      <li>definice GIS</li>
-      <li>informatika</li>
-      <li>základní pojmy</li>
-      <li>aplikační oblasti GIS</li>
-      <li>prostor</li>
-      <li>topologie</li>
-      <li>historie GIS</li>
-    </ul>
-  </details>
-
-  <details class="details_event_item connected table">
-    <summary>
-      <div class="date">
-        <div class="month">březen</div>
-        <div class="day">3</div>
-      </div>
-      <div class="time_loc">
-        <div class="time">
-          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-          10:00</div>
-        <div class="location">
-          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-          C-212</div>
-      </div>
-      <div class="title_staff">
-        <div class="title">Přednáška 8</div>
-        <div class="staff"><img src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg">Lena Halounová</div>
-      </div>
-    </summary>
-    <ul>
-      <li>definice GIS</li>
-      <li>informatika</li>
-      <li>základní pojmy</li>
-      <li>aplikační oblasti GIS</li>
-      <li>prostor</li>
-      <li>topologie</li>
-      <li>historie GIS</li>
-    </ul>
-  </details>
-
-  <details class="details_event_item connected table">
-    <summary>
-      <div class="date">
-        <div class="month">březen</div>
-        <div class="day">10</div>
-      </div>
-      <div class="time_loc">
-        <div class="time">
-          <span class="marker map_pin"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg></span>
-          10:00</div>
-        <div class="location">
-          <span class="marker clock_time"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>clock-time-eight</title><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M7.7 15.5L7 14.2L11 11.9V7H12.5V12.8L7.7 15.5Z" /></svg></span>
-          C-212</div>
-      </div>
-      <div class="title_staff">
-        <div class="title">Přednáška 9</div>
-        <div class="staff"><img src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg">Lena Halounová</div>
-      </div>
-    </summary>
-    <ul>
-      <li>definice GIS</li>
-      <li>informatika</li>
-      <li>základní pojmy</li>
-      <li>aplikační oblasti GIS</li>
-      <li>prostor</li>
-      <li>topologie</li>
-      <li>historie GIS</li>
-    </ul>
+    <p>Assessment Project Presentation	</p>
   </details>
 </div>
 
