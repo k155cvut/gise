@@ -17,26 +17,307 @@
   .md-button.button_smaller {font-size:smaller; padding:1px 5px;}             /* Mensi button (bez URL) */
 
   /* FLEXBOXY */
-  .process_container {display:flex !important; justify-content:center; align-items:center; column-gap:calc((100vw * 0.03) - 6px);} /* Kontejner pro content = FlexBox */
+  .process_container {display:flex !important; justify-content:center; align-items:center; gap:calc((100vw * 0.03) - 6px) calc((100vw * 0.03) - 6px);} /* Kontejner pro content = FlexBox */
   .process_container div {display:flex;}                                                                                           /* Obsah (obrazky a sipky) */
   .process_container .process_icon {width:/*40px*/calc((100vw * 0.01) + 25px); flex-shrink:0;filter:none !important;}              /* Velikost ikony (bacha na mobily) */
   .process_container img {max-height:150px;}                                                                                       /* Obrazky ve flexboxech maji maximalni vysku */
 
-  code.AGPF {border:2px solid var(--md-primary-fg-color);padding:.1em .4em !important;/*transition: all .1s ease-in-out !important; display:inline-block !important;*/}
-  code.AGPF .twemoji {vertical-align:-10% !important;}
+  /* Grids */
+  .grid {display:inline-block !important;border:.05rem solid var(--md-default-fg-color--lightest);border-radius:.1rem;padding:.8rem;transition: all .1s ease-in-out;}
+  .grid:hover {transition: all .1s ease-in-out;box-shadow: 0 10px 16px rgba(0,0,0,0.2);}
 </style>
 
-<!-- Definice sipky do FlexBoxu (pro referenci) – UZ NENI TREBA
-<svg style="display: none" version="2.0">
-  <defs>
-    <symbol id="rect-arrow-right" viewBox="0 0 24 24">
-      <path d="M5,21A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5V19C21,20.11 20.1,21 19,21H5M6,13H14.5L11,16.5L12.42,17.92L18.34,12L12.42,6.08L11,7.5L14.5,11H6V13Z"
-        style="fill:var(--md-primary-fg-color)" />
-    </symbol>
-    <symbol id="caret-right" height="1em" viewBox="0 0 256 512">
-      <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" style="fill:var(--md-primary-fg-color)" />
-    </symbol>
-  <defs>
-</svg> -->
+# Vector data, attribute queries, spatial queries
 
-# TBA
+<!-- ## Cíl cvičení -->
+
+## Basic terms
+
+### Vector and raster spatial data
+
+<div class="process_container" style="flex-wrap:wrap;align-items:stretch;">
+  <div class="grid" style="flex:1 1 300px;">
+    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3v6h2.95l2 6H6v6h6v-4.59L17.41 11H22V5h-6v4.57L10.59 15H9.06l-2-6H8V3M4 5h2v2H4m14 0h2v2h-2M8 17h2v2H8Z"></path></svg></span>&nbsp;
+    <strong>Vector data</strong>
+    <hr style="margin:10px 0;">
+    <p>Formed by <strong>vertices</strong> and <strong>paths</strong> - these are determined by actual coordinates. </p>
+    <p>The detail is determined by the <strong>detail of the vertex coordinates.</strong></p>
+    <p>Suitable for <strong>discretely distributed data</strong> (e.g. point locations, land cover categories)</p>
+    <p>Possible <strong>topology</strong> problems (gaps and overlaps)</p>
+  </div>
+  <div class="grid" style="flex:1 1 300px;">
+    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4v4h4V4h-4m6 0v4h4V4h-4m0 6v4h4v-4h-4m0 6v4h4v-4h-4m-2 4v-4h-4v4h4m-6 0v-4H4v4h4m0-6v-4H4v4h4m0-6V4H4v4h4m2 6h4v-4h-4v4M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4c-1.08 0-2-.9-2-2V4a2 2 0 0 1 2-2Z"></path></svg></span>&nbsp;
+    <strong>Raster data</strong>
+    <span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;color:#888">part of future exercises</span>
+    <hr style="margin:10px 0;">
+    <p>Formed by a regular grid of <strong>pixels</strong> – these are determined by pixel coordinates (row/column order)</p>
+    <p>Detail is determined by <strong>pixel size</strong> (in meters)</p>
+    <p>Suitable for phenomena changing <strong>continuously </strong> (e.g. terrain model, air pollution) and <strong>discretely</strong>,  as well as <strong>image data</strong> (e.g. satellite)</p>
+  </div>
+</div>
+
+<!-- ## Použité datové podklady -->
+
+## Practice content
+
+### Attribute queries
+
+Attribute Query is a method of selecting/filtering elements based on **attribute values**. It complements the [interactive feature selection](/practices/practice1/#select-tool) method from exercise 1. The basis is a selection rule - called **Expression**. ArcGIS Pro allows you to build expressions interactively using dialogs, but to use the full potential of expressions, it is recommended to use _SQL_ code.
+<br><br>
+
+<style>
+  code.AGPF {border:2px solid var(--md-primary-fg-color);padding:.1em .4em !important;/*transition: all .1s ease-in-out !important; display:inline-block !important;*/}
+  code.AGPF .twemoji {vertical-align:-10% !important;}
+  /* code.AGPF:hover {transform: scale(0.96);} */
+</style>
+
+**Attribute query** (over map data): <code class="AGPF">:material-tab: Map</code> → <code class="AGPF">:material-button-cursor: Select By Attributes</code> → fill in the dialog..
+[:material-open-in-new: Select features using attributes](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-using-attributes.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
+
+![](../assets/cviceni1/img_33.png)
+![](../assets/cviceni1/arrow.svg){: .off-glb .process_icon}
+![](../assets/cviceni1/img_34.png)
+![](../assets/cviceni1/arrow.svg){: .off-glb .process_icon}
+![](../assets/cviceni1/img_35.png)
+{: .process_container}
+
+<figcaption>The <code>Input Rows</code> field is automatically prepopulated with the layer selected in the map content </figcaption>
+
+Using the ![](../assets/cviceni1/img_36.png){ switch: .off-glb style="vertical-align: -20%;margin:0px 5px;"} you can change the notation between the interactive dialog entry and the SQL expression.
+
+[:material-open-in-new: Introduction to query expressions](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/write-a-query-in-the-query-builder.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
+[:material-open-in-new: Construct and modify queries](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/construct-and-modify-queries.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
+{: align=center style="display:flex; justify-content:center; align-items:center; column-gap:20px; row-gap:10px; flex-wrap:wrap;"}
+
+<style>
+  details.page_color_admonition summary:first-child::before {background-color:var(--md-primary-fg-color) !important;}
+  /* details.page_color_admonition summary:first-child         {color:#009485 !important;} */
+  details.page_color_admonition summary:first-child::after  {color:var(--md-primary-fg-color) !important;}
+  details.page_color_admonition {border-color: var(--md-primary-fg-color) !important;margin:50px 0px;}
+  details.page_color_admonition summary {background-color: #0094851a !important;}
+</style>
+<details class="example page_color_admonition" open="">
+<summary>Example to try<div style="display:inline-block; border-left: 1px solid var(--md-admonition-fg-color); height:.9rem;vertical-align:-20%;margin:0px 20px"></div><span style="font-weight:normal;">testing attribute queries on real data</span></summary>
+  <iframe style="filter:none !important;margin-top:.6rem;" width="100%" height="500" frameborder="0" allowfullscreen src="https://geo.fsv.cvut.cz/data/hoffmann/appquery/"></iframe>
+  <hr class="l1" style="margin-bottom:0px !important;">
+  <div style="margin-top:10px;margin-left:10px;font-weight:bold;font-size:larger;">Schéma atributů vrstvy:</div>
+  
+  <style>
+    #small_table_padding :is(th,td) {padding:5px 10px;}
+    .md-typeset__table {width:100%;}
+    .md-typeset__scrollwrap {margin-top:5px !important;}
+    tbody {width:100%;display:table;}
+  </style>
+  <table id="small_table_padding">
+    <tr>
+      <th>attribute</th>
+      <th>data type</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td>stop_name</td>
+      <td><code>string</code></td>
+      <td>Název zastávky</td>
+    </tr>
+    <tr>
+      <td>routes_nam</td>
+      <td><code>string</code></td>
+      <td>Označení linek, které obsluhují zastávku, ve formátu <code>-cislolinky-,-cislolinky-</code> řazeno vzestupně</td>
+    </tr>
+    <tr>
+      <td>route_type</td>
+      <td><code>integer</code></td>
+      <td>ID druhu dopravy, které obsluhují zastávku, <br><code>0=tramvaj</code>, <code>1=metro</code>, <code>2=vlak</code>, <code>3=autobus</code>, <code>4=přívoz</code>, <code>7=lanovka</code>, <code>8=tramvaj i autobus</code></td>
+    </tr>
+    <tr>
+      <td>on_request</td>
+      <td><code>integer</code></td>
+      <td>Zastávka na znamení <code>0=není na znamení</code>, <code>1=je na znamení</code></td>
+    </tr>
+    <tr>
+      <td>platf_len</td>
+      <td><code>float</code></td>
+      <td>Délka nástupiště (metry)</td>
+    </tr>
+  </table>
+</details>
+
+<hr class="l1">
+
+### Spatial queries
+
+Spatial query is a method of selecting/filtering elements of one layer based on their relative position with elements of another layer. The function uses as input <code>**the layer of selected elements**</code>, <code>**the layer for overlay analysis**</code> a <code>**the relationship for overlay analysis**</code>.
+
+![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_01.svg){ .off-glb style="filter:none !important;" }
+![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_02.svg){ .off-glb style="filter:none !important;" }
+{: .process_container}
+
+<style>
+  .tabbed-labels {justify-content:center;}
+  .tabbed-labels::before {transition:unset !important;}
+</style>
+
+=== "Select POINTS..."
+
+    === "...using POINTS"
+
+        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-1ECFFABC-3608-4BB4-86A8-FD6FA0F16C13-web.gif){ style="filter:none !important;" }
+        {: align=center}
+
+        <table id="small_table_padding" style="width:unset;">
+          <tr><td>Intersect</td><td>A</td></tr>
+          <tr><td>Intersect (DBMS)</td><td>A</td></tr>
+          <tr><td>Contains</td><td>A</td></tr>
+          <tr><td>Contains Clementini</td><td>A</td></tr>
+          <tr><td>Within</td><td>A</td></tr>
+          <tr><td>Within Clementini</td><td>A</td></tr>
+          <tr><td>Are identical to</td><td>A</td></tr>
+          <tr><td>Have their center in</td><td>A</td></tr>
+        </table>
+
+    === "...using LINES"
+
+        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-171AD80E-550B-4017-AEB7-1A681D722F60-web.gif){ style="filter:none !important;" }
+        {: align=center}
+
+        <table id="small_table_padding" style="width:unset;">
+          <tr><td>Intersect</td><td>A, C</td></tr>
+          <tr><td>Intersect (DBMS)</td><td>A, C</td></tr>
+          <tr><td>Within</td><td>A, C</td></tr>
+          <tr><td>Completely within</td><td>A</td></tr>
+          <tr><td>Within Clementini</td><td>A</td></tr>
+          <tr><td>Have their center in</td><td>A, C</td></tr>
+          <tr><td>Boundary touches</td><td>C</td></tr>
+        </table>
+
+    === "...using POLYGONS"
+
+        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-12153063-E9B3-42E5-A786-E3FAF6BB004E-web.gif){ style="filter:none !important;" }
+        {: align=center}
+
+        <table id="small_table_padding" style="width:unset;">
+          <tr><td>Intersect</td><td>A, C</td></tr>
+          <tr><td>Intersect (DBMS)</td><td>A, C</td></tr>
+          <tr><td>Within</td><td>A, C</td></tr>
+          <tr><td>Completely within</td><td>A</td></tr>
+          <tr><td>Within Clementini</td><td>A</td></tr>
+          <tr><td>Have their center in</td><td>A, C</td></tr>
+          <tr><td>Boundary touches</td><td>C</td></tr>
+        </table>
+
+=== "Select LINES"
+
+    === "...using POINTS"
+
+        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-FD60FA73-31CD-4BD7-B03C-06806851BC9E-web.gif){ style="filter:none !important;" }
+        {: align=center}
+
+        <table id="small_table_padding" style="width:unset;">
+          <tr><td>Intersect</td><td>A, C, D</td></tr>
+          <tr><td>Intersect (DBMS)</td><td>A, C, D</td></tr>
+          <tr><td>Contains</td><td>A, C, D</td></tr>
+          <tr><td>Completely contains</td><td>A, D</td></tr>
+          <tr><td>Contains Clementini</td><td>A, D</td></tr>
+          <tr><td>Have their center in</td><td>D</td></tr>
+          <tr><td>Boundary touches</td><td>C</td></tr>
+        </table>
+
+    === "...using LINES"
+
+        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-09D6FB47-31A3-47C3-A8B8-19BB659EBA8A-web.gif){ style="filter:none !important;" }
+        {: align=center}
+
+        <table id="small_table_padding" style="width:unset;">
+          <tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J</td></tr>
+          <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J</td></tr>
+          <tr><td>Contains</td><td>G, H</td></tr>
+          <tr><td>Completely contains</td><td>G</td></tr>
+          <tr><td>Contains Clementini</td><td>G, H</td></tr>
+          <tr><td>Within</td><td>F, H</td></tr>
+          <tr><td>Completely within</td><td>F</td></tr>
+          <tr><td>Within Clementini</td><td>F, H</td></tr>
+          <tr><td>Are identical to</td><td>H</td></tr>
+          <tr><td>Boundary touches</td><td>C, E</td></tr>
+          <tr><td>Share a line segment with</td><td>F, G, H, I, J</td></tr>
+        </table>
+
+    === "...using POLYGONS"
+
+        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-54663F11-5B47-46A5-82C1-37FD1FDDC835-web.gif){ style="filter:none !important;" }
+        {: align=center}
+
+        <table id="small_table_padding" style="width:unset;">
+          <tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+          <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+          <tr><td>Within</td><td>A, D, G, H, I, O</td></tr>
+          <tr><td>Completely within</td><td>A</td></tr>
+          <tr><td>Within Clementini</td><td>A, D, G, H, I</td></tr>
+          <tr><td>Boundary touches</td><td>F, G, H, I, K, L, M, N, O</td></tr>
+          <tr><td>Share a line segment with</td><td>G, I, J, K, M, O</td></tr>
+          <tr><td>Crossed by the outline of</td><td>C, E, H, L, N</td></tr>
+          <tr><td>Have their center in</td><td>A, C, D, E, G, H, I, J, O</td></tr>
+        </table>
+
+=== "Select POLYGONS..."
+
+    === "...using POINTS"
+
+        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-0973BB65-5DAE-461A-8B84-E58332CDA443-web.gif){ style="filter:none !important;" }
+        {: align=center}
+
+        <table id="small_table_padding" style="width:unset;">
+          <tr><td>Intersect</td><td>A, B</td></tr>
+          <tr><td>Intersect (DBMS)</td><td>A, B</td></tr>
+          <tr><td>Contains</td><td>A, B</td></tr>
+          <tr><td>Completely contains</td><td>A</td></tr>
+          <tr><td>Contains Clementini</td><td>A</td></tr>
+          <tr><td>Have their center in</td><td>A, D</td></tr>
+          <tr><td>Boundary touches</td><td>B</td></tr>
+        </table>
+
+    === "...using LINES"
+
+        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-EFDE4E93-532E-4D6E-BB29-9BBFC783CEC7-web.gif){ style="filter:none !important;" }
+        {: align=center}
+
+        <table id="small_table_padding" style="width:unset;">
+          <tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+          <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+          <tr><td>Contains</td><td>A, D, G, H, I, O</td></tr>
+          <tr><td>Completely contains</td><td>A</td></tr>
+          <tr><td>Contains Clementini</td><td>A, D, G, H, I</td></tr>
+          <tr><td>Boundary touches</td><td>F, G, H, I, K, L, M, N, O</td></tr>
+          <tr><td>Share a line segment with</td><td>G, I, J, K, M, O</td></tr>
+          <tr><td>Crossed by the outline of</td><td>C, E, H, L, N</td></tr>
+          <tr><td>Have their center in</td><td>E, I, L</td></tr>
+        </table>
+
+    === "...using POLYGONS"
+
+        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-7802EBC1-8E73-4071-AE12-4445AB1C24B5-web.gif){ style="filter:none !important;" }
+        {: align=center}
+
+        <table id="small_table_padding" style="width:unset;">
+          <tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J, K, M</td></tr>
+          <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J, K, M</td></tr>
+          <tr><td>Contains</td><td>C, E, H, M</td></tr>
+          <tr><td>Completely contains</td><td>C</td></tr>
+          <tr><td>Contains Clementini</td><td>C, E, H, M</td></tr>
+          <tr><td>Within</td><td>F, G, H, M</td></tr>
+          <tr><td>Completely within</td><td>F</td></tr>
+          <tr><td>Within Clementini</td><td>F, G, H, M</td></tr>
+          <tr><td>Are identical to</td><td>H, M</td></tr>
+          <tr><td>Boundary touches</td><td>D, E, G, H, I, J, M</td></tr>
+          <tr><td>Share a line segment with</td><td>D, H, I, M</td></tr>
+          <tr><td>Crossed by the outline of</td><td>A, E, G, J, K</td></tr>
+          <tr><td>Have their center in</td><td>C, E, F, G, H, K, L</td></tr>
+        </table>
+
+[:material-open-in-new: Select features by location](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-by-location.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
+[:material-open-in-new: Select Layer By Location (Data Management)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-layer-by-location.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
+[:material-open-in-new: Select By Location graphic examples](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-by-location-graphical-examples.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
+{: align=center style="display:flex; justify-content:center; align-items:center; column-gap:20px; row-gap:10px; flex-wrap:wrap;"}
+
+<br><br><br><br><br><br>
+
+<!-- ## Zadání domácího úkolu k semestrální práci -->

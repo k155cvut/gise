@@ -4,6 +4,10 @@ nav:
   - Practices:
       - Practice 1: practices/practice1.md
       - Practice 2: practices/practice2.md
+  # - Data: data.md
+  # - Hodnocení: hodnoceni.md
+  # - Semestrální práce: semestralka.md
+  # - Výuková videa: videa.md
 plugins:
   - search
   - glightbox:
@@ -39,13 +43,13 @@ theme:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
       primary: indigo
-      accent: purple
+      accent: yellow
     - scheme: slate
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
       primary: indigo
-      accent: yellow
+      accent: lime
 extra:
   social:
     - icon: fontawesome/brands/twitter
@@ -74,3 +78,5 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
