@@ -7,7 +7,7 @@
    inkscape:export-filename="arrow.png"
    inkscape:export-xdpi="200"
    inkscape:export-ydpi="200"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,8 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4" />
   <path
-     d="M5,21A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5V19C21,20.11 20.1,21 19,21H5M6,13H14.5L11,16.5L12.42,17.92L18.34,12L12.42,6.08L11,7.5L14.5,11H6V13Z"
-     style="fill:#009485"
-     id="path2" />
+     style="fill:#ffffff;fill-opacity:1"
+     d="m 3.83,13 h 12.5 l -3.5,3.5 1.42,1.42 L 20.17,12 14.25,6.08 12.83,7.5 16.33,11 H 3.83 Z"
+     id="path1"
+     sodipodi:nodetypes="cccccccccc" />
 </svg>

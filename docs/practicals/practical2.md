@@ -1,31 +1,4 @@
-<style>
-  .md-typeset__scrollwrap {text-align: center;}                                                      /* Zarovnani tabulek na stred */
-  /* tbody {width: 100%;display: table;}                                                             /* Roztazeni tabulek na celou sirku */
-  h2 {font-weight:700 !important;}                                                                   /* Pokus – zmena formatu nadpisu 2 */
-  figcaption {font-size:12px;margin-top:5px !important;text-align:center;line-height:1.2em;}         /* Formatovani Popisku obrazku */
-  hr.l1 {background-color:var(--md-primary-fg-color);height:2px;margin-bottom:3em !important;}       /* Formatovani Break Line – LEVEL 1 */
-  /* img,iframe {box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.2) !important;} /* Stin pod obrazky a videi */
-  img,iframe {filter:drop-shadow(0 10px 16px rgba(0,0,0,0.2)) drop-shadow(0 6px 20px rgba(0,0,0,0.2)) !important; object-fit:contain;} /* Stin pod obrazky a videi */
 
-  /* TLACITKA */
-  .md-button {text-align:center;transition: all .1s ease-in-out !important;}  /* Button – zarovnani textu */
-  .md-button:hover {transform: scale(1.04);opacity:.8;background-color:var(--md-primary-fg-color) !important;border-color:var(--md-primary-fg-color) !important;color:var(--md-primary-bg-color) !important;/*filter: brightness(80%);*/}            /* Button Hover – animace zvetseni a zmeny barvy */
-  .md-button:focus {opacity:.8;background-color:var(--md-primary-fg-color) !important;border-color:var(--md-primary-fg-color) !important;color:var(--md-primary-bg-color) !important;}                                                                /* Button Focus – stejny vzhled jako hover */
-  .url-name {line-height:1.2;/*padding-top:5px !important;*/}                 /* Button s URL */
-  .url-name span:first-child {font-size:.7em; font-weight:300;}               /* Button s URL – format*/
-  .url-name span.twemoji {vertical-align:-0px;}                               /* Button s URL – zarovnani ikony*/
-  .md-button.button_smaller {font-size:smaller; padding:1px 5px;}             /* Mensi button (bez URL) */
-
-  /* FLEXBOXY */
-  .process_container {display:flex !important; justify-content:center; align-items:center; gap:calc((100vw * 0.03) - 6px) calc((100vw * 0.03) - 6px);} /* Kontejner pro content = FlexBox */
-  .process_container div {display:flex;}                                                                                           /* Obsah (obrazky a sipky) */
-  .process_container .process_icon {width:/*40px*/calc((100vw * 0.01) + 25px); flex-shrink:0;filter:none !important;}              /* Velikost ikony (bacha na mobily) */
-  .process_container img {max-height:150px;}                                                                                       /* Obrazky ve flexboxech maji maximalni vysku */
-
-  /* Grids */
-  .grid {display:inline-block !important;border:.05rem solid var(--md-default-fg-color--lightest);border-radius:.1rem;padding:.8rem;transition: all .1s ease-in-out;}
-  .grid:hover {transition: all .1s ease-in-out;box-shadow: 0 10px 16px rgba(0,0,0,0.2);}
-</style>
 
 # Vector data, attribute queries, spatial queries
 
@@ -35,44 +8,38 @@
 
 ### Vector and raster spatial data
 
-<div class="process_container" style="flex-wrap:wrap;align-items:stretch;">
-  <div class="grid" style="flex:1 1 300px;">
+<div class="grid_container">
+  <div class="grid_item" style="flex:1 1 300px;">
     <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3v6h2.95l2 6H6v6h6v-4.59L17.41 11H22V5h-6v4.57L10.59 15H9.06l-2-6H8V3M4 5h2v2H4m14 0h2v2h-2M8 17h2v2H8Z"></path></svg></span>&nbsp;
     <strong>Vector data</strong>
-    <hr style="margin:10px 0;">
-    <p>Formed by <strong>vertices</strong> and <strong>paths</strong> - these are determined by actual coordinates. </p>
-    <p>The detail is determined by the <strong>detail of the vertex coordinates.</strong></p>
+    <hr style="margin:10px 0 !important;">
+    <p>Formed by <strong>vertices</strong> and <strong>paths</strong> - these are determined by actual coordinates.</p>
+    <p>The detail is determined by the <strong>detail of the vertex coordinates</strong>.</p>
     <p>Suitable for <strong>discretely distributed data</strong> (e.g. point locations, land cover categories)</p>
-    <p>Possible <strong>topology</strong> problems (gaps and overlaps)</p>
+    <p>Possible <strong>topology problems</strong> (gaps and overlaps)</p>
   </div>
-  <div class="grid" style="flex:1 1 300px;">
+  <div class="grid_item" style="flex:1 1 300px;">
     <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4v4h4V4h-4m6 0v4h4V4h-4m0 6v4h4v-4h-4m0 6v4h4v-4h-4m-2 4v-4h-4v4h4m-6 0v-4H4v4h4m0-6v-4H4v4h4m0-6V4H4v4h4m2 6h4v-4h-4v4M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4c-1.08 0-2-.9-2-2V4a2 2 0 0 1 2-2Z"></path></svg></span>&nbsp;
     <strong>Raster data</strong>
-    <span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;color:#888">part of future exercises</span>
-    <hr style="margin:10px 0;">
-    <p>Formed by a regular grid of <strong>pixels</strong> – these are determined by pixel coordinates (row/column order)</p>
+    <span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;color:#888">covered by following practicals</span>
+    <hr style="margin:10px 0 !important;">
+    <p>Formed by a regular <strong>grid of pixels</strong> – these are determined by pixel coordinates (row/column)</p>
     <p>Detail is determined by <strong>pixel size</strong> (in meters)</p>
-    <p>Suitable for phenomena changing <strong>continuously </strong> (e.g. terrain model, air pollution) and <strong>discretely</strong>,  as well as <strong>image data</strong> (e.g. satellite)</p>
+    <p>Suitable for phenomena changing both <strong>continuously</strong> (e.g. terrain model, air pollution) and <strong>discretely</strong>, as well as <strong>image data</strong> (e.g. satellite)</p>
   </div>
 </div>
 
 <!-- ## Použité datové podklady -->
 
-## Practice content
+## Contents
 
 ### Attribute queries
 
-Attribute Query is a method of selecting/filtering elements based on **attribute values**. It complements the [interactive feature selection](/practices/practice1/#select-tool) method from exercise 1. The basis is a selection rule - called **Expression**. ArcGIS Pro allows you to build expressions interactively using dialogs, but to use the full potential of expressions, it is recommended to use _SQL_ code.
+Attribute Query is a method of selecting/filtering elements based on __attribute values__. It complements the [interactive feature selection](/cviceni/cviceni1/#select-tool) method from practical 1. The basis is a selection rule - called __Expression__. ArcGIS Pro allows you to build expressions interactively using a dialog, but to use the full potential of expressions, it is recommended to use SQL code.
 <br><br>
 
-<style>
-  code.AGPF {border:2px solid var(--md-primary-fg-color);padding:.1em .4em !important;/*transition: all .1s ease-in-out !important; display:inline-block !important;*/}
-  code.AGPF .twemoji {vertical-align:-10% !important;}
-  /* code.AGPF:hover {transform: scale(0.96);} */
-</style>
-
-**Attribute query** (over map data): <code class="AGPF">:material-tab: Map</code> → <code class="AGPF">:material-button-cursor: Select By Attributes</code> → fill in the dialog..
-[:material-open-in-new: Select features using attributes](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-using-attributes.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
+__Attribute query__ (over map data): _:material-tab: Map_{: .outlined} → _:material-button-cursor: Select By Attributes_{: .outlined} → fill in the dialog...
+[Select features using attributes](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-using-attributes.htm){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
 
 ![](../assets/cviceni1/img_33.png)
 ![](../assets/cviceni1/arrow.svg){: .off-glb .process_icon}
@@ -81,34 +48,29 @@ Attribute Query is a method of selecting/filtering elements based on **attribute
 ![](../assets/cviceni1/img_35.png)
 {: .process_container}
 
-<figcaption>The <code>Input Rows</code> field is automatically prepopulated with the layer selected in the map content </figcaption>
+<figcaption markdown>The `Input Rows` field is automatically prepopulated with the layer selected in the map content</figcaption>
 
-Using the ![](../assets/cviceni1/img_36.png){ switch: .off-glb style="vertical-align: -20%;margin:0px 5px;"} you can change the notation between the interactive dialog entry and the SQL expression.
+Using the ![](../assets/cviceni1/img_36.png){: .off-glb style="vertical-align: -20%;margin:0px 5px;"} you can change the notation between the interactive dialog entry and the SQL expression.
 
-[:material-open-in-new: Introduction to query expressions](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/write-a-query-in-the-query-builder.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
-[:material-open-in-new: Construct and modify queries](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/construct-and-modify-queries.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
-{: align=center style="display:flex; justify-content:center; align-items:center; column-gap:20px; row-gap:10px; flex-wrap:wrap;"}
+[Introduction to query expressions](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/write-a-query-in-the-query-builder.htm){ .md-button .md-button--primary .button_smaller .external_link_icon target="\_blank"}
+[Construct and modify queries](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/construct-and-modify-queries.htm){ .md-button .md-button--primary .button_smaller .external_link_icon target="\_blank"}
+{: .button_array}
 
 <style>
   details.page_color_admonition summary:first-child::before {background-color:var(--md-primary-fg-color) !important;}
   /* details.page_color_admonition summary:first-child         {color:#009485 !important;} */
   details.page_color_admonition summary:first-child::after  {color:var(--md-primary-fg-color) !important;}
   details.page_color_admonition {border-color: var(--md-primary-fg-color) !important;margin:50px 0px;}
-  details.page_color_admonition summary {background-color: #0094851a !important;}
+  details.page_color_admonition summary {background-color: #4051b51a !important;}
 </style>
-<details class="example page_color_admonition" open="">
-<summary>Example to try<div style="display:inline-block; border-left: 1px solid var(--md-admonition-fg-color); height:.9rem;vertical-align:-20%;margin:0px 20px"></div><span style="font-weight:normal;">testing attribute queries on real data</span></summary>
+<details class="task-fg-color page_color_admonition" open="">
+  <summary>Example to try<div style="display:inline-block; border-left: 1px solid var(--md-admonition-fg-color); height:.9rem;vertical-align:-20%;margin:0px 20px"></div><span style="font-weight:normal;">testing attribute queries on real data</span></summary>
   <iframe style="filter:none !important;margin-top:.6rem;" width="100%" height="500" frameborder="0" allowfullscreen src="https://geo.fsv.cvut.cz/data/hoffmann/appqueryGISE/"></iframe>
-  <hr class="l1" style="margin-bottom:0px !important;">
+  <hr class="level-1" style="margin-top:5px !important; margin-bottom:0px !important;">
   <div style="margin-top:10px;margin-left:10px;font-weight:bold;font-size:larger;">Layer attributes scheme:</div>
   
-  <style>
-    #small_table_padding :is(th,td) {padding:5px 10px;}
-    .md-typeset__table {width:100%;}
-    .md-typeset__scrollwrap {margin-top:5px !important;}
-    tbody {width:100%;display:table;}
-  </style>
-  <table id="small_table_padding">
+  <div class="table_small_padding">
+  <table>
     <tr>
       <th>attribute</th>
       <th>data type</th>
@@ -174,24 +136,25 @@ Using the ![](../assets/cviceni1/img_36.png){ switch: .off-glb style="vertical-a
       <td><code>String</code></td>
       <td>Name of the timezone</td>
     </tr>
-
   </table>
+  </div>
 </details>
 
-<hr class="l1">
+<hr class="level-1">
 
 ### Spatial queries
 
-Spatial query is a method of selecting/filtering elements of one layer based on their relative position with elements of another layer. The function uses as input <code>**the layer of selected elements**</code>, <code>**the layer for overlay analysis**</code> a <code>**the relationship for overlay analysis**</code>.
+Spatial Query is a method of selecting/filtering elements of one layer based on their relative position with elements of another layer. The function uses as input the __`layer of selected elements`__, the __`layer for overlay analysis`__ a the __`relationship for overlay analysis`__.
 
-![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_01.svg){ .off-glb style="filter:none !important;" }
-![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_02.svg){ .off-glb style="filter:none !important;" }
+<!-- ![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_01.svg){ .off-glb .no-filter }
+![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_02.svg){ .off-glb .no-filter }
+{: .process_container style="flex-wrap:wrap; row-gap: 10px;"} -->
+
+![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_01.svg){ .no-filter }
+![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_02.svg){ .no-filter }
 {: .process_container}
 
-<style>
-  .tabbed-labels {justify-content:center;}
-  .tabbed-labels::before {transition:unset !important;}
-</style>
+<div class="table_headerless table_small_padding table_centered centered_tab_labels" markdown> <!-- trik: vlastnosti tabulky pro vsechny podrizene -->
 
 === "Select POINTS..."
 
@@ -200,15 +163,15 @@ Spatial query is a method of selecting/filtering elements of one layer based on 
         ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-1ECFFABC-3608-4BB4-86A8-FD6FA0F16C13-web.gif){ style="filter:none !important;" }
         {: align=center}
 
-        <table id="small_table_padding" style="width:unset;">
-          <tr><td>Intersect</td><td>A</td></tr>
-          <tr><td>Intersect (DBMS)</td><td>A</td></tr>
-          <tr><td>Contains</td><td>A</td></tr>
-          <tr><td>Contains Clementini</td><td>A</td></tr>
-          <tr><td>Within</td><td>A</td></tr>
-          <tr><td>Within Clementini</td><td>A</td></tr>
-          <tr><td>Are identical to</td><td>A</td></tr>
-          <tr><td>Have their center in</td><td>A</td></tr>
+        <table style="width:unset;">
+            <tr><td>Intersect</td><td>A</td></tr>
+            <tr><td>Intersect (DBMS)</td><td>A</td></tr>
+            <tr><td>Contains</td><td>A</td></tr>
+            <tr><td>Contains Clementini</td><td>A</td></tr>
+            <tr><td>Within</td><td>A</td></tr>
+            <tr><td>Within Clementini</td><td>A</td></tr>
+            <tr><td>Are identical to</td><td>A</td></tr>
+            <tr><td>Have their center in</td><td>A</td></tr>
         </table>
 
     === "...using LINES"
@@ -217,13 +180,13 @@ Spatial query is a method of selecting/filtering elements of one layer based on 
         {: align=center}
 
         <table id="small_table_padding" style="width:unset;">
-          <tr><td>Intersect</td><td>A, C</td></tr>
-          <tr><td>Intersect (DBMS)</td><td>A, C</td></tr>
-          <tr><td>Within</td><td>A, C</td></tr>
-          <tr><td>Completely within</td><td>A</td></tr>
-          <tr><td>Within Clementini</td><td>A</td></tr>
-          <tr><td>Have their center in</td><td>A, C</td></tr>
-          <tr><td>Boundary touches</td><td>C</td></tr>
+            <tr><td>Intersect</td><td>A, C</td></tr>
+            <tr><td>Intersect (DBMS)</td><td>A, C</td></tr>
+            <tr><td>Within</td><td>A, C</td></tr>
+            <tr><td>Completely within</td><td>A</td></tr>
+            <tr><td>Within Clementini</td><td>A</td></tr>
+            <tr><td>Have their center in</td><td>A, C</td></tr>
+            <tr><td>Boundary touches</td><td>C</td></tr>
         </table>
 
     === "...using POLYGONS"
@@ -241,7 +204,8 @@ Spatial query is a method of selecting/filtering elements of one layer based on 
           <tr><td>Boundary touches</td><td>C</td></tr>
         </table>
 
-=== "Select LINES"
+=== "Select LINES..."
+
 
     === "...using POINTS"
 
@@ -296,6 +260,7 @@ Spatial query is a method of selecting/filtering elements of one layer based on 
 
 === "Select POLYGONS..."
 
+
     === "...using POINTS"
 
         ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-0973BB65-5DAE-461A-8B84-E58332CDA443-web.gif){ style="filter:none !important;" }
@@ -348,6 +313,11 @@ Spatial query is a method of selecting/filtering elements of one layer based on 
           <tr><td>Crossed by the outline of</td><td>A, E, G, J, K</td></tr>
           <tr><td>Have their center in</td><td>C, E, F, G, H, K, L</td></tr>
         </table>
+        
+</div>
+
+<!-- <figcaption markdown>zdroj: [Select By Location graphic examples](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-by-location-graphical-examples.htm)</figcaption> -->
+
 
 [:material-open-in-new: Select features by location](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-by-location.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
 [:material-open-in-new: Select Layer By Location (Data Management)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-layer-by-location.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
@@ -357,3 +327,5 @@ Spatial query is a method of selecting/filtering elements of one layer based on 
 <br><br><br><br><br><br>
 
 <!-- ## Zadání domácího úkolu k semestrální práci -->
+
+

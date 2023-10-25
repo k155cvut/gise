@@ -1,9 +1,11 @@
 site_name: 155GISE
 nav:
-  - Couse information: index.md
-  - Practices:
-      - Practice 1: practices/practice1.md
-      - Practice 2: practices/practice2.md
+  - Course information: index.md
+  - Practicals:
+      - Practical 1: practicals/practical1.md
+      - Practical 2: practicals/practical2.md
+      - Practical 3: practicals/practical3.md
+      - Practical 4: practicals/practical4.md
   # - Data: data.md
   # - Hodnocení: hodnoceni.md
   # - Semestrální práce: semestralka.md
@@ -25,6 +27,7 @@ plugins:
       caption_position: bottom
 theme:
   name: material
+  favicon: assets/favicon.png
   features:
     - navigation.tabs
     # - navigation.tabs.sticky
@@ -43,7 +46,7 @@ theme:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
       primary: indigo
-      accent: yellow
+      accent: indigo
     - scheme: slate
       toggle:
         icon: material/toggle-switch
@@ -59,6 +62,8 @@ extra:
     - icon: fontawesome/brands/instagram
       link: https://www.instagram.com/geomatics.ctu
 copyright: <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023
+extra_css:
+  - stylesheets/extra.css
 markdown_extensions:
   - attr_list
   - md_in_html
