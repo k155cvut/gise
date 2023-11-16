@@ -102,7 +102,7 @@ _Data source: [Geoportal Praha](https://geoportalpraha.cz/ "Prague geographic da
 #### Proximity to Buildings:
 
 - Analyze the buildings data.
-- Ensure the selected location has at least 50 buildings within a **100-meter radius**.
+- Ensure the selected location has at least **50 buildings** within a **100-meter radius**.
 
 ### _Bonus_
 
