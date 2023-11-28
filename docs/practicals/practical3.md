@@ -45,6 +45,10 @@
 
 ### Web Mercator distortion
 
-The Web Mercator projection uses a modified version of the Mercator projection and has become a default map projection for web mapping. The major difference between this projection is that it uses a spherical formula at all scales. Here are some of the reasons why the Web Mercator projection is becoming the de facto standard for web and online mapping. Web Mercator is everywhere. Virtually all major online map providers are using this projection, including Google Maps, CARTO, Mapbox, OpenStreetMap, Esri, and many others.
+The Web Mercator projection, an adapted version of the Mercator projection, has become the default map projection for web mapping. Unlike its predecessor, it employs a spherical formula consistently across all scales. Major online map providers, such as Google Maps, CARTO, Mapbox, OpenStreetMap, Esri, and others, widely employ this projection.
+
+The primary advantage of the Mercator projection, and consequently the Web Mercator, is its preservation of direction, providing users with the valuable knowledge that north is consistently oriented upwards. Despite even distortion throughout most areas, as one moves away from the equator, distortion intensifies, causing significant stretching toward the poles. Consequently, the Web Mercator projection is unsuitable for polar displays. Due to these apparent distortions, it is not recommended for spatial analysis or area calculations.
 
 <iframe style="filter:none !important;margin-top:.6rem;" width="100%" height="500" frameborder="0" allowfullscreen src="https://www.thetruesize.com/#?borders=1~!MTU2ODg0MjU.NDY3MTc3NQ*MzEyNTI5MDA(NjIzOTIyOA~!CONTIGUOUS_US*MTAwMjQwNzU.MjUwMjM1MTc(MTc1)MQ~!IN*NTI2NDA1MQ.Nzg2MzQyMQ)MA~!CN*OTkyMTY5Nw.NzMxNDcwNQ(MjI1)Mg"></iframe>
+
+<iframe style="filter:none !important;margin-top:.6rem;" width="100%" height="500" frameborder="0" allowfullscreen src="https://developers.arcgis.com/javascript/latest/sample-code/client-projection/live/"></iframe>
