@@ -1,3 +1,8 @@
+---
+icon: material/numeric-5-box
+title: Practical 5
+---
+
 # Join, spatial join
 
 ## Basic terms

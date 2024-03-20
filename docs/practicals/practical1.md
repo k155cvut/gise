@@ -1,4 +1,7 @@
-
+---
+icon: material/numeric-1-box
+title: Practical 1
+---
 
 # Introduction to ArcGIS, spatial data, data sources
 

@@ -1,19 +1,15 @@
-site_name: 155GISE
+site_name: Geographic Information Systems (155GISE)
 nav:
   - Course information: index.md
   - Practicals:
-      - Practical 1: practicals/practical1.md
-      - Practical 2: practicals/practical2.md
-      - Practical 3: practicals/practical3.md
-      - Practical 4: practicals/practical4.md
-      - Practical 5: practicals/practical5.md
-      - Practical 6: practicals/practical6.md
-      - Practical 7: practicals/practical7.md
-      - Practical 8: practicals/practical8.md
-  # - Data: data.md
-  # - Hodnocení: hodnoceni.md
-  # - Semestrální práce: semestralka.md
-  # - Výuková videa: videa.md
+      - Introduction to ArcGIS, spatial data, data sources: practicals/practical1.md
+      - Vector data, attribute queries, spatial queries: practicals/practical2.md
+      - Coordinate systems: practicals/practical3.md
+      - Creating vector data, Editing tools, Calculate Field & Geometry: practicals/practical4.md
+      - Join, spatial join: practicals/practical5.md
+      - Geoprocessing tools: practicals/practical6.md
+      - Geoprocessing tools for raster data: practicals/practical7.md
+      - Data sources, Web map services: practicals/practical8.md
 plugins:
   - search
   - glightbox:
@@ -31,7 +27,11 @@ plugins:
       caption_position: bottom
 theme:
   name: material
+  custom_dir: overrides
   favicon: assets/favicon.png
+  logo: assets/favicon.svg
+  icon:
+    annotation: material/plus-circle
   features:
     - navigation.tabs
     # - navigation.tabs.sticky
@@ -43,7 +43,8 @@ theme:
     - content.tabs.link
     - content.code.annotation
     - content.code.copy
-  language: cs
+    - content.tooltips
+  language: en
   palette:
     - scheme: default
       toggle:
@@ -56,7 +57,7 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
       primary: indigo
-      accent: lime
+      accent: indigo
 extra:
   social:
     - icon: fontawesome/brands/twitter
@@ -65,7 +66,7 @@ extra:
       link: https://www.facebook.com/geomatics.ctu
     - icon: fontawesome/brands/instagram
       link: https://www.instagram.com/geomatics.ctu
-copyright: <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023
+copyright: <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
@@ -87,5 +88,11 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.caret
+  - pymdownx.tilde
+

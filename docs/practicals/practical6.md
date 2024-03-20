@@ -1,3 +1,8 @@
+---
+icon: material/numeric-6-box
+title: Practical 6
+---
+
 # Geoprocessing tools
 
 ## Basic terms

@@ -1,3 +1,8 @@
+---
+icon: material/numeric-8-box
+title: Practical 8
+---
+
 # Data sources, Web map services
 
 ## Natural Earth Data

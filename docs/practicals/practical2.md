@@ -1,4 +1,7 @@
-
+---
+icon: material/numeric-2-box
+title: Practical 2
+---
 
 # Vector data, attribute queries, spatial queries
 

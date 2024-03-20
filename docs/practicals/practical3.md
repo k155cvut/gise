@@ -1,3 +1,8 @@
+---
+icon: material/numeric-3-box
+title: Practical 3
+---
+
 # Coordinate systems
 
 ## Basic terms
