@@ -132,55 +132,36 @@ Geographic Information System (GIS) generally uses any data containing __spatial
 
 <figcaption style="clear:both">Schematická ukázka prostorových dat a k nim přiřazených atributových tabulek</figcaption> -->
 
-
-<div id="id_01" class="table_no_cell_padding table_no_cell_min_width centered_tab_labels" markdown>
+<div class="centered_tab_labels" markdown>
 === "FULL MAP"
 
-    ![](https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/image001.png)
-    
-    __The map contains 3 types of geometry:__  
-    (see the tabs)
-    {: style="width:300px; height:214.9px"}
+    ![](../assets/cviceni1/tab-01.png){.no-filter width="500"}
+    {align=center}
+
+    <figcaption>Schematic illustration of spatial data and associated attribute tables</figcaption>
 
 === "Points"
     
-    ![](https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/image002-body.png)
+    ![](../assets/cviceni1/tab-02.png){.no-filter width="500"}
+    {align=center}
 
-    |category|load [%]|cleaning/week|
-    |:------:|:------:|:-----------:|
-    |mix|91|7|
-    |plastic|26|2|
-    |mix|14|5|
-    |mix|14|5|
-    |paper|58|2|
+    <figcaption>Schematic illustration of spatial data and associated attribute tables</figcaption>
 
 === "Lines"
 
-    ![](https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/image003-linie.png)
+    ![](../assets/cviceni1/tab-03.png){.no-filter width="500"}
+    {align=center}
 
-    |class|cars|trucks|length|
-    |:---:|:--:|:----:|:----:|
-    |street C1|1|yes|164,21|
-    |street C3|1|no|621,5|
-    |street C4|0|no|32,24|
-    |street C1|1|no|495,01|
-    |street C3|0|no|221,49|
+    <figcaption>Schematic illustration of spatial data and associated attribute tables</figcaption>
 
 === "Polygons"
 
-    ![](https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/image004-polygony.png)
+    ![](../assets/cviceni1/tab-04.png){.no-filter width="500"}
+    {align=center}
 
-    |category|administrator|status|
-    |:------:|:-----------:|:----:|
-    |public|Municipality|OK|
-    |public|Company Inc.|OK|
-    |restricted|Company Inc.|OK|
-    |restricted|Municipality|!alert!|
-    |residential|private|OK|
+    <figcaption>Schematic illustration of spatial data and associated attribute tables</figcaption>
+
 </div>
-
-<figcaption>Schematic illustration of spatial data and associated attribute tables</figcaption>
-
 
 __Save spatial data__: Data can be stored in many different ways. There are many different data formats, but to start with, here are some basic ones.
 

@@ -73,6 +73,7 @@ attendance recommended
 __prof. Ing. Jiří Cajthaml, Ph.D.__ __&nbsp;__{style="margin-left:1rem;"}![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} 
 __Ing. Tomáš Janata, Ph.D.__
 
+<!--
 1. &nbsp;
 2. &nbsp;
 3. &nbsp;
@@ -83,8 +84,18 @@ __Ing. Tomáš Janata, Ph.D.__
 8. &nbsp;
 9. &nbsp;
 10. &nbsp;
+-->
 
-## Schedule (to be announced...) {: style="margin-bottom:0;"}
+## Practicals {: style="margin-bottom:0;"}
+
+attendance required
+{: style="opacity:50%;margin-top:0;"}
+
+![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-13.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} 
+__Ing. Josef Münzberger__ __&nbsp;__{style="margin-left:1rem;"}![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-13.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} 
+__Ing. Vojtěch Cehák__
+
+## Schedule (2024) {: style="margin-bottom:0;"}
 
 [![](./assets/index/schedule.svg#only-light){.off-glb .no-filter}](https://kos.cvut.cz/schedule/course/155GISE/semester/B241){target="_blank"}
 [![](./assets/index/schedule_dark.svg#only-dark){.off-glb .no-filter}](https://kos.cvut.cz/schedule/course/155GISE/semester/B241){target="_blank"}
