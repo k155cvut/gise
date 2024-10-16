@@ -39,7 +39,7 @@ This server has data extracts from the OpenStreetMap project which are normally 
 
 This is a web-based data filtering tool for OpenStreetMap. With **overpass turbo** you can run *Overpass API* queries and analyse the resulting OSM data interactively on a map. There is an integrated *Wizard* which makes creating queries super easy.
 
-[<span>https://overpass-turbo.eu/</span><br>OverpassTurbo](https://overpass-turbo.eu/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>https://extract.bbbike.org//</span><br>BBBike](https://extract.bbbike.org/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 {: .button_array}
 
 *example query: get all peaks in the bounding box*
@@ -54,6 +54,22 @@ This is a web-based data filtering tool for OpenStreetMap. With **overpass turbo
     nwr(area)[railway=station];
     out;
 
+**4.** BBBike
+
+BBBike extracts allows you to extracts areas from Planet.osm in OSM, PBF, o5m, Garmin, Organic Maps, mbtiles, OsmAnd, Esri shapefile, mapsforge, OPL, GeoJSON, SQLite, text or CSV format. The maximum area size is 24,000,000 square km, or 1500 MB file size. It takes between 2-7 minutes to extract an area. The email field is required, you will be notified by email if your extract is ready for download. Please use a meaningfull name for the extract.
+
+
+[<span>https://overpass-turbo.eu/</span><br>OverpassTurbo](https://overpass-turbo.eu/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: .button_array}
+
+How to use the BBBike extract service:
+
+– move the map to your desired location.
+– click to create the bounding box.
+– move or resize the bounding box, or add new points to the polygon.
+– select a Format, enter Your email address and Name of area to extract.
+– click the extract button. Wait for email notification and download the map. Done!
+
 ## ArcGIS Online
 
 There is a simple solution how to add various data when using ArcGIS Pro. If you browse your *Catalog Pane* to the *Portal* tab and then choose *ArcGIS Online* icon, you can look up for data shared through ArcGIS Online by many institutions or authors and easily add them to your map.
@@ -63,3 +79,14 @@ There is a simple solution how to add various data when using ArcGIS Pro. If you
 A **web map service** (WMS) is a standard protocol for serving geospatial data as images (e.g., PNG, JPEG) over the web. It allows clients to request maps and map layers from a server and display them on a map viewer or client application.
 
 A **web feature service** (WFS) refers to a standard protocol for serving geospatial data as vector features (e.g., points, lines, polygons) over the web. It allows clients to request specific feature data from a server and perform operations on the data, such as querying, inserting, updating, and deleting features.
+
+**Assignment**
+*THE CULTURE MILE AROUND MY UNIVERSITY*
+
+Your task is to create a visualization called *Cultural Miles Around My University*. You will be performing some GIS skills, cartography and a bit of design.
+
+GIS workflow:
+**1.** Download spatial data (from OSM via BBBike): select bounding box around your alma matter (cca 2 sq mile), fill in format, name and mail and hit *Extract*. Download link will be sent to your mail address once the online extraction process is ready.
+**2.** Read and select data in ArcGIS Pro: Import *places.shp* shapefile to your map. Explore attribute table, especially the field *type*. Find and select the point representing your university.
+**3.** Spatial analysis: Once the point (your university) is selected, use *Buffer* geoprocessing tool to create a 1-mile buffer around this spot (the tool will process only 1 buffer zone around the selected point if the selection is active).
+**4.** 
