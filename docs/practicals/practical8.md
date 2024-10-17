@@ -80,13 +80,21 @@ A **web map service** (WMS) is a standard protocol for serving geospatial data a
 
 A **web feature service** (WFS) refers to a standard protocol for serving geospatial data as vector features (e.g., points, lines, polygons) over the web. It allows clients to request specific feature data from a server and perform operations on the data, such as querying, inserting, updating, and deleting features.
 
-**Assignment**
-*THE CULTURE MILE AROUND MY UNIVERSITY*
+## Assignment
+# THE CULTURE MILE AROUND MY UNIVERSITY*
 
 Your task is to create a visualization called *Cultural Miles Around My University*. You will be performing some GIS skills, cartography and a bit of design.
 
 GIS workflow:
+
 **1.** Download spatial data (from OSM via BBBike): select bounding box around your alma matter (cca 2 sq mile), fill in format, name and mail and hit *Extract*. Download link will be sent to your mail address once the online extraction process is ready.
 **2.** Read and select data in ArcGIS Pro: Import *places.shp* shapefile to your map. Explore attribute table, especially the field *type*. Find and select the point representing your university.
-**3.** Spatial analysis: Once the point (your university) is selected, use *Buffer* geoprocessing tool to create a 1-mile buffer around this spot (the tool will process only 1 buffer zone around the selected point if the selection is active).
-**4.** 
+**3.** Spatial analysis part 1: Once the point (your university) is selected, use *Buffer* geoprocessing tool to create a 1-mile buffer around this spot. The function will process only 1 buffer zone around the selected point if the selection is active.
+**4.** Attribute-driven selection: Perform *Select by attributes* to find points related to culture using *type* attribute (search for theatres, museums etc.). Select all features in at least 5 different culture categories and extract those data in your project geodatabase.
+**5.** Spatial analysis part 2: Use *Clip* tool to extract points (feature layer containing culture places only) within the 1-mile buffer zone.
+**6.** At this stage, you should have 1-mile buffer zone around your university containing points of interest related to culture. Any other features can be removed from the map.
+
+Cartography workflow:
+**1.** Find appropriate symbols to represent each culture type.
+**2.** Insert the A3 format layout (choose landscape or portrait orientation), figure out the reference scale.
+**2.** Finish the layout: use circle map window, add title, subtitle, legend, and credits. Feel free to make it nice!
