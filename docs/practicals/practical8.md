@@ -80,11 +80,11 @@ A **web map service** (WMS) is a standard protocol for serving geospatial data a
 
 A **web feature service** (WFS) refers to a standard protocol for serving geospatial data as vector features (e.g., points, lines, polygons) over the web. It allows clients to request specific feature data from a server and perform operations on the data, such as querying, inserting, updating, and deleting features.
 
-## Assignment: **THE CULTURE MILE AROUND MY UNIVERSITY**
+## Assignment: The Cultural Mile Around My University
 
-Your task is to create a visualization called *Cultural Miles Around My University*. You will be performing some GIS skills, cartography and a bit of design.
+Your task is to create a visualization called *Cultural Mile Around My University*. You will be performing some GIS skills, cartography and a bit of design.
 
-GIS workflow:
+*GIS workflow:*
 
 **1.** Download spatial data (from OSM via BBBike): select bounding box around your alma matter (cca 2 sq mile), fill in format, name and mail and hit *Extract*. Download link will be sent to your mail address once the online extraction process is ready.
 
@@ -98,7 +98,7 @@ GIS workflow:
 
 **6.** At this stage, you should have 1-mile buffer zone around your university containing points of interest related to culture. Any other features can be removed from the map.
 
-Cartography workflow:
+*Cartography workflow:*
 
 **1.** Find appropriate symbols to represent each culture type.
 
