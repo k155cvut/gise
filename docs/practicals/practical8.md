@@ -39,7 +39,7 @@ This server has data extracts from the OpenStreetMap project which are normally 
 
 This is a web-based data filtering tool for OpenStreetMap. With **overpass turbo** you can run *Overpass API* queries and analyse the resulting OSM data interactively on a map. There is an integrated *Wizard* which makes creating queries super easy.
 
-[<span>https://extract.bbbike.org//</span><br>BBBike](https://extract.bbbike.org/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>https://overpass-turbo.eu/</span><br>OverpassTurbo](https://overpass-turbo.eu/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 {: .button_array}
 
 *example query: get all peaks in the bounding box*
@@ -58,16 +58,19 @@ This is a web-based data filtering tool for OpenStreetMap. With **overpass turbo
 
 BBBike extracts allows you to extracts areas from Planet.osm in OSM, PBF, o5m, Garmin, Organic Maps, mbtiles, OsmAnd, Esri shapefile, mapsforge, OPL, GeoJSON, SQLite, text or CSV format. The maximum area size is 24,000,000 square km, or 1500 MB file size. It takes between 2-7 minutes to extract an area. The email field is required, you will be notified by email if your extract is ready for download. Please use a meaningfull name for the extract.
 
-
-[<span>https://overpass-turbo.eu/</span><br>OverpassTurbo](https://overpass-turbo.eu/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>https://extract.bbbike.org//</span><br>BBBike](https://extract.bbbike.org/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 {: .button_array}
 
 How to use the BBBike extract service:
 
 – move the map to your desired location.
+
 – click to create the bounding box.
+
 – move or resize the bounding box, or add new points to the polygon.
+
 – select a Format, enter Your email address and Name of area to extract.
+
 – click the extract button. Wait for email notification and download the map. Done!
 
 ## ArcGIS Online
