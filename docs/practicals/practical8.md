@@ -91,7 +91,7 @@ Your task is to create a visualization called *Culture Mile Around My University
 
 **1.** Download spatial data (from OSM via BBBike): select bounding box around your alma matter (cca 2 sq mile), fill in format, name and mail and hit *Extract*. Download link will be sent to your mail address once the online extraction process is ready.
 
-**2.** Read and select data in ArcGIS Pro:  Apply Equal Earth projection in map properties. Import *places.shp* shapefile to your map. Explore attribute table, especially the field *type*. Find and select the point representing your university.
+**2.** Read and select data in ArcGIS Pro:  Apply Equal Earth projection in map properties. Import *points.shp* shapefile to your map. Explore attribute table, especially the field *type*. Find and select the point representing your university.
 
 **3.** Spatial analysis part 1: Once the point (your university) is selected, use *Buffer* geoprocessing tool to create a 1-mile buffer around this spot. The function will process only 1 buffer zone around the selected point if the selection is active.
 
@@ -105,6 +105,11 @@ Your task is to create a visualization called *Culture Mile Around My University
 
 **1.** Find appropriate symbols to represent each culture type.
 
-**2.** Insert the A3 format layout (choose landscape or portrait orientation), figure out the reference scale.
+**2.** Insert the A3 format layout (choose landscape or portrait orientation)
 
-**2.** Finish the layout: use circle map window, add title, subtitle, legend, and credits. Feel free to make it nice!
+**3.** In *Map Properties* set appropriate Reference scale and define clipping extent by 1-mile buffer.
+
+**4.** Finish the layout: insert map window, add title, subtitle, legend, and credits. Feel free to make it nice! You can see an inspiration for your output below.
+
+![](../assets/cviceni8/culturemile.png){ .no-filter .off-glb }
+{: align=center}
