@@ -8,7 +8,7 @@ title: Practical 7
 ## Assignment: Indicate areas of avalanche risk
 The aim of this training is to provide experience with real-world GIS tasks. Your knowledge and skills acquired from previous lessons will be used when processing the task.
 Your mission will be to evaluate which slopes are prone to avalanches and possible threats to the surroundings. You are going to monitor the situation within one selected Czech national parc.
-An essential part, without which the work cannot be done, is the acquisition of data from publicly available sources and the subsequent modification of the data in the GIS environment so that you can perform future analysis with them. At the beginning, you will receive a package of input data containing, in particular, a digital elevation model. Based on the DEM, it will be your task to process and evaluate which slopes are prone to avalanche danger. To evaluate an avalanche slope, you need to know slope inclination, elevation, wind speed, and land cover.
+An essential part, without which the work cannot be done, is the acquisition of data from publicly available sources and the subsequent modification of the data in the GIS environment so that you can perform future analysis with them. At the beginning, you will receive a package of input data containing all necessary. Based on the DEM, it will be your goal to process and evaluate which slopes are prone to avalanche danger. To evaluate an avalanche slope, you need to know slope inclination, elevation, wind speed, and land cover.
 
 Criteria indicating a dangerous hillside with avalanche hazard potencial:
 
