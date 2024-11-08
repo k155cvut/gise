@@ -20,7 +20,7 @@ Criteria indicating a dangerous hillside with avalanche hazard potencial:
 
 •	Peaks in windier half of assigned national parc
 
-Input [Data Package](/docs/assets/cviceni7/AvalancheRisk.gdb.zip) includes:
+Input [Data Package](../assets/cviceni7/AvalancheRisk.gdb.zip) includes:
 
 •	Digital elevation model (DEM)
 
