@@ -12,23 +12,23 @@ An essential part, without which the work cannot be done, is the acquisition of 
 
 Criteria indicating a dangerous hillside with avalanche hazard potencial:
 
-•	Area in the highest third of assigned national parc
+•       Area in the highest third of assigned national parc
 
-•	Slope > 30°
+•       Slope > 30°
 
-•	CLC land cover code = 2.X.X or 3.X.X (except for 3.1.1, 3.1.2, and 3.1.3)
+•       CLC land cover code = 2.X.X or 3.X.X (except for 3.1.1, 3.1.2, and 3.1.3)
 
-•	Peaks in windier half of assigned national parc
+•       Peaks in windier half of assigned national parc
 
 Input [Data Package](../assets/cviceni7/AvalancheRisk.gdb.zip) includes:
 
-•	Digital elevation model (DEM)
+•       Digital elevation model (DEM)
 
-•	Wind speed measurement
+•       Wind speed measurement
 
-•	Corine Land Cover (CLC)
+•       Corine Land Cover (CLC)
 
-•	Czechia protected land areas
+•       Czechia protected land areas
 
 !!! note-grey "Note"
 
