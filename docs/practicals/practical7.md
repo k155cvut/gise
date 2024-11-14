@@ -99,7 +99,7 @@ In the following step, a set of spatial analysis tools together with subsequent 
 __Resources:__
 {: align=center }
 
-[<span>pro.arcgis.com</span><br>Understanding interpolation analysis](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/exploring-digital-elevation-models.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Understanding interpolation analysis](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/understanding-interpolation-analysis.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 [<span>pro.arcgis.com</span><br>An introduction to interpolation methods](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/an-introduction-to-interpolation-methods.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 [<span>pro.arcgis.com</span><br>Comparing interpolation methods](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/comparing-interpolation-methods.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 {: .button_array}
