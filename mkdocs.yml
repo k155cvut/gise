@@ -10,6 +10,7 @@ nav:
       - Geoprocessing tools: practicals/practical6.md
       - Geoprocessing tools for raster data: practicals/practical7.md
       - Data sources, Web map services: practicals/practical8.md
+      - Geocoding: practicals/practical9.md
 plugins:
   - search
   - glightbox:
