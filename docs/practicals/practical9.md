@@ -11,7 +11,6 @@ __Resources:__
 
 [<span>pro.arcgis.com</span><br>Geocoding in ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/data/geocoding/convert-a-table-to-locations-on-the-map.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 [<span>pro.arcgis.com</span><br>Rematch geocoded locations](https://pro.arcgis.com/en/pro-app/latest/help/data/geocoding/rematch-locations-converted-from-a-table.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
-
 {: .button_array}
 
 !!! note-grey "Geoparsing"
@@ -55,5 +54,8 @@ Your task is to create a visualisation called *Culture Mile Around My University
 **3.** Insert the A3 format layout (choose landscape or portrait orientation).
 
 **4.** Finish the layout: insert map window, add title, subtitle, legend, and credits. Feel free to make it nice! You can see an inspiration for your output below.
+
+![](../assets/cviceni9/Elton.png){ .no-filter .off-glb }
+{: align=center}
 
 <source src="../assets/cviceni9/Elton.mp4" type="video/mp4">
