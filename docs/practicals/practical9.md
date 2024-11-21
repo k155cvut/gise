@@ -10,8 +10,7 @@ __Resources:__
 {: align=center }
 
 [<span>pro.arcgis.com</span><br>Geocoding in ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/data/geocoding/convert-a-table-to-locations-on-the-map.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
-[<span>pro.arcgis.com</span><br>Rematch geocoded locations](https://pro.arcgis.com/en/pro-app/latest/help/data/geocoding/rematch-locations-converted-from-a-table.htm
-){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Rematch geocoded locations](https://pro.arcgis.com/en/pro-app/latest/help/data/geocoding/rematch-locations-converted-from-a-table.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 
 !!! note-grey "Geoparsing"
 
@@ -55,5 +54,4 @@ Your task is to create a visualisation called *Culture Mile Around My University
 
 **4.** Finish the layout: insert map window, add title, subtitle, legend, and credits. Feel free to make it nice! You can see an inspiration for your output below.
 
-![](../assets/cviceni9/Elton.mp4){ .no-filter .off-glb }
-{: align=center}
+<video controls src="../assets/cviceni9/Elton.mp4" title="Elton John"></video>
