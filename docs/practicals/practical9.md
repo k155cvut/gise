@@ -21,7 +21,7 @@ __Resources:__
 
 ## Assignment: Geocode your favorite artist tour
 
-Your task is to create a visualisation called *Culture Mile Around My University*. This consists of downloading, editing, geocoding, and visualizing the data using GIS.
+Your task is to create a visualisation called *My favorite artist tour*. This consists of downloading, editing, geocoding, and visualizing the data using GIS.
 
 *GIS Workflow:*
 
