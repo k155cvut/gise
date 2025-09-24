@@ -2,9 +2,9 @@ site_name: Geographic Information Systems (155GISE)
 nav:
   - Course information: index.md
   - Practicals:
-      - Introduction to ArcGIS, spatial data, data sources: practicals/practical1.md
-      - Vector data, attribute queries, spatial queries: practicals/practical2.md
-      - Coordinate systems: practicals/practical3.md
+      - Introduction to ArcGIS, spatial data, data sources: practicals/Introduction.md
+      - Map projections: practicals/MapProjections.md
+      - Vector data, attribute queries, spatial queries: practicals/practical3.md
       - Creating vector data, Editing tools, Calculate Field & Geometry: practicals/practical4.md
       - Join, spatial join: practicals/practical5.md
       - Geoprocessing tools: practicals/practical6.md
