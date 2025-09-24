@@ -208,7 +208,7 @@ The user interface of the program consists of three basic elements:
 
 ---
 
-__Další zdroje:__
+__Other sources:__
 {: align=center }
 
 [<span>pro.arcgis.com</span><br>Introduction to ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/get-started.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
@@ -299,7 +299,7 @@ __Layer order__: The map content (_Contents Pane_) shows all layers contained in
 
 ---
 
-__Nastavení (vlastnosti) mapy__: V _Contents Pane_ (Obsah) přes pravé tl. myši na název mapy vybrat _:material-form-dropdown: Properties_{: .outlined}
+__Setting map properties__: V _Contents Pane_ (Obsah) přes pravé tl. myši na název mapy vybrat _:material-form-dropdown: Properties_{: .outlined}
 
 ![](../assets/cviceni1/img_21.png)
 ![](../assets/cviceni1/arrow.svg){: .off-glb .process_icon}
@@ -336,11 +336,9 @@ __Locally stored files__: access via system path, e.g.:
 __Data downloadable from the web__: download from any source to a local disk in the form of files, same access as with locally stored files (see above)
 {: id="data_online" }
 
-[ArcČR](https://www.arcgis.com/home/item.html?id=16fd9804dac04020938452a77c1ed350){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
-[Geoportal Prague](https://www.geoportalpraha.cz/en){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
-[Geoportal data.Brno](https://datahub.brno.cz/){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
-[open data AOPK](https://gis-aopkcr.opendata.arcgis.com/){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
-[Geoportal ČSÚ](https://geodata.statistika.cz){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
+[Eurostat](https://ec.europa.eu/eurostat/en/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[Statistical Atlas (Eurostat)](https://ec.europa.eu/statistical-atlas/viewer/?mids=BKGCNT,BKNUTS2,C13M03,CNTOVL&o=1,1,1,0.7&ch=CH_CENSUS_AGE&center=46.17701,21.37986,4&lcis=C13M03&){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[Finding GIS Data](https://guides.libraries.psu.edu/c.php?g=376207&p=5296088){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 {: .button_array}
 
 __Connecting streaming data__: _will be part of future exercises_
