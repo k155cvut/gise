@@ -4,13 +4,14 @@ nav:
   - Practicals:
       - Introduction to ArcGIS, spatial data, data sources: practicals/Introduction.md
       - Map projections: practicals/MapProjections.md
-      - Vector data, attribute queries, spatial queries: practicals/practical3.md
-      - Creating vector data, Editing tools, Calculate Field & Geometry: practicals/practical4.md
-      - Join, spatial join: practicals/practical5.md
-      - Geoprocessing tools: practicals/practical6.md
-      - Geoprocessing tools for raster data: practicals/practical7.md
-      - Data sources, Web map services: practicals/practical8.md
-      - Geocoding: practicals/practical9.md
+      - Vector data, attribute queries, spatial queries: practicals/VectorData.md
+      #- Geoprocessing tools, spatial join: practicals/practical6.md
+      #- Join external data, geocoding: practicals/practical5.md
+      #- Raster data, georeferencing: practicals/practica4.md
+      #- Editing nad creating vector data, topology, map layout: practicals/practical7.md
+      #- Terrain analysis, map algebra: practicals/practical7.md
+      #- Data sources, Web map services: practicals/practical8.md
+      #- Geocoding: practicals/practical9.md
   - Data sources: DataSources.md
 plugins:
   - search

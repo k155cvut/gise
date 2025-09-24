@@ -5,34 +5,55 @@ title: Practical 3
 
 # Vector data, attribute queries, spatial queries
 
-<!-- ## Cíl cvičení -->
+__Spatial data__ is any type of data that directly or indirectly references a specific geographical area or location. A location can be represented not only by a combination of coordinates (X + Y, latitude + longitude, etc.), but also by, for example, an address (of arbitrary detail). The two most common data formats used to store (geo)spatial data are vector and raster.
 
-## Basic terms
+## Spatial data types
 
-### Vector and raster spatial data
+<div class="grid cards" markdown>
 
-<div class="grid_container">
-  <div class="grid_item" style="flex:1 1 300px;">
-    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3v6h2.95l2 6H6v6h6v-4.59L17.41 11H22V5h-6v4.57L10.59 15H9.06l-2-6H8V3M4 5h2v2H4m14 0h2v2h-2M8 17h2v2H8Z"></path></svg></span>&nbsp;
-    <strong>Vector data</strong>
-    <hr style="margin:10px 0 !important;">
-    <p>Formed by <strong>vertices</strong> and <strong>paths</strong> - these are determined by actual coordinates.</p>
-    <p>The detail is determined by the <strong>detail of the vertex coordinates</strong>.</p>
-    <p>Suitable for <strong>discretely distributed data</strong> (e.g. point locations, land cover categories)</p>
-    <p>Possible <strong>topology problems</strong> (gaps and overlaps)</p>
-  </div>
-  <div class="grid_item" style="flex:1 1 300px;">
-    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4v4h4V4h-4m6 0v4h4V4h-4m0 6v4h4v-4h-4m0 6v4h4v-4h-4m-2 4v-4h-4v4h4m-6 0v-4H4v4h4m0-6v-4H4v4h4m0-6V4H4v4h4m2 6h4v-4h-4v4M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4c-1.08 0-2-.9-2-2V4a2 2 0 0 1 2-2Z"></path></svg></span>&nbsp;
-    <strong>Raster data</strong>
-    <span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;color:#888">covered by following practicals</span>
-    <hr style="margin:10px 0 !important;">
-    <p>Formed by a regular <strong>grid of pixels</strong> – these are determined by pixel coordinates (row/column)</p>
-    <p>Detail is determined by <strong>pixel size</strong> (in meters)</p>
-    <p>Suitable for phenomena changing both <strong>continuously</strong> (e.g. terrain model, air pollution) and <strong>discretely</strong>, as well as <strong>image data</strong> (e.g. satellite)</p>
-  </div>
+-   :material-vector-polyline:{ .lg .middle } __Vector data__
+
+    ---
+
+    - represent elements of the real world using basic geometric elements: __points, lines and surfaces__ (called polygons)
+
+    - the detail of the data is determined by the __detail of the coordinates of the vertices__ of the geometric feature
+
+    - suitable for modelling and analysis of __discrete objects__ (e.g. location of points, land cover categories)
+
+    - suitable for __map creation, length measurements, geometric calculations__
+
+    - possible problems with __topology__ (gaps and overlaps)
+
+    - basic vector data formats are __Esri Shapefile, GeoJSON, GeoPackage__ or __KML/GML__
+
+
+
+-   :material-grid:{ .lg .middle } __Raster data__
+
+    ---
+
+    - represent real world elements in the form of a regular grid made up of  __pixels__ (from *picture element*)
+
+    - the detail of the data is determined by the __spatial resolution__ of the grid, i.e. the __size__ of the __pixel__ edge (in meters)
+
+    - suitable for modeling and analysis of __continuous phenomena__ (elevation, temperature, precipitation)
+    
+    - used for __image data__ (e.g. satellite imagery)
+
+    - raster datasets can become potentially very large
+
+    - basic raster data formats are __GeoTIFF, JPEG, PNG__ or __GIF__
+
+
 </div>
 
-<!-- ## Použité datové podklady -->
+
+<figure markdown>
+  ![Difference in graphical representation of vector and raster data](../assets/cviceni3/VectorVsRaster.png "Difference in graphical representation of vector and raster data"){ width=600px }
+  <figcaption>Difference in graphical representation of vector and raster data (Geletič et al. 2019)</figcaption>
+</figure>
+
 
 ## Contents
 
