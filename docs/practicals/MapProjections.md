@@ -84,10 +84,10 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
 <iframe style="filter:none !important;margin-top:.6rem;" width="100%" height="500" frameborder="0" allowfullscreen src="https://developers.arcgis.com/javascript/latest/sample-code/client-projection/live/"></iframe>
 
 ## Assignment 01
-!!! abstract "Shapes of Iceland"
+!!! abstract "Shapes of the selected country"
     **TASK:**
 
-    Make a map showing distortions and area of Iceland in following projections:
+    Make a map showing distortions and area of the selected country in following projections:
     
     - Bonne
     - Winkel–Tripel
@@ -100,7 +100,7 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
     - Mercator
 
 
-    For comparison, add a map of Iceland in the map projection that is recommended for displaying Iceland.
+    For comparison, add a map of the selected country in the map projection that is recommended for displaying the selected country.
 
     <br>
     Your map should look similar to this [map](https://blogs.egu.eu/divisions/cr/2023/06/16/it-aint-easy-being-greenland/).
@@ -108,16 +108,16 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
     <br>
     In technical report answer following questions:
     
-    - Which projection distorts the shape of Iceland the most/the less? Compare the total area of Iceland in these projections with its actual size.
-    - Name at least three map projections, that are most suitable (according to their accuracy) for displaying Iceland. Where can you find the information about these map projections?    
+    - Which projection distorts the shape of the selected country the most/the less? Compare the total area of the selected country in these projections with its actual size.
+    - Name at least three map projections, that are most suitable (according to their accuracy) for displaying the selected country. Where can you find the information about these map projections?    
     
     
     ??? tip "How-To"
-        To calculate the total area of Iceland in each projection you have to do following steps:
+        To calculate the total area of the selected country in each projection you have to do following steps:
         
         1. Use the *Project* tool to project spatial data to PCS.
         2. In the attribute table, add a new field for each projection (e.g. *area_merc*, *area_bonne*, *area_cube*, etc.). 
-        3. Use the *Calculate Geometry* tool to calculate the area of Iceland in all desired projections.
+        3. Use the *Calculate Geometry* tool to calculate the area of the selected country in all desired projections.
 
           <figure markdown>
             ![Setting the Calculate Geometry tool](../assets/cviceni2/CalculateGeometry2.png "Setting the Calculate Geometry tool"){ width=400px }
