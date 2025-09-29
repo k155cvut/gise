@@ -132,6 +132,9 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
     
       [:material-download: Natural Earth (States/Provinces, 1:50m) :material-layers:](https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_1_states_provinces.zip){ .md-button .md-button--primary .button_smaller }
       {: .button_array style="justify-content:flex-start;"}
+
+      [:material-download: World Boundaries (OpenDataSoft) :material-layers:](../assets/cviceni2/world_boundaries.zip){ .md-button .md-button--primary .button_smaller }
+      {: .button_array style="justify-content:flex-start;"}
     
     
     **SUBMISSION FORM:**
