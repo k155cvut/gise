@@ -149,9 +149,9 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
     - Use *Definition Query *to filter the features to work only with your area of interest.
     - Use optional symbolization of the layer.
     -	Duplicate the original map and create 9 more maps and change the projection in each map to a different one.
-    - Add all map frames to layout and make sure each has the same scale (1:10,000,000).
+    - Add all map frames to layout and make sure each has the same scale.
     - In *New Layout* (A3 Portrait) insert the Map Title, Scale and Credits
-    - Label each shape with the name of the map projection used.
+    - Label each shape with the name of the map projection used and its total area in the given projection.
     - Export *Layout* in PDF Format
 
 <!---
