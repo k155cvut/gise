@@ -71,6 +71,7 @@ title: Practical 2
 
 [<span>learn.arcgis.com</span><br>Fix data when it appears on a wrong place](https://learn.arcgis.com/en/projects/fix-data-when-it-appears-in-the-wrong-place/){ .md-button .md-button--primary .server_name .external_link_icon_small target="\_blank"}
 [<span>learn.arcgis.com</span><br>Choose the right projection](https://learn.arcgis.com/en/projects/choose-the-right-projection/){ .md-button .md-button--primary .server_name .external_link_icon_small target="\_blank"}
+[<span>learn.arcgis.com</span><br>Map projections Overview](https://storymaps.arcgis.com/stories/b73977ee4f87499b9bdc6818ffb95ccd){ .md-button .md-button--primary .server_name .external_link_icon_small target="\_blank"}
 {: .button_array}
 
 ## Web Mercator distortion
@@ -87,20 +88,19 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
 !!! abstract "Shapes of the selected country"
     **TASK:**
 
-    Make a map showing distortions and area of the selected country in following projections:
+    Make a map showing distortions and area of the selected country in different map projections.
     
-    - Bonne
-    - Winkel–Tripel
-    - Mollweide
-    - Cube
-    - Spilhaus
-    - Robinson
-    - Fuller
-    - Plate Carée
-    - Mercator
+    Firstly, show the selected country in the [**Mercator projection**](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/mercator.htm) and in [**the map projection that is recommended for displaying the selected country**](https://www.youtube.com/watch?v=L7ZgADzlS3w). Then, show the selected country in **at least three of the following projections**:
+    
+    - [Bonne](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/bonne.htm)
+    - [Winkel–Tripel](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/winkel-tripel.htm)
+    - [Cube](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/cube.htm)
+    - [Mollweide](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/mollweide.htm)
+    - [Spilhaus World Ocean](https://storymaps.arcgis.com/stories/756bcae18d304a1eac140f19f4d5cb3d)
+    - [Robinson](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/robinson.htm)
+    - [Fuller](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/fuller.htm)
+    - [Plate Carée](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/plate-carree.htm)
 
-
-    For comparison, add a map of the selected country in the map projection that is recommended for displaying the selected country.
 
     <br>
     Your map should look similar to this [map](https://blogs.egu.eu/divisions/cr/2023/06/16/it-aint-easy-being-greenland/).
@@ -145,10 +145,10 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
 
     **INSTRUCTIONS:**
 
-    - Set the projection of Map *(Properties-Coordinate Systems)* and add *states_provinces* layer.
+    - Set the projection of Map *(Properties-Coordinate Systems)* and add *world-administrative-boundaries* layer.
     - Use *Definition Query *to filter the features to work only with your area of interest.
     - Use optional symbolization of the layer.
-    -	Duplicate the original map and create 9 more maps and change the projection in each map to a different one.
+    -	Duplicate the original map and create several additional maps and change the projection in each map to a different one.
     - Add all map frames to layout and make sure each has the same scale.
     - In *New Layout* (A3 Portrait) insert the Map Title, Scale and Credits
     - Label each shape with the name of the map projection used and its total area in the given projection.
