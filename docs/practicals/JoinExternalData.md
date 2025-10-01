@@ -1,6 +1,6 @@
 ---
-icon: material/numeric-5-box
-title: Practical 5
+icon: material/numeric-6-box
+title: Practical 6
 ---
 
 # Join, spatial join
@@ -65,7 +65,7 @@ In new ArcGIS project, select *Add Data* and choose *Add XY Point Data.* In dial
 {: align=center}
 
 ### Perform spatial join
-Download prepared [data](../assets/cviceni5/data.zip), which include a geodatabase and a shapefile. Connect the geodatabse to your project and add country polygon feature layer to the map.
+Download prepared [data](../assets/cviceni5/data.zip), which include a geodatabase and a shapefile. Connect the geodatabase to your project and add country polygon feature layer to the map.
 
 Let's say, that you desire to enrich your point data with country name and country code. Thus could be done via spatial join: right-click point layer and select *Joins and Relates* and choose *Spatial Join*. Define the target data to be joined spatially, choose the attributes and confirm. This should give you a new output layer combining city and country information.
 
