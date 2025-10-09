@@ -59,7 +59,7 @@ __Spatial data__ is any type of data that directly or indirectly references a sp
 
 ### Attribute queries
 
-Attribute Query is a method of selecting/filtering elements based on __attribute values__. It complements the [interactive feature selection](/cviceni/cviceni1/#select-tool) method from practical 1. The basis is a selection rule - called __Expression__. ArcGIS Pro allows you to build expressions interactively using a dialog, but to use the full potential of expressions, it is recommended to use SQL code.
+Attribute Query is a method of selecting/filtering elements based on __attribute values__. It complements the interactive feature selection method from practical 1. The basis is a selection rule - called __Expression__. ArcGIS Pro allows you to build expressions interactively using a dialog, but to use the full potential of expressions, it is recommended to use SQL code.
 <br><br>
 
 __Attribute query__ (over map data): _:material-tab: Map_{: .outlined} → _:material-button-cursor: Select By Attributes_{: .outlined} → fill in the dialog...

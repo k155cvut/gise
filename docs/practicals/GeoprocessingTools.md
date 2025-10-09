@@ -1,6 +1,6 @@
 ---
-icon: material/numeric-6-box
-title: Practical 6
+icon: material/numeric-4-box
+title: Practical 4
 ---
 
 # Geoprocessing tools
