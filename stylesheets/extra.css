@@ -1,0 +1,273 @@
+/* HEADINGS + RULES */
+/* ================ */
+h2 {font-weight: 700 !important;}
+h3 {font-size: 1.4em !important;}
+.page_title {                       /* pouzito jako nadpis v index.md */
+  font-weight: bold !important;
+  text-align: center;
+}
+hr.level-1 {                        /* Break Line – LEVEL 1 */
+  background-color: var(--md-primary-fg-color);
+  height: 2px;
+  margin-top: 1.5rem !important;
+  margin-bottom: 4rem !important;
+}
+hr.level-2 {                        /* Break Line – LEVEL 2 */
+  margin-top: 2.5rem !important;
+  margin-bottom: 3rem !important;
+}
+
+/* IMAGES + CAPTIONS */
+/* ================= */
+img:not(.no-filter):not(.process_icon), /* (images with .no-filter class are excluded from drop-shadow) */
+iframe.video {
+    filter:drop-shadow(0 10px 16px rgba(0,0,0,0.2)) drop-shadow(0 6px 20px rgba(0,0,0,0.2)) !important; /* Shadow under images and video iframes */
+    object-fit: contain;
+}
+figcaption {                        /* Figure Caption Formatting */
+    font-size: 12px;
+    margin-top: 5px !important;
+    text-align: center;
+    line-height: 1.2em;
+}
+
+/* TABLES */
+/* ====== */
+table thead{background-color:var(--md-code-bg-color);}
+div.table_headerless thead {display: none;}   /* table without header (no other way with markdown) */
+div.table_small_padding :where(th,td) {padding: 5px 10px !important;}
+div.table_no_padding :where(th,td) {padding: 0px 10px !important;}
+div.table_min_width th {min-width: initial !important;}
+div.table_centered .md-typeset__scrollwrap {text-align: center;}
+
+/* BUTTONS */
+/* ======= */
+.md-button {text-align:center;transition: all .1s ease-in-out !important;}  /* Button – zarovnani textu */
+.md-button:hover {transform: scale(1.04);opacity:.8;background-color:var(--md-primary-fg-color) !important;border-color:var(--md-primary-fg-color) !important;color:var(--md-primary-bg-color) !important;/*filter: brightness(80%);*/}            /* Button Hover – animace zvetseni a zmeny barvy */
+.md-button:focus {opacity:.8;background-color:var(--md-primary-fg-color) !important;border-color:var(--md-primary-fg-color) !important;color:var(--md-primary-bg-color) !important;}                                                                /* Button Focus – stejny vzhled jako hover */
+
+.md-button.button_smaller {font-size:smaller; padding:1px 5px;}             /* Mensi button (bez URL) */
+.button_array {display:flex; justify-content:center; align-items:center; column-gap:20px; row-gap:10px; flex-wrap:wrap;  margin-bottom:40px;}
+.server_name{line-height: 1.2; /* word-break: unset; */}
+.server_name > *:first-child {font-size:.7em; font-weight:300;}
+.external_link_icon::before {
+  content: "";
+  mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+  -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+  background-color: currentColor;
+  /* source: https://stackoverflow.com/questions/21509982/change-svg-fill-color-in-before-or-after-css */
+  width: 1em;
+  height: 1em;
+  margin: 0 .3em 0 0;
+  display: inline-block;
+  vertical-align: -.1em;
+}
+.external_link_icon_small::before {
+    content: "";
+    mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+    -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+    background-color: currentColor;
+    /* source: https://stackoverflow.com/questions/21509982/change-svg-fill-color-in-before-or-after-css */
+    width: .7em;
+    height: .7em;
+    margin: 0 .2em 0 0;
+    display: inline-block;
+    vertical-align: -.1em;
+  }
+
+/* IMAGES */
+/* ====== */
+/* trida process_container je urcena pro ukazku procesu formou obrazku s sipkami mezi nimi */
+.process_container {display:flex !important; justify-content:center; align-items:center; column-gap:calc((100vw * 0.03) - 6px);} /* Kontejner pro content = FlexBox */
+.process_container div {display:flex;}                                                                                           /* Obsah (obrazky a sipky) */
+.process_container .process_icon {width:/*40px*/calc((100vw * 0.01) + 25px); flex-shrink:0; mix-blend-mode: difference;}         /* Velikost ikony (bacha na mobily), blending mode kvuli light/dark modu */
+.process_container img {max-height:150px;}                                                                                       /* Obrazky ve flexboxech maji maximalni vysku */
+/* trida gallery_container je urcena pro matici obrazku na uvodni strance predmetu, pouzito predevsim v index.md */
+.gallery_container p {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery_container > * > * {
+  flex: 1 1 24%;
+  min-width: 175px;
+}
+.gallery_container img {
+  display: block;
+}
+
+/* HIGHLIGHTED */
+/* =========== */
+
+/* code.outlined {border:2px solid var(--md-primary-fg-color);padding:.1em .4em !important;} */
+/* code.outlined .twemoji {vertical-align:-10% !important;} */
+
+.primary_color {color:var(--md-primary-fg-color);}
+
+.underlined {
+  border-radius: .1rem;
+  background-color: var(--md-code-bg-color);
+  border-bottom:2px solid var(--md-primary-fg-color);
+  padding:.1em .4em;
+  white-space: nowrap;
+}
+
+.outlined {
+  border-radius: .1rem;
+  background-color: var(--md-code-bg-color);
+  border:2px solid var(--md-primary-fg-color);
+  padding:.1em .4em;
+  white-space: nowrap;
+}
+
+.underlined .twemoji,.outlined_code .twemoji {vertical-align:-10% !important;}
+
+.outlined_code {
+  font-family: var(--md-code-font-family);
+  border-radius: .1rem;
+  font-size: .85em;
+  background-color: var(--md-code-bg-color);
+  color: var(--md-code-fg-color);
+  font-weight: unset; /* in case of using __content__ (double underscore) */
+  font-style: unset;  /* in case of using  _content_  (single underscore) */
+  border:2px solid var(--md-primary-fg-color);
+  padding:.1em .4em;
+  white-space: nowrap;
+}
+
+/* GRIDS */
+/* ===== */
+.grid.cards.smaller_padding li {padding:.6rem .8rem !important;}
+
+
+.grid_icon_info ul li{                   /* parent (=grid item) */
+  display:flex !important;
+  align-items:center
+}
+
+.grid_icon_info ul li p:first-child{     /* child (ikona) */
+  margin: 0rem;
+  margin-right: .8rem;
+}
+
+.grid_icon_info ul li p:first-child span{   /* ikona (primo jeji span) */
+  min-width: var(--md-icon-size);
+  aspect-ratio: 1 / 1;
+}
+
+.grid_icon_info.circular_icons ul li p:first-child span{    /* ALTERNATIVA ikon - kulaty tvar */
+  color: var(--md-default-fg-color--light);
+  background-color: var(--md-default-fg-color--lightest);
+  border-radius: 50%;
+  padding: .4rem;
+}
+
+.grid_icon_info ul li p:nth-child(2){    /* child (text) */
+  line-height: 120%;
+  text-align: left;
+  margin: 0rem;
+}
+
+/* TABS */
+/* ==== */
+.centered_tab_labels .tabbed-labels {justify-content:center;}
+.centered_tab_labels .tabbed-labels::before {transition:unset !important;}
+
+/* MISC */
+/* ==== */
+.no-dec {                                                /* no text decoration – podtrzitka pak slouzi jen jako ohraniceni jineho efektu, napriklad zmena barvy*/
+  /*font-weight: unset; /* in case of using __content__ (double underscore) */
+  font-style:  unset; /* in case of using  _content_  (single underscore) */ 
+  font-weight: normal;
+}
+
+.icon-example::before{
+  content: "";
+  mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 24'%3E%3Cpath d='M5 15H0L7 1v8h5L5 23Z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+  -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 24'%3E%3Cpath d='M5 15H0L7 1v8h5L5 23Z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+  background-color: currentColor;
+  /* source: https://stackoverflow.com/questions/21509982/change-svg-fill-color-in-before-or-after-css */
+  width: .5em;
+  height: 1em;
+  margin: 0 .3em 0 0;
+  display: inline-block;
+  vertical-align: -.1em;
+}
+
+.icon-exclm::before{
+  content: "";
+  mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7.2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8.2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24v112c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0-64 0 32 32 0 1 0 64 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+  -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7.2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8.2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24v112c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0-64 0 32 32 0 1 0 64 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+  background-color: currentColor;
+  /* source: https://stackoverflow.com/questions/21509982/change-svg-fill-color-in-before-or-after-css */
+  width: 1em;
+  height: 1em;
+  margin: 0 .3em 0 0;
+  display: inline-block;
+  vertical-align: -.1em;
+}
+
+
+/* ----------------------------------------------------------------------- */
+
+/* CUSTOM ADMONITION "note-grey" */
+:root {
+    --md-admonition-icon--note-grey: var(--md-admonition-icon--info)
+  }
+  .md-typeset .admonition.note-grey,
+  .md-typeset details.note-grey {
+    border-color: rgb(130, 130, 130);
+  }
+  .md-typeset .note-grey > .admonition-title,
+  .md-typeset .note-grey > summary {
+    background-color: rgba(130, 130, 130, 0.1);
+  }
+  .md-typeset .note-grey > .admonition-title::before,
+  .md-typeset .note-grey > summary::before {
+    background-color: rgb(130, 130, 130);
+    -webkit-mask-image: var(--md-admonition-icon--note-grey);
+            mask-image: var(--md-admonition-icon--note-grey);
+  }
+
+
+
+
+  :root {
+    --md-admonition-icon--task-fg-color: var(--md-admonition-icon--danger)
+  }
+  .md-typeset .admonition.task-fg-color,
+  .md-typeset details.task-fg-color {
+    border-color: var(--md-primary-fg-color);
+  }
+  .md-typeset .task-fg-color > .admonition-title,
+  .md-typeset .task-fg-color > summary {
+    background-color: color-mix(in srgb, var(--md-primary-fg-color) 10%, transparent); /* same color but transparent */
+  }
+  .md-typeset .task-fg-color > .admonition-title::before,
+  .md-typeset .task-fg-color > summary::before {
+    background-color: var(--md-primary-fg-color);
+    -webkit-mask-image: var(--md-admonition-icon--task-fg-color);
+            mask-image: var(--md-admonition-icon--task-fg-color);
+  }
+
+
+  :root {
+    --md-accent-fg-color: #066b61;
+    --md-primary-fg-color: #009485;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
