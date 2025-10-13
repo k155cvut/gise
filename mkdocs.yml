@@ -7,7 +7,7 @@ nav:
       - Vector data, attribute queries, spatial queries: practicals/VectorData.md
       - Join external data: practicals/JoinExternalData.md
       #- Geoprocessing tools, spatial join: practicals/GeoprocessingTools.md
-      #- Raster data, georeferencing: practicals/Georeferencing_CARTE_EN.md
+      - Raster data, georeferencing: practicals/georeferencing_vectorization.md
       #- Terrain analysis, map algebra: practicals/TerrainAnalysis.md 
       #- Editing nad creating vector data, topology, map layout: practicals/CreatingVectorData_EditingTools_GISE_WS2024.md
       #- Data sources, Web map services: practicals/DataSources_WMS_CultureMile_GISE_WS2024.md
