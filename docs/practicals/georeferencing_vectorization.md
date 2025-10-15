@@ -16,7 +16,7 @@ Georeferencing is the process of assigning real-world geographic coordinates to 
 </figure>
 
 
-__Resources:__
+__Sources:__
 {: align=center }
 
 [<span>pro.arcgis.com</span><br>Overview of georeferencing](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/overview-of-georeferencing.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
@@ -46,14 +46,30 @@ To analyze raster maps, it is almost always necessary to vectorize them, i.e. co
 ???+ note "&nbsp;<span style="color:#448aff">Save edit:</span>"
       After making changes in vector data editing, it is necessary to save them by pressing the button *:material-button-cursor: Save*{: .outlined_code} in *:material-tab: Edit*{: .outlined_code}.
 
+__Sources:__
+{: align=center }
+
+[<span>pro.arcgis.com</span><br>Editing in ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/editing/overview-of-desktop-editing.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: .button_array}
+
+<hr class="level-1">
+
 ## Topology
 
 The image below shows an example of two topological errors found (top left image). The top right image shows a view of the data without topology correction. When compared to the bottom right image, it is clear that the path vectorization has mistakenly overlapped the pasture vectorization. The bottom left image shows the second error, i.e. the mutual overlap of two elements belonging to the same layer.
+
+
 
 <figure markdown>
 ![topo2](../assets/cviceni6/topo2.png)
     <figcaption>Example of topological errors</figcaption>
 </figure>
+
+__Sources:__
+{: align=center }
+
+[<span>pro.arcgis.com</span><br>What is topology](https://pro.arcgis.com/en/pro-app/latest/help/data/topologies/an-overview-of-topology-in-arcgis.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: .button_array}
 
 <hr class="level-1">
 
