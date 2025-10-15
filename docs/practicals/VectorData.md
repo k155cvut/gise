@@ -54,10 +54,9 @@ __Spatial data__ is any type of data that directly or indirectly references a sp
   <figcaption>Difference in graphical representation of vector and raster data (Geletič et al. 2019)</figcaption>
 </figure>
 
+<hr class="level-1">
 
-## Contents
-
-### Attribute queries
+## Attribute queries
 
 Attribute Query is a method of selecting/filtering elements based on __attribute values__. It complements the interactive feature selection method from practical 1. The basis is a selection rule - called __Expression__. ArcGIS Pro allows you to build expressions interactively using a dialog, but to use the full potential of expressions, it is recommended to use SQL code.
 <br><br>
@@ -87,6 +86,8 @@ Using the ![](../assets/cviceni1/img_36.png){: .off-glb style="vertical-align: -
   details.page_color_admonition {border-color: var(--md-primary-fg-color) !important;margin:50px 0px;}
   details.page_color_admonition summary {background-color: #4051b51a !important;}
 </style>
+
+<!--
 <details class="task-fg-color page_color_admonition" open="">
   <summary>Example to try<div style="display:inline-block; border-left: 1px solid var(--md-admonition-fg-color); height:.9rem;vertical-align:-20%;margin:0px 20px"></div><span style="font-weight:normal;">testing attribute queries on real data</span></summary>
   <iframe style="filter:none !important;margin-top:.6rem;" width="100%" height="500" frameborder="0" allowfullscreen src="https://geo.fsv.cvut.cz/data/hoffmann/appqueryGISE/"></iframe>
@@ -162,11 +163,11 @@ Using the ![](../assets/cviceni1/img_36.png){: .off-glb style="vertical-align: -
     </tr>
   </table>
   </div>
-</details>
+</details> -->
 
 <hr class="level-1">
 
-### Spatial queries
+## Spatial queries
 
 Spatial Query is a method of selecting/filtering elements of one layer based on their relative position with elements of another layer. The function uses as input the __`layer of selected elements`__, the __`layer for overlay analysis`__ a the __`relationship for overlay analysis`__.
 

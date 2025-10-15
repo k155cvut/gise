@@ -55,28 +55,65 @@ To remove a join, use one of the previously mentioned methods to access the *Joi
 From the *Joins* menu, you can also choose to remove all joins. This command asks you to confirm the action, because you cannot undo removing all joins.
 <hr class="level-1">
 
-## Workflow
-### Add XY data
-Open a new Excel sheet and create a simple table containing these columns: *ID, Name, Lat, Lon*. *Lat* and *Lon* stands for latitude and longitude in decimal degrees. Then fill in at least 5 world cities which you visited (if possible, try to choose cities from different countries). When finished, save the table as a CSV file (UTF-8 coding).
 
-In new ArcGIS project, select *Add Data* and choose *Add XY Point Data.* In dialog box, define the path to your saved CSV table, X and Y fields and coordinate system.
+## Assignment 02
+!!! abstract "Vector data selections and joins"
+    **TASK:**
 
-![](../assets/cviceni5/addXYData.png){ .no-filter .off-glb}
-{: align=center}
+    Edit prepared data using learned tools.
+    
+    <br>
 
-### Perform spatial join
-Download prepared [data](../assets/cviceni5/data.zip), which include a geodatabase and a shapefile. Connect the geodatabase to your project and add country polygon feature layer to the map.
+    Create three Shapefiles and technical report
+    
+    - Selected river (Line layer)
+    - Countries through which this river passes (Polygon layer)
+    - Cities in your countries (Point layer)
+    
+    <br>
+    **WORKFLOW:**
+    
+    - Join
+        1. Download prepared data, which include a geodatabase and a shapefile. Connect the geodatabase to your project and add country polygon feature layer and country table to the map.
+        2. Join data from table to data in polygon feature layer. (Add Join)
+    - Attribute Query
+        1. Add Rivers layer from geodatabase
+        2. Choose one river that flows through at least two countries.
+        3. Remove all other rivers (Select by Attributes)
+    - Spatial Query
+        1. Select all the countries through which this river passes. (Select by Location)
+        2. Delete all other countries. (Select by Location)
+        3. Add Cities layer from geodatabase.
+        4. Select all cities in your countries. (Select by Location)
+        5. Delete all other cities. (Select by Location)
+    - Spatial Join
+        1. Join Name from countries into cities. (Spatioal Join)
+    - Share Data
+        1. Save data as Shapefile (Feature Class To Shapefile)
+        2. Make ZIP file with data
 
-Let's say, that you desire to enrich your point data with country name and country code. Thus could be done via spatial join: right-click point layer and select *Joins and Relates* and choose *Spatial Join*. Define the target data to be joined spatially, choose the attributes and confirm. This should give you a new output layer combining city and country information.
 
-### Attribute-driven join
-In this part, we will enrich the country polygon layer with some statistical tabular data from Eurostat. Choose a topic you like in Eurostat [website](https://ec.europa.eu/eurostat/databrowser/explore/all/all_themes) and open it. Before downloading data, select only the most recent period and in *Format* tab choose *codes and labels* as labeling option. Then download the data in XLSX format.
 
-After succesful download edit the data: create a new list and copy&paste the desired data there (choose paste only values). Then save the new list as a CSV (UTF-8 coding). In ArcGIS project, right-click the country layer and select *Joins and Relates* and choose *Add Join*. Define the path to the exported CSV file which is the target table (join table is the country layer) and set country code as a *Join Field*. Keep only matching records and run *Validate join*. Double check if the number of rows is equal to the number of rows of the original CSV table from Eurostat. If so, perform the join and new data should appear in the attribute table of the country layer.
-<hr class="level-1">
+
+    <br>
+    **DATA SOURCES:**
+    
+      [:material-download: DATA :material-layers:](../assets/cviceni5/data_new.zip){ .md-button .md-button--primary .button_smaller }
+        {: .button_array style="justify-content:flex-start;"}
+
+         
+    **SUBMISSION FORM:**
+
+    - technical report + ZIP file with data (submit by 26/10, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
+
+    [:material-download: Technical report template :material-layers:](../assets/cviceni2/technical_report.doc){ .md-button .md-button--primary .button_smaller }
+      {: .button_array style="justify-content:flex-start;"}
+    
+
 
 __Supplemental exercise:__
 {: align=center }
 
 [<span>learn.arcgis.com</span><br>Join tabular data to a spatial layer](https://learn.arcgis.com/en/projects/join-tabular-data-to-a-spatial-layer/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 {: align=center}
+  
