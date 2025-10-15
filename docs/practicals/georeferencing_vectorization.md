@@ -2,7 +2,9 @@
 icon: material/numeric-5-box
 title: Practical 5
 ---
-# Georeferencing
+# Georeferencing, Editing and Creating Vector Data
+
+## Georeferencing
 Raster data is obtained from many sources, such as satellite images, aerial cameras, and scanned maps. Unlike modern satellite images and aerial cameras that tend to have relatively accurate location information and might need only slight adjustments to line up all your GIS data, scanned maps and historical data usually do not contain any spatial reference information. In these cases you need to use the process of georeferencing. 
 
 Georeferencing is the process of assigning real-world geographic coordinates to a raster image or a scanned map, enabling it to be accurately placed within a spatial reference system. This process involves matching identifiable points on the image with corresponding locations on a reference dataset, such as a satellite image or a vector map. Georeferencing is essential in cartography and GIS, as it allows historical maps, aerial photographs, or other spatial data to be integrated with modern geographic information for analysis, visualization, and decision-making.
@@ -25,11 +27,10 @@ __Resources:__
 
 <hr class="level-1">
 
-# Vectorization, Topology
+## Vectorization
 
 To analyze raster maps, it is almost always necessary to vectorize them, i.e. convert the map to vector form. There are various options for automating this process, but we will show the simplest method, which is manual vectorization.
 
-### Vectorization
 
 **1.** Vector data editing tools are located in the tab *:material-tab: Edit*{: .outlined_code} at the top of the program. 
 
@@ -45,7 +46,7 @@ To analyze raster maps, it is almost always necessary to vectorize them, i.e. co
 ???+ note "&nbsp;<span style="color:#448aff">Save edit:</span>"
       After making changes in vector data editing, it is necessary to save them by pressing the button *:material-button-cursor: Save*{: .outlined_code} in *:material-tab: Edit*{: .outlined_code}.
 
-### Topology
+## Topology
 
 The image below shows an example of two topological errors found (top left image). The top right image shows a view of the data without topology correction. When compared to the bottom right image, it is clear that the path vectorization has mistakenly overlapped the pasture vectorization. The bottom left image shows the second error, i.e. the mutual overlap of two elements belonging to the same layer.
 

@@ -3,9 +3,8 @@ icon: material/numeric-4-box
 title: Practical 4
 ---
 
-# Join, spatial join
+# Attribute and spatial join
 
-## Basic terms
 Through a common field, known as a <strong>key</strong>, you can associate records in one table with records in another table. For example, you can associate a table of parcel ownership information with the parcels layer, because they share a parcel identification field. You can make these associations in several ways. Joins can also be based on spatial location.
 
 Joins information are stored in the layer's properties, so they can be applied only to tables that are opened from a map or scene. To access join information, right-click the layer and click *Properties* to open the *Layer Properties* dialog box, and click the *Joins* tab.
