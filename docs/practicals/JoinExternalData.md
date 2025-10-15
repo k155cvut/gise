@@ -1,6 +1,6 @@
 ---
-icon: material/numeric-6-box
-title: Practical 6
+icon: material/numeric-4-box
+title: Practical 4
 ---
 
 # Join, spatial join
@@ -64,18 +64,14 @@ From the *Joins* menu, you can also choose to remove all joins. This command ask
     
     <br>
 
-    Create three Shapefiles
+    Create three Shapefiles and technical report
     
     - Selected river (Line layer)
     - Countries through which this river passes (Polygon layer)
     - Cities in your countries (Point layer)
-
+    
     <br>
-
-    Create technical report
-    
-    
-    ??? tip "Workflow"
+    **WORKFLOW:**
         A. Join
             1. Download prepared data, which include a geodatabase and a shapefile. Connect the geodatabase to your project and add country polygon feature layer and country table to the map.
             2. Join data from table to data in polygon feature layer. (Add Join)
