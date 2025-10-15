@@ -122,6 +122,7 @@ The image below shows an example of two topological errors found (top left image
     - Information about scale.
     - Information about author.
     - Legend - add with _(Add legend-Convert to graphics-Ungroup)_ and edit.
+    - Try to add some labels to important places.
     - Export *Layout* in PDF Format, DPI 120.
 
     </div>
