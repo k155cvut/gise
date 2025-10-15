@@ -72,24 +72,25 @@ From the *Joins* menu, you can also choose to remove all joins. This command ask
     
     <br>
     **WORKFLOW:**
-        A. Join
-            1. Download prepared data, which include a geodatabase and a shapefile. Connect the geodatabase to your project and add country polygon feature layer and country table to the map.
-            2. Join data from table to data in polygon feature layer. (Add Join)
-        B. Attribute Query
-            1. Add Rivers layer from geodatabase
-            2. Choose one river that flows through at least two countries.
-            3. Remove all other rivers (Select by Attributes)
-        C. Spatial Query
-            1. Select all the countries through which this river passes. (Select by Location)
-            2. Delete all other countries. (Select by Location)
-            3. Add Cities layer from geodatabase.
-            4. Select all cities in your countries. (Select by Location)
-            5. Delete all other cities. (Select by Location)
-        D. Spatial Join
-            1. Join Name from countries into cities. (Spatioal Join)
-        E. Share Data
-            1. Save data as Shapefile (Feature Class To Shapefile)
-            2. Make ZIP file with data
+    
+    - Join
+        1. Download prepared data, which include a geodatabase and a shapefile. Connect the geodatabase to your project and add country polygon feature layer and country table to the map.
+        2. Join data from table to data in polygon feature layer. (Add Join)
+    - Attribute Query
+        1. Add Rivers layer from geodatabase
+        2. Choose one river that flows through at least two countries.
+        3. Remove all other rivers (Select by Attributes)
+    - Spatial Query
+        1. Select all the countries through which this river passes. (Select by Location)
+        2. Delete all other countries. (Select by Location)
+        3. Add Cities layer from geodatabase.
+        4. Select all cities in your countries. (Select by Location)
+        5. Delete all other cities. (Select by Location)
+    - Spatial Join
+        1. Join Name from countries into cities. (Spatioal Join)
+    - Share Data
+        1. Save data as Shapefile (Feature Class To Shapefile)
+        2. Make ZIP file with data
 
 
 
