@@ -84,7 +84,7 @@ The image below shows an example of two topological errors found (top left image
     <br>
     **SUBMISSION FORM:**
 
-    - technical report + 1 map in PDF format (submit by 02/11, send to <a href="mailto:koudeja2@student.cvut.cz">koudeja2@student.cvut.cz</a>)
+    - technical report + 1 map in PDF format (submit by 09/11, send to <a href="mailto:koudeja2@student.cvut.cz">koudeja2@student.cvut.cz</a>)
 
     [:material-download: Technical report template :material-layers:](../assets/cviceni2/technical_report.doc){ .md-button .md-button--primary .button_smaller }
       {: .button_array style="justify-content:flex-start;"}
@@ -105,7 +105,7 @@ The image below shows an example of two topological errors found (top left image
     **Step 2:** **Vectorization**
 
     - Create new geodatabase _(Catalog-New-File geodatabase)_.
-    - Create nex dataset _(Catalog-Geodatabase-New-Dataset)_.
+    - Create new dataset _(Catalog-Geodatabase-New-Dataset)_.
     - Create new feature class *(Catalog-Dataset-New-Feature Class)*. Create one for polygons and one for lines.
     - Create subtypes for a polygon layer _(Attribut table-Table-Add-Subtypes-Create)_. Subtypes are _Water_, _Building_, _Important building_, _Green_, _Street_ and _Others_. Set symbology on subtypes _(Save-Symbology-Unique values)_ and set colors.
     - Vectorize the border of your territory into a line layer.
