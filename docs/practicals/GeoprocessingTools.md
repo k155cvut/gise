@@ -63,7 +63,7 @@ Python can be used to automate the execution of geoprocessing tools as well as p
 !!! abstract "Noise map of Czechia"
     **TASK:**
 
-    Make a map showing two types of noise zones in Czechia.
+    Make a map showing two types of noise zones in Czechia. Distinguish the zones by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports).
 
     Within Czechia, define areas of high and increased noise zones, according to the following criteria:
 
