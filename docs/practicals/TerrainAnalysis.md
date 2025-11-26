@@ -5,6 +5,38 @@ title: Practical 7
 
 # Terrain analysis, map algebra
 
+## Basic terms
+
+<div class="grid_container">
+  <div class="grid_item" style="flex:1 1 300px;">
+    <strong>Terrain Analysis</strong>
+    <hr style="margin:5px 0 !important;">
+    <p> <strong>Terrain analysis</strong>  refers to a set of GIS techniques used to describe and interpret the shape of the Earth’s surface. By deriving information such as slope, aspect or curvature from a digital elevation model, terrain analysis helps us understand how topography influences natural processes, accessibility, visibility and spatial patterns in the landscape.</p>
+  </div>
+  <br>
+  <div class="grid_item" style="flex:1 1 300px;">
+    <strong>Map algebra</strong>
+    <hr style="margin:5px 0 !important;">
+    <p> <strong>Map algebra</strong> is a framework for performing cell-by-cell operations on raster data. It allows users to combine multiple raster layers using mathematical expressions, logical conditions or statistical functions. Through map algebra, it becomes possible to model environmental suitability, classify risk zones or derive new thematic layers from existing datasets.</p>
+  </div>
+  <br>
+  <div class="grid_item" style="flex:1 1 300px;">
+    <strong>Interpolation</strong>
+    <hr style="margin:5px 0 !important;">
+    <p> <strong>Interpolation</strong> is a method used to estimate unknown values at unsampled locations based on measurements taken at known points. In GIS, interpolation creates continuous surfaces — such as elevation, temperature or pollution concentration — from discrete observations. This helps reveal spatial gradients and provides input for further spatial analyses.</p>
+  </div>
+</div>
+<br>
+
+**Learn more:**
+{: align=center }
+
+[<span>pro.arcgis.com</span><br>How Surface Parameters works](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/how-surface-parameters-works.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Introduction to map algebra](https://pro.arcgis.com/en/pro-app/3.4/help/analysis/spatial-analyst/mapalgebra/what-is-map-algebra.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Understanding interpolation analysis](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/understanding-interpolation-analysis.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>An introduction to interpolation methods](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/an-introduction-to-interpolation-methods.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Comparing interpolation methods](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/comparing-interpolation-methods.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: .button_array}
 
 ## Assignment 05
 !!! abstract "Areas of avalanche risk in the Krkonoše National Park"
@@ -106,14 +138,6 @@ title: Practical 7
         !!! note-grey "Note"
 
             “Interpolation predicts values for cells in a raster from a limited number of sample data points. It can be used to predict unknown values for any geographic point data, such as elevation, rainfall, chemical concentrations, and noise levels.” (pro.arcgis.com)
-
-        __Resources:__
-        {: align=center }
-
-        [<span>pro.arcgis.com</span><br>Understanding interpolation analysis](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/understanding-interpolation-analysis.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
-        [<span>pro.arcgis.com</span><br>An introduction to interpolation methods](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/an-introduction-to-interpolation-methods.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
-        [<span>pro.arcgis.com</span><br>Comparing interpolation methods](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/comparing-interpolation-methods.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
-        {: .button_array}
 
 
     - Using some of the links above, you can compare interpolation methods and choose the best one (or at least suitable) for point data. For this purpose, Inverse distance weighing (IDW) looks promising. Fill speed attribute as a Z field value and don’t forget to define an Output cell size (should be consistent for all your raster layers).
