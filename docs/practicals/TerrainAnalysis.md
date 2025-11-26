@@ -3,22 +3,72 @@ icon: material/numeric-7-box
 title: Practical 7
 ---
 
-# Geoprocessing tools for raster data
+# Terrain analysis, map algebra
 
-## Assignment: Indicate areas of avalanche risk
-The aim of this training is to provide experience with real-world GIS tasks. Your knowledge and skills acquired from previous lessons will be used when processing the task.
-Your mission will be to evaluate which slopes are prone to avalanches and possible threats to the surroundings. You are going to monitor the situation within one selected Czech national parc.
-An essential part, without which the work cannot be done, is the acquisition of data from publicly available sources and the subsequent modification of the data in the GIS environment so that you can perform future analysis with them. At the beginning, you will receive a package of input data containing all necessary. Based on the DEM, it will be your goal to process and evaluate which slopes are prone to avalanche danger. To evaluate an avalanche slope, you need to know slope inclination, elevation, wind speed, and land cover.
 
-Criteria indicating a dangerous hillside with avalanche hazard potencial:
+## Assignment 05
+!!! abstract "Areas of avalanche risk in the Krkonoše National Park"
+    **TASK:**
 
-- Area in the highest third of assigned national parc
+    Based on the analysis of provided data, make a map showing the areas of avalanche risk in the Krkonoše mountains.
 
-- Slope > 30°
+    Areas of the avalanche risk are defined according to the following criteria:
 
-- CLC land cover code = 2.X.X or 3.X.X (except for 3.1.1, 3.1.2, and 3.1.3)
+    1. elevation
+    
+        - the highest third of the national pak
 
-- Peaks in windier half of assigned national parc
+    2. slope/inclination
+    
+        - more than 30°
+
+    3. land cover
+    
+        - land cover code = 2.X.X or 3.X.X (except for 3.1.1, 3.1.2, and 3.1.3)
+
+    4. wind speed
+    
+        - windier half of the national park
+
+    
+    <figure markdown>
+      ![Noise map of Czechia](../assets/Geoprocessing/NoiseMap.png "Noise map of Czechia"){ width=600px }
+      <figcaption>Noise map of Czechia</figcaption>
+    </figure>
+
+    <br>
+    In technical report answer following questions:
+    
+    - What proportion of Czechia (in %) lies within the high-noise zone?
+    - What proportion of Czechia (in %) is affected by noise from both roads and airports?
+    - What proportion of Czechia (in %) lies within the normal-noise zone?
+
+    <br>
+    **DATA SOURCES:**
+    
+      [:material-download: Data for noise map :material-layers:](../assets/Geoprocessing/data.zip){ .md-button .md-button--primary .button_smaller }
+        {: .button_array style="justify-content:flex-start;"}
+
+         
+    **SUBMISSION FORM:**
+
+    - technical report + map in PDF format (submit by 23/11, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
+
+    [:material-download: Technical report template :material-layers:](../assets/cviceni2/technical_report.doc){ .md-button .md-button--primary .button_smaller }
+      {: .button_array style="justify-content:flex-start;"}
+    
+
+
+    **INSTRUCTIONS:**
+
+    - Create buffers around airports and roads according to the specified criteria *(Buffer)*
+    - Create a layer in which noisy areas are geometrically distinguished by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports) *(Union, Dissolve)*
+    - Clip layers to the boundaries of Czechia *(Clip)*
+    - Set the symbolization of all layers properly. 
+    - In *New Layout* (A4 Landscape) insert the Map Title, Scale and Credits.
+    - Export *Layout* in PDF Format
+
+
 
 Input [Data Package](../assets/cviceni7/AvalancheRisk.gdb.zip) includes:
 
@@ -62,18 +112,18 @@ First of all, it’s always essential to start with exploring input data, unders
 
 - Set Křovák projection (EPSG: 5514)
 
-- Use definition query to display assigned Czech national parc. Picture below is displaying Krkonoše national parc using definition query; DEM in the background.
+- Use definition query to display assigned Czech national park. Picture below is displaying Krkonoše national park using definition query; DEM in the background.
 
 ![](../assets/cviceni7/Obrázek1.png){ .no-filter .off-glb}
 {: align=center}
  
-- Use Extract by Mask tool to clip raster by assigned national parc polygon.
+- Use Extract by Mask tool to clip raster by assigned national park polygon.
 
 **3.** Raster Analysis
 
 In the following step, a set of spatial analysis tools together with subsequent reclassification will be processed to calculate and classify elevation and slope (steepness). Later on, you will deal with reclassification of Corine Land Cover raster and finally, suitable interpolation method will be used to help you process wind speed data.
 
-- Use Slope function to calculate the steepness. Use extracted raster by your national parc as an input raster. The output should be similar to following picture.
+- Use Slope function to calculate the steepness. Use extracted raster by your national park as an input raster. The output should be similar to following picture.
 
 ![](../assets/cviceni7/Obrázek2.png){ .no-filter .off-glb}
 {: align=center}
@@ -83,7 +133,7 @@ In the following step, a set of spatial analysis tools together with subsequent 
 ![](../assets/cviceni7/Obrázek3.png){ .no-filter .off-glb}
 {: align=center}
  
-- Similarly you need to reclassify your extracted DEM to decide, which values are within the highest third of national parc. In Krkonoše national parc, the highest third is indicated by violet color (see the picture below).
+- Similarly you need to reclassify your extracted DEM to decide, which values are within the highest third of national park. In Krkonoše national park, the highest third is indicated by violet color (see the picture below).
 
 ![](../assets/cviceni7/Obrázek4.png){ .no-filter .off-glb}
 {: align=center}
@@ -106,18 +156,18 @@ __Resources:__
 
 - Using some of the links above, you can compare interpolation methods and choose the best one (or at least suitable) for point data. For this purpose, Inverse distance weighing (IDW) looks promising. Fill speed attribute as a Z field value and don’t forget to define an Output cell size (should be consistent for all your raster layers).
 
-- The output should be calculated for entire Czech Republic and clipped by national parc polygon subsequently (if you first clip than interpolate, your result won’t be accurate)
+- The output should be calculated for entire Czech Republic and clipped by national park polygon subsequently (if you first clip than interpolate, your result won’t be accurate)
 
-- Afterwards, the last reclassification is ahead: you have to detect a windier part of assigned national parc
+- Afterwards, the last reclassification is ahead: you have to detect a windier part of assigned national park
 
 **4.** Combine the criteria and find out the result!
 
-Now is time for the best part of solution: combining the reclassified raster layers and finding out risky areas. All you need is to use Raster Calclulator and compile an appropriate algebraic expression. Your raster layers include only values of 0 and 1. As it’s mentioned above, zero is against the criteria. The final question is, how to construct four values as an algebra expression so the resulting raster layer would consist of values 0 and 1 again and zero would stand for “safe” slopes? Zero will represent for example an area in windier part & lower half of national parc or area in the highest third of national parc & having land cover code 1.2.1.
+Now is time for the best part of solution: combining the reclassified raster layers and finding out risky areas. All you need is to use Raster Calclulator and compile an appropriate algebraic expression. Your raster layers include only values of 0 and 1. As it’s mentioned above, zero is against the criteria. The final question is, how to construct four values as an algebra expression so the resulting raster layer would consist of values 0 and 1 again and zero would stand for “safe” slopes? Zero will represent for example an area in windier part & lower half of national park or area in the highest third of national park & having land cover code 1.2.1.
 
 ![](../assets/cviceni7/Obrázek5.png){ .no-filter .off-glb}
 {: align=center}
 
-Avalanche risk in national parc Krkonoše is red-colored in the picture below. It is possible to make the final raster semi-transparent and set Czech orthophoto as a background map to better illustrate the result for instance.
+Avalanche risk in national park Krkonoše is red-colored in the picture below. It is possible to make the final raster semi-transparent and set Czech orthophoto as a background map to better illustrate the result for instance.
 
 ![](../assets/cviceni7/Obrázek6.png){ .no-filter .off-glb}
 {: align=center}
