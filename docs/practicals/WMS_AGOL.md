@@ -22,8 +22,8 @@ There are several communication **standards for web map services**:
     - __ArcGIS REST__
 
 ???+ note-fg-color "Where to find web map services?"
-    - geoportals (např. metadatový katalog [European INSPIRE geoportal](https://inspire-geoportal.ec.europa.eu/srv/eng/catalog.search#/home){.color_def .underlined_dotted .external_link_icon target="_blank"})
-    - provider’s website (např. [European Environment Agency (EEA)](https://www.eea.europa.eu/en/datahub/datahubitem-view/e006507d-15c8-49e6-959c-53b61facd873?activeAccordion=1083585%2C778337){ .color_def .underlined_dotted .external_link_icon target="_blank"})
+    - geoportals (e.g. [European INSPIRE geoportal](https://inspire-geoportal.ec.europa.eu/srv/eng/catalog.search#/home){.color_def .underlined_dotted .external_link_icon target="_blank"})
+    - provider’s website (e.g. [European Environment Agency (EEA)](https://www.eea.europa.eu/en/datahub/datahubitem-view/e006507d-15c8-49e6-959c-53b61facd873?activeAccordion=1083585%2C778337){ .color_def .underlined_dotted .external_link_icon target="_blank"})
     
 
 ## Geoportals
