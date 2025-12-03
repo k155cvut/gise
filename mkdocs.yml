@@ -8,9 +8,9 @@ nav:
       - Join external data, spatial join: practicals/JoinExternalData.md
       - Raster data, Georeferencing, Editing and Creating Vector Data: practicals/georeferencing_vectorization.md
       - Geoprocessing tools: practicals/GeoprocessingTools.md
-      - Terrain analysis, map algebra: practicals/TerrainAnalysis.md 
+      - Terrain analysis, map algebra: practicals/TerrainAnalysis.md
+      - Web map services, ArcGIS Online: practicals/WMS_AGOL.md      
       #- Editing nad creating vector data, topology, map layout: practicals/CreatingVectorData_EditingTools_GISE_WS2024.md
-      #- Data sources, Web map services: practicals/DataSources_WMS_CultureMile_GISE_WS2024.md
       #- Geocoding: practicals/Geocoding.md
   - Data sources: DataSources.md
 plugins:
