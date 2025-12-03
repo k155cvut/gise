@@ -15,11 +15,11 @@ title: Practical 8
 There are several communication **standards for web map services**:
 
 - [OGC]("Open Geospatial Consortium") open standards: 
-    - __WMS (Web Map Service)__: is a standard protocol for serving geospatial data as images (e.g., PNG, JPEG) over the web. It allows clients to request maps and map layers from a server and display them on a map viewer or client application. 
-    - __WFS (Web Feature Service)__: refers to a standard protocol for serving geospatial data as vector features (e.g., points, lines, polygons) over the web. It allows clients to request specific feature data from a server and perform operations on the data, such as querying, inserting, updating, and deleting features.
+    - __WMS (Web Map Service)__ is a standard protocol for serving geospatial data as images (e.g., PNG, JPEG) over the web. It allows clients to request maps and map layers from a server and display them on a map viewer or client application. 
+    - __WFS (Web Feature Service)__ refers to a standard protocol for serving geospatial data as vector features (e.g., points, lines, polygons) over the web. It allows clients to request specific feature data from a server and perform operations on the data, such as querying, inserting, updating, and deleting features.
 
 - [Esri]("ESRI (Environmental Systems Research Institute) is a company that develops software designed for working with geographic information systems (GIS).") proprietary standard:
-    - __ArcGIS REST__
+    - __ArcGIS REST__ is Esri’s web interface for accessing and interacting with GIS services, offering a more flexible and modern alternative to traditional OGC standards like WMS and WFS.
 
 ???+ note-fg-color "Where to find web map services?"
     - geoportals (e.g. [European INSPIRE geoportal](https://inspire-geoportal.ec.europa.eu/srv/eng/catalog.search#/home){.color_def .underlined_dotted .external_link_icon target="_blank"})
