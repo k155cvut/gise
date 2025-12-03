@@ -1,0 +1,980 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="practicals/Introduction/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Geographic Information Systems (155GISE)</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#geographic-information-systems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Geographic Information Systems (155GISE)" class="md-header__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Geographic Information Systems (155GISE)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Course information
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Course information
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="practicals/Introduction/" class="md-tabs__link">
+          
+  
+  
+  Practicals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="DataSources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data sources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Geographic Information Systems (155GISE)" class="md-nav__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="assets/favicon.svg" alt="logo">
+
+    </a>
+    Geographic Information Systems (155GISE)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course information
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#literature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Literature
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lectures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practicals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule (2025)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practicals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Practicals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practicals/Introduction/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to ArcGIS, spatial data, data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practicals/MapProjections/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Map projections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practicals/VectorData/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector data, attribute queries, spatial queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practicals/JoinExternalData/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Join external data, spatial join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practicals/georeferencing_vectorization/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Raster data, Georeferencing, Editing and Creating Vector Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practicals/GeoprocessingTools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Geoprocessing tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practicals/TerrainAnalysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14 4-8V7H9v2h4l-4 8z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain analysis, map algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practicals/WMS_AGOL/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Web map services, ArcGIS Online
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DataSources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 class="page_title" id="geographic-information-systems">Geographic Information Systems</h1>
+<p>This course will introduce you the basics of <strong>geographic information systems</strong> (GIS). GIS is a set of tools used to <strong>collect</strong>, <strong>manage</strong>, <strong>analyze</strong> and <strong>visualize</strong> geographic data. It allows you to work efficiently with spatial information, which includes <strong>maps</strong>, <strong>satellite images</strong>, <strong>postal addresses</strong>, <strong>topographic data</strong> and much more. It can perform complex analyses, identify patterns, and thus <strong>better understand geographic phenomena and relationships</strong>.</p>
+<p>GIS has a wide range of applications, from <strong>urban planning</strong> to <strong>natural resource management</strong> and <strong>crisis management</strong>. It is an indispensable tool for effective decision-making and management in various sectors and helps to better understand complex geographical contexts.</p>
+<p>This course is an intro to this topic. While the lectures take you through the basic theory, the practicals focus on the practical use of GIS software - in particular, understanding how to work with data and perform simple analyses. <strong style="white-space: nowrap;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0a.85.85 0 0 0-.338.07L3.144 3.765A2.73 2.73 0 0 0 1.5 6.27v13.252l10.162 4.408a.85.85 0 0 0 .676 0l8.518-3.696A2.73 2.73 0 0 0 22.5 17.73V4.478L12.338.07A.85.85 0 0 0 12 0m0 4.837a7.537 7.537 0 1 1 0 15.075 7.537 7.537 0 0 1 0-15.075m-.35 1.389c-.897-.023-2.328.24-3.747 1.614.35.555.646.978.49 1.418-.23.655-.513.514-1.07.995-.396.341.206 1.013-.313 1.306-.52.293-1.213.663-.95 1.175.265.512 1.47.83 1.96 1.075.49.246.928.707.607 1.238-.314.519-.537 1.13-.601 1.609A5.94 5.94 0 0 0 12 18.175c3.293 0 5.818-2.71 5.962-6 .04-.926-.94-.94-1.534-.94 0 0 .34.923.018 1.436s-.85.762-.835 1.377c.015.616-.937 1.597-1.26 1.949-.322.351-.923.747-1.128-.06-.205-.805-.126-1.477.109-2.048.234-.572-.218-.748-.921-.762s-1.08-.108-1.187-1.193c-.088-.894 1.243-1.844 1.815-1.844.334 0 1.454.22 1.507-.34.08-.86-.82-1.042-1.04-1.602-.218-.56 1.48-1.54-1.506-1.898a4 4 0 0 0-.35-.024"></path></svg></span> Esri ArcGIS Pro</strong> software is used throughout the course.</p>
+<h2 style="text-align:center;">What will you learn</h2>
+<!-- styl je zde pridany HTML tagem (ne pomoci '##'), aby se text neobjevil v tabulce obsahu vlevo na strance -->
+
+<div class="grid cards grid_icon_info smaller_padding">
+<!-- specificky format gridu (trida "grid_icon_info") na miru uvodni strance predmetu -->
+<ul>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.5 3-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5M10 5.47l4 1.4v11.66l-4-1.4zm-5 .99 3-1.01v11.7l-3 1.16zm14 11.08-3 1.01V6.86l3-1.16z"></path></svg></span></p>
+<p><strong>process</strong> and <strong>analyze</strong> spatial (geographic, map) data</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2v6h2.28l1.29 8H4v6h6v-1.94l5-.01V22h6v-6h-1.83L20 9h2V3h-6v3.53L14.8 8H9.59L8 5.82V2M4 4h2v2H4m14-1h2v2h-2M6.31 8h.8L9 10.59V14h6v-3.09L16.57 9H18l-.84 7H15v2.06h-5V16H7.6m3.4-6h2v2h-2m-5 6h2v2H6m11-2h2v2h-2"></path></svg></span></p>
+<p>understand the difference between <strong>vector</strong> and <strong>raster</strong> data</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 19.88c.04.3-.06.62-.29.83a.996.996 0 0 1-1.41 0L9.29 16.7a.99.99 0 0 1-.29-.83v-5.12L4.21 4.62a1 1 0 0 1 .17-1.4c.19-.14.4-.22.62-.22h14c.22 0 .43.08.62.22a1 1 0 0 1 .17 1.4L15 10.75zM7.04 5 11 10.06v5.52l2 2v-7.53L16.96 5z"></path></svg></span></p>
+<p><strong>filter</strong> data using attribute and spatial queries</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21.71 20.29-1.42 1.42a1 1 0 0 1-1.41 0L7 9.85A3.8 3.8 0 0 1 6 10a4 4 0 0 1-3.78-5.3l2.54 2.54.53-.53 1.42-1.42.53-.53L4.7 2.22A4 4 0 0 1 10 6a3.8 3.8 0 0 1-.15 1l11.86 11.88a1 1 0 0 1 0 1.41M2.29 18.88a1 1 0 0 0 0 1.41l1.42 1.42a1 1 0 0 0 1.41 0l5.47-5.46-2.83-2.83M20 2l-4 2v2l-2.17 2.17 2 2L18 8h2l2-4Z"></path></svg></span></p>
+<p>apply basic <strong>spatial functions</strong> (geoprocessing tools)</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 4 2.5 5.5L17 12l-5.5 2.5L9 20l-2.5-5.5L1 12l5.5-2.5zm0 4.83L8 11l-2.17 1L8 13l1 2.17L10 13l2.17-1L10 11zM19 9l-1.26-2.74L15 5l2.74-1.25L19 1l1.25 2.75L23 5l-2.75 1.26zm0 14-1.26-2.74L15 19l2.74-1.25L19 15l1.25 2.75L23 19l-2.75 1.26z"></path></svg></span></p>
+<p><strong>create</strong> and <strong>edit</strong> GIS data</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 6.5a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-6.5a.25.25 0 0 0-.25-.25h-1a.75.75 0 0 1 0-1.5h1c.966 0 1.75.784 1.75 1.75v6.5A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25v-6.5C2 5.784 2.784 5 3.75 5h1a.75.75 0 0 1 0 1.5ZM7.823.177a.25.25 0 0 1 .354 0l2.896 2.896a.25.25 0 0 1-.177.427H8.75v5.75a.75.75 0 0 1-1.5 0V3.5H5.104a.25.25 0 0 1-.177-.427Z"></path></svg></span></p>
+<p><strong>share</strong> data to the web (<em>ArcGIS Online</em> system, web mapping applications)</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9H0l4 4 4-4H5c0-3.87 3.13-7 7-7s7 3.13 7 7a6.995 6.995 0 0 1-11.06 5.7L6.5 19.14C8.08 20.34 10 21 12 21a9 9 0 0 0 0-18m4.29 10.19-1-.74q.015-.225 0-.45.03-.225 0-.45l1-.74c.08-.07.11-.19.06-.31L15.44 9a.234.234 0 0 0-.29-.12L14 9.3c-.23-.18-.5-.33-.76-.45l-.17-1.18a.214.214 0 0 0-.21-.17H11.1c-.1 0-.21.08-.23.19l-.17 1.19c-.27.12-.53.25-.77.42l-1.12-.45a.23.23 0 0 0-.28.1l-.9 1.55c-.05.11-.03.22.06.29l1 .76q-.045.45 0 .9l-1 .74c-.08.07-.11.19-.06.31l.9 1.5c.05.11.17.16.28.12l1.12-.45c.23.18.49.33.76.45l.18 1.18c.02.11.13.2.23.17h1.8c.1 0 .21-.08.22-.19l.18-1.19q.39-.18.75-.42l1.13.45c.1 0 .22 0 .28-.12l.9-1.55c.05-.1.02-.22-.07-.29M12 13.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5c0 .82-.66 1.5-1.5 1.5"></path></svg></span></p>
+<p>create models for <strong>automated processing</strong> (<em>ModelBuilder</em>)</p>
+</li>
+</ul>
+</div>
+<div class="gallery_container">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/01.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/01.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/02.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/02.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/03.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/03.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/04.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/04.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/05.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/05.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/06.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/06.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/07.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/07.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/08.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/08.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/09.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/09.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/10.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/10.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/11.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/11.jpg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/12.jpg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/MkDocs/index/12.jpg"></a></p>
+</div>
+<h2 id="literature">Literature</h2>
+<ul>
+<li>Bolstad, P. (2005) GIS Fundamentals: A First Text on Geographic Information Systems. 2nd Edition, Eider Press, White Bear Lake, Minnesota.</li>
+<li>De Smith, M.J., Goodchild, M.F. and Longley, P.A. (2015) Geospatial Analysis A Comprehensive Guide to Principles, Techniques, and Software Tools.</li>
+<li>P. A. Burrough, Rachael McDonnell (1998) Principles of Geographical Information Systems. Oxford University Press.</li>
+</ul>
+<h2 id="lectures" style="margin-bottom:0;">Lectures</h2>
+<p style="opacity:50%;margin-top:0;">attendance recommended</p>
+<p><img alt="" class="off-glb no-filter" src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-1.jpg" style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"> 
+<a href="https://geomatics.fsv.cvut.cz/en/employees/jiri-cajthaml/"><strong>prof. Ing. Jiří Cajthaml, Ph.D.</strong></a><strong style="margin-left:1rem;">&nbsp;</strong><img alt="" class="off-glb no-filter" src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png" style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"> 
+<a href="https://geomatics.fsv.cvut.cz/en/employees/tomas-janata/"><strong>Ing. Tomáš Janata, Ph.D.</strong></a></p>
+<!--
+1. &nbsp;
+2. &nbsp;
+3. &nbsp;
+4. &nbsp;
+5. &nbsp;
+6. &nbsp;
+7. &nbsp;
+8. &nbsp;
+9. &nbsp;
+10. &nbsp;
+-->
+
+<h2 id="practicals" style="margin-bottom:0;">Practicals</h2>
+<p style="opacity:50%;margin-top:0;">attendance required</p>
+<p><img alt="" class="off-glb no-filter" src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-16.jpg" style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"> 
+<a href="https://geomatics.fsv.cvut.cz/en/employees/petra-justova/"><strong>Mgr. Petra Justová, Ph.D.</strong></a><strong style="margin-left:1rem;">&nbsp;</strong><img alt="" class="off-glb no-filter" src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png" style="height: 1.5em; vertical-align: -.4em; clip-path: circle();">
+<a href="https://geomatics.fsv.cvut.cz/en/employees/jan-koudelka/"><strong>Ing. Jan Koudelka</strong></a><strong style="margin-left:1rem;">&nbsp;</strong><img alt="" class="off-glb no-filter" src="https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png" style="height: 1.5em; vertical-align: -.4em; clip-path: circle();">
+<a href="https://geomatics.fsv.cvut.cz/en/employees/vojtech-muller/"><strong>Ing. Vojtěch Müller</strong></a></p>
+<h2 id="schedule-2025" style="margin-bottom:0;">Schedule (2025)</h2>
+<p><a href="https://kos.cvut.cz/schedule/course/155GISE/semester/B251" target="_blank"><img alt="" class="off-glb no-filter" src="assets/index/Schedule2025.png" style="width: 600px;"></a></p>
+<hr>
+<p align="center"><a class="md-button md-button--primary" href="https://kos.cvut.cz/course-syllabus/155GISE/B251" target="_blank" title="KOS is the official university administration system">Course page in <span class="twemoji middle" style="margin-left:3px;"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg width="511.99826" height="314.9108" viewBox="0 0 135.46622 83.320153" version="1.1" id="svg10417" inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)" sodipodi:docname="kos-logo-img-BW.svg" xml:space="preserve" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview id="namedview10419" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:document-units="mm" showgrid="false" inkscape:snap-bbox="true" inkscape:bbox-nodes="true" inkscape:bbox-paths="true" inkscape:snap-bbox-edge-midpoints="true" inkscape:snap-bbox-midpoints="true" inkscape:object-paths="true" inkscape:snap-intersection-paths="true" inkscape:snap-smooth-nodes="true" inkscape:snap-midpoints="true" inkscape:snap-object-midpoints="true" inkscape:snap-center="true" inkscape:snap-text-baseline="true" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="0.16344479" inkscape:cx="-1541.805" inkscape:cy="-36.709644" inkscape:window-width="1920" inkscape:window-height="1017" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="layer1" units="px" inkscape:showpageshadow="2" inkscape:deskcolor="#d1d1d1"></sodipodi:namedview><defs id="defs10414"></defs><g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-172.74579,-202.72601)"><path id="path12107" style="color:#000000;fill:#ffffff;fill-opacity:1;stroke-width:3.40584;stroke-linecap:square;stroke-linejoin:round;-inkscape-stroke:none" d="m 188.76276,223.43064 a 1.9730152,1.4700879 0 0 0 -1.97359,1.47022 v 24.96258 a 1.9730152,1.4700879 0 0 0 1.97359,1.47023 h 3.02896 a 1.9730152,1.4700879 0 0 0 1.97321,-1.47023 v -24.96258 a 1.9730152,1.4700879 0 0 0 -1.97321,-1.47022 z"></path><path id="path12107-3" style="color:#000000;fill:#ffffff;fill-opacity:1;stroke-width:2.24337;stroke-linecap:square;stroke-linejoin:round;-inkscape-stroke:none" d="m 188.96047,263.16848 c -0.70934,-1.6e-4 -1.28447,0.43873 -1.2844,0.98015 l -2.04953,16.64172 c -7e-5,0.5414 2.62459,0.98028 3.33393,0.98013 h 1.97125 c 0.70925,5e-5 3.9959,-0.4388 3.99583,-0.98013 l -2.71168,-16.64172 c 7e-5,-0.54134 -0.5749,-0.98021 -1.28415,-0.98015 z" sodipodi:nodetypes="ccccccccc"></path><circle style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.1043;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="path14047" cx="190.27708" cy="257.25104" r="4.6505036"></circle><path id="path11311" style="color:#000000;fill:#ffffff;fill-opacity:1;stroke-width:5.81312;stroke-linecap:square;stroke-linejoin:round" d="m 239.96311,202.73763 a 4.5961336,1.8384579 0 0 0 -2.73524,0.52762 l -31.5681,12.62765 -31.56861,12.62713 a 4.5961336,1.8384579 0 0 0 0,2.59933 l 63.13878,25.2553 a 4.5961336,1.8384579 0 0 0 6.49831,0 l 63.13672,-25.25478 a 4.5961336,1.8384579 0 0 0 0.002,-2.59985 l -63.13878,-25.25582 a 4.5961336,1.8384579 0 0 0 -3.76514,-0.52658 z"></path><path id="path30364" style="color:#000000;fill:#ffffff;fill-opacity:1;stroke-width:5.81312;stroke-linecap:square;stroke-linejoin:round" d="m 204.02806,247.32743 -0.65164,10.07277 33.85375,13.54129 a 4.5961336,1.8384579 0 0 0 6.49831,0 l 33.82171,-13.52889 v -0.003 l -0.0253,0.0103 -1.07435,-9.90069 -32.72204,13.08912 a 4.5961336,1.8384579 0 0 1 -6.49831,0 z"></path><path id="path30364-8" style="color:#000000;fill:#ffffff;fill-opacity:1;stroke-width:5.81312;stroke-linecap:square;stroke-linejoin:round" d="m 204.02804,261.89395 -0.65164,10.07277 33.85375,13.54129 a 4.5961336,1.8384579 0 0 0 6.49831,0 l 33.82171,-13.52889 v -0.003 l -0.0253,0.0103 -1.07435,-9.90069 -32.72204,13.08912 a 4.5961336,1.8384579 0 0 1 -6.49831,0 z"></path></g></svg>
+</span> <span class="twemoji xl middle"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg width="1250.4319" height="514.46771" viewBox="0 0 330.84346 136.11959" version="1.1" id="svg10417" inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)" sodipodi:docname="kos-logo-BW.svg" xml:space="preserve" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview id="namedview10419" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:document-units="mm" showgrid="false" inkscape:snap-bbox="true" inkscape:bbox-nodes="true" inkscape:bbox-paths="true" inkscape:snap-bbox-edge-midpoints="true" inkscape:snap-bbox-midpoints="true" inkscape:object-paths="true" inkscape:snap-intersection-paths="true" inkscape:snap-smooth-nodes="true" inkscape:snap-midpoints="true" inkscape:snap-object-midpoints="true" inkscape:snap-center="true" inkscape:snap-text-baseline="true" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="0.16344479" inkscape:cx="-1541.805" inkscape:cy="-36.709644" inkscape:window-width="1920" inkscape:window-height="1017" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="layer1" units="px" inkscape:showpageshadow="2" inkscape:deskcolor="#d1d1d1"></sodipodi:namedview><defs id="defs10414"></defs><g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-342.29492,-175.1363)"><path d="m 462.35651,308.22166 h -44.90639 l -37.71764,-62.64488 v 62.64488 H 342.29492 V 178.17051 h 37.43756 v 59.93742 l 36.31723,-59.93742 h 45.74664 l -43.41263,62.92496 z" id="path38193" style="font-weight:bold;font-size:211.667px;line-height:1.25;font-family:Technika;-inkscape-font-specification:'Technika Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.264583"></path><path d="m 506.48987,311.25588 q -19.32561,0 -34.07657,-8.029 -14.75095,-8.029 -22.96668,-23.34011 -8.12236,-15.40448 -8.12236,-36.69068 0,-21.28619 8.12236,-36.5973 8.21573,-15.40448 22.96668,-23.43348 14.75096,-8.02901 34.07657,-8.02901 19.41899,0 34.07658,8.02901 14.6576,8.029 22.6866,23.34011 8.12236,15.31112 8.12236,36.69067 0,21.37955 -8.12236,36.69068 -8.029,15.31111 -22.6866,23.34011 -14.65759,8.029 -34.07658,8.029 z m 0,-33.32969 q 12.3236,0 18.48539,-9.05596 6.16179,-9.14933 6.16179,-25.67414 0,-16.5248 -6.16179,-25.67413 -6.16179,-9.14933 -18.48539,-9.14933 -12.23021,0 -18.67209,9.24269 -6.34851,9.14933 -6.34851,25.58077 0,16.33808 6.34851,25.58078 6.44188,9.14932 18.67209,9.14932 z" id="path38215" style="font-weight:bold;font-size:211.667px;line-height:1.25;font-family:Technika;-inkscape-font-specification:'Technika Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.264583"></path><path d="m 617.86895,311.25588 q -14.09744,0 -25.39406,-2.70745 -11.29662,-2.6141 -19.51233,-7.28212 V 267.2831 q 7.37547,5.13482 19.23225,9.24269 11.85679,4.10786 23.71356,4.10786 9.52277,0 14.47088,-2.61409 5.04147,-2.6141 5.04147,-7.46885 0,-3.64106 -2.98754,-5.69498 -2.98754,-2.05394 -8.86925,-3.54771 l -7.18875,-1.77385 q -6.6286,-1.49376 -16.058,-3.92113 -13.53727,-3.36098 -21.28619,-12.88375 -7.65556,-9.52277 -7.65556,-24.27372 0,-12.88375 7.28211,-22.6866 7.28212,-9.89621 20.0725,-15.21776 12.79039,-5.41491 28.84839,-5.41491 10.92318,0 20.81939,1.86722 9.98957,1.86721 16.71153,4.76138 v 32.30272 q -6.06844,-3.36097 -15.49784,-5.97507 -9.33605,-2.61409 -20.07251,-2.61409 -10.64309,0 -15.87128,2.52073 -5.13483,2.42737 -5.13483,6.90868 0,3.64105 2.89418,5.78834 2.98753,2.05394 9.70949,3.54771 l 5.04147,1.02696 q 7.37548,1.30705 14.84432,3.17426 16.058,3.92114 24.087,13.53727 8.029,9.52276 8.029,25.30069 0,11.1099 -6.62859,21.28619 -6.53524,10.08292 -19.13891,16.43144 -12.5103,6.25515 -29.5019,6.25515 z" id="path38237" style="font-weight:bold;font-size:211.667px;line-height:1.25;font-family:Technika;-inkscape-font-specification:'Technika Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.264583"></path></g></svg>
+</span></a></p>
+<p><br></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

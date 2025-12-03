@@ -1,0 +1,1377 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../MapProjections/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Practical 1 - Geographic Information Systems (155GISE)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-arcgis-spatial-data-data-sources" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Geographic Information Systems (155GISE)" class="md-header__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Geographic Information Systems (155GISE)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Practical 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Course information
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Practicals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../DataSources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data sources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Geographic Information Systems (155GISE)" class="md-nav__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Geographic Information Systems (155GISE)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practicals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Practicals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to ArcGIS, spatial data, data sources
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to ArcGIS, spatial data, data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-we-will-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software we will use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatial-gis-data-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial (GIS) data (vector)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-and-basic-orientation-in-the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Starting and basic orientation in the program
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-data-to-the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding data to the map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-to-get-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to get data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Map controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribute table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MapProjections/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Map projections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VectorData/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector data, attribute queries, spatial queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JoinExternalData/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Join external data, spatial join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../georeferencing_vectorization/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Raster data, Georeferencing, Editing and Creating Vector Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GeoprocessingTools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Geoprocessing tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TerrainAnalysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14 4-8V7H9v2h4l-4 8z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain analysis, map algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WMS_AGOL/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Web map services, ArcGIS Online
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataSources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introduction-to-arcgis-spatial-data-data-sources">Introduction to ArcGIS, spatial data, data sources</h1>
+<!-- <hr class="level-1"> -->
+
+<h2 id="goals">Goals</h2>
+<p>Introduction to ArcGIS Pro, basic orientation in the user environment, adding data to the map and navigating the map</p>
+<hr class="level-1">
+
+<h2 id="basic-terms">Basic terms</h2>
+<h3 id="software-we-will-use">Software we will use</h3>
+<p><strong>ArcGIS Pro</strong>, an advanced desktop geographic information system (GIS) developed by <strong>Esri</strong>, will be used during most of the classes. It allows users to <strong>create</strong>, <strong>edit</strong>, <strong>analyze</strong>, and <strong>visualize</strong> spatial data in various layers, including <strong>raster</strong> and <strong>vector</strong> maps, <strong>orthophotos</strong>, <strong>digital elevation models</strong>, and other datasets.<br>
+Users can create and edit <strong>attributes</strong> and <strong>geometry</strong> of features, perform advanced <strong>analysis</strong>, create and <strong>publish map layers</strong>, and create <strong>interactive map applications</strong>. The program also includes tools for <strong>visualizing</strong> data, creating map presentations, and <strong>sharing results</strong> with other users.</p>
+<p align="center"><img alt="" class="no-filter off-glb" src="../../assets/cviceni1/agp_logo.png#only-light" width="200px">
+<img alt="" class="no-filter off-glb" src="../../assets/cviceni1/agp_logo2.png#only-dark" width="200px"></p>
+<div class="admonition note-grey">
+<p class="admonition-title">Note</p>
+<p>Due to its high price, ArcGIS is mainly used in large companies and government agencies. Its open source alternative <a href="https://www.qgis.org/" target="_blank">QGIS</a> is more widespread in smaller companies (will be discussed at the end of the course). This information applies to the environment of the Czech Republic.</p>
+</div>
+<h3 id="spatial-gis-data-vector">Spatial (GIS) data <span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;">(vector)</span></h3>
+<p>Geographic Information System (GIS) generally uses any data containing <strong>spatial (location) information</strong>. A location can be represented not only by a combination of coordinates (<em>X + Y</em>, <em>latitude + longitude</em>, etc.), but also by, for example, an <em>address</em> (of arbitrary detail). In addition to the spatial information, any other information is usually added in the form of attributes in the <strong>attribute table</strong>.</p>
+<!-- ![](../assets/cviceni1/img_28.png){ style="width:80%;"}
+{: style="margin-bottom:0px;" align=center }
+<figcaption>Schematická ukázka prostorových dat a k nim přiřazených atributových tabulek</figcaption> -->
+
+<style>
+    #id_01 > div > div > div.tabbed-block {
+        text-align: center;
+    }
+
+    #id_01 > div > div > div.tabbed-block > :is(p, div) {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+        margin-right:10px;
+    }
+
+    #id_01 img {
+        height: 200px;
+    }
+
+    #id_01 .md-typeset__scrollwrap {
+        width: 300px;
+    }
+
+    @media screen and (max-width: 767px) {
+        #id_01 > div > div > div.tabbed-block > :is(p, div) {
+            margin-top:15px;
+            margin-bottom:0px;
+        }
+    }
+
+    #id_01 .md-typeset__scrollwrap::before {
+        content:"Attribute Table:\a";    /* source: https://www.educative.io/answers/how-to-add-a-line-break-using-css */
+        white-space: pre;
+        font-weight: bold;
+    }
+
+    #id_01 .tabbed-block:nth-child(2) .md-typeset__table::before {
+        content:"Garbage Cans:\a";    /* source: https://www.educative.io/answers/how-to-add-a-line-break-using-css */
+        white-space: pre;
+        font-size:smaller;
+    }
+
+    #id_01 .tabbed-block:nth-child(3) .md-typeset__table::before {
+        content:"Streets:\a";    /* source: https://www.educative.io/answers/how-to-add-a-line-break-using-css */
+        white-space: pre;
+        font-size:smaller;
+    }
+
+    #id_01 .tabbed-block:nth-child(4) .md-typeset__table::before {
+        content:"Buildings and public spaces:\a";    /* source: https://www.educative.io/answers/how-to-add-a-line-break-using-css */
+        white-space: pre;
+        font-size:smaller;
+    }
+</style>
+
+<!-- <div id="id_01" class="table_no_cell_padding table_no_cell_min_width centered_tab_labels" markdown>
+=== "Body"
+
+    ![](https://geo.fsv.cvut.cz/data/cehak/image001.svg)
+
+    ![](https://geo.fsv.cvut.cz/data/cehak/image002-body.svg)
+
+    |category|load [%]|cl./week|
+    |:------:|:------:|:------:|
+    |mix|91|7|
+    |plastic|26|2|
+    |mix|14|5|
+    |mix|14|5|
+    |paper|58|2|
+
+=== "Linie"
+
+    ![](https://geo.fsv.cvut.cz/data/cehak/image001.svg)
+
+    ![](https://geo.fsv.cvut.cz/data/cehak/image003-linie.svg)
+
+    |class|cars|trucks|length|
+    |:---:|:--:|:----:|:----:|
+    |street C1|1|yes|164,21|
+    |street C3|1|no|621,5|
+    |street C4|0|no|32,24|
+    |street C1|1|no|495,01|
+    |street C3|0|no|221,49|
+
+=== "Polygony"
+
+    ![](https://geo.fsv.cvut.cz/data/cehak/image001.svg)
+
+    ![](https://geo.fsv.cvut.cz/data/cehak/image004-polygony.svg)
+
+    |category|administrator|status|
+    |:------:|:-----------:|:----:|
+    |public|Municipality|OK|
+    |public|Company Inc.|OK|
+    |restricted|Company Inc.|OK|
+    |restricted|Municipality|!alert!|
+    |residential|private|OK|
+</div>
+
+<figcaption style="clear:both">Schematická ukázka prostorových dat a k nim přiřazených atributových tabulek</figcaption> -->
+
+<div class="centered_tab_labels">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">FULL MAP</label><label for="__tabbed_1_2">Points</label><label for="__tabbed_1_3">Lines</label><label for="__tabbed_1_4">Polygons</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/tab-01.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../../assets/cviceni1/tab-01.png" width="500"></a></p>
+<p></p><figcaption>Schematic illustration of spatial data and associated attribute tables</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/tab-02.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../../assets/cviceni1/tab-02.png" width="500"></a></p>
+<p></p><figcaption>Schematic illustration of spatial data and associated attribute tables</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/tab-03.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../../assets/cviceni1/tab-03.png" width="500"></a></p>
+<p></p><figcaption>Schematic illustration of spatial data and associated attribute tables</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/tab-04.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../../assets/cviceni1/tab-04.png" width="500"></a></p>
+<p></p><figcaption>Schematic illustration of spatial data and associated attribute tables</figcaption><p></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Save spatial data</strong>: Data can be stored in many different ways. There are many different data formats, but to start with, here are some basic ones.</p>
+<ul>
+<li><strong>Shapefile</strong>: a format from <em>Esri</em> with a mostly open specification. It contains the geometry and properties (attributes) of spatial features, probably the most widely used at present, although it has many disadvantages and is somewhat outdated from today's point of view. One of the characteristics of the format is mandatory division into multiple files (<code>.shp</code>, <code>.shx</code> and <code>.dbf</code>, possibly other optional), which brings difficulties when moving, copying, etc.</li>
+<li><strong>Geodatabase (GDB)</strong>: the native data structure of the <em>ArcGIS</em> system - the primary data format for data management and editing, it contains a collection of datasets of various types (vector, raster and others) and can also store data integrity (domains, subtypes, etc.) or topology</li>
+<li><strong>GeoJSON</strong>: an open standard representing vector data and associated attributes, based on the <code>JSON</code> format and is therefore user-readable and widely used</li>
+<li><strong>GML / KML</strong>: similar to GeoJSON - an open standard representing vector data and associated attributes, based on the <code>XML</code> format, thus again user-readable</li>
+<li><strong>GeoPackage (GPKG)</strong>: relatively new format of the <em>OGC</em> standard, supports both vector and raster data, overcomes many limitations of the <code>Shapefile</code> format (e.g. it is only 1 file), default format of <em>QGIS</em></li>
+<li><strong>CSV</strong>: although not a format directly intended for spatial data, it is often used as an exchange format, the file contains only attributes</li>
+</ul>
+<!-- Ve výčtu chybí některé __rastrové formáty__, těm se bude výuka věnovat v průběhu pozdějších cvičení. -->
+
+<hr class="level-1">
+
+<h2 id="contents">Contents</h2>
+<h3 id="starting-and-basic-orientation-in-the-program">Starting and basic orientation in the program</h3>
+<p>At launch, the license is verified through the affiliation to the organization (CTU in Prague) - by logging in to the university account. The address (URL) for CTU is <em>ctuprague.maps.arcgis.com</em> - then an automatic redirection to the university login page (in the format <em>username@cvut.cz</em> and password to KOS) takes place.</p>
+<div class="process_container">
+  <div class="process_image"><iframe class="video" src="https://www.youtube.com/embed/8nDVpVmxM-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+  <div class="process_image"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_01.png" data-desc-position="bottom"><img src="../../assets/cviceni1/img_01.png"></a></div>
+</div>
+<p>The user interface of the program consists of three basic elements:</p>
+<div class="table_headerless table_small_padding table_centered">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RIBBON</strong></td>
+<td>menu of program functions (element identical to other programs, e.g. Microsoft Word), menu changes contextually according to user actions</td>
+</tr>
+<tr>
+<td><strong>PANE</strong></td>
+<td>panels and function properties, many functions trigger opening their own Panel, through which the function is controlled, e.g. Map Contents, Symbology</td>
+</tr>
+<tr>
+<td><strong>VIEW</strong></td>
+<td>a window with a map (2D) or a scene (3D)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_02.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_02.png"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_03.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_03.png"></a></p>
+<!-- kvuli tomu iframe to nejde bez html (nenasel jsem zpusob) --><!-- prazdne radky nelze smazat, Markdown nebere tabulky bez zahlavi, musel jsem vyresit pres css --><figcaption>All VIEWs and PANEs are dockable – they can be freely moved around the screen and attached to other elements</figcaption>
+
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://www.youtube.com/watch?v=qNDwVJV_kFk" target="_blank">Working with Panes in ArcGIS Pro</a></p>
+<hr>
+<p align="center"><strong>Other sources:</strong></p>
+<p class="button_array"><a class="md-button md-button--primary server_name external_link_icon_small" href="https://pro.arcgis.com/en/pro-app/latest/get-started/get-started.htm" target="_blank"><span>pro.arcgis.com</span><br>Introduction to ArcGIS Pro</a>
+<a class="md-button md-button--primary server_name external_link_icon_small" href="https://pro.arcgis.com/en/pro-app/latest/get-started/introducing-arcgis-pro.htm" target="_blank"><span>pro.arcgis.com</span><br>Introducing ArcGIS Pro</a></p>
+<hr class="level-1">
+
+<h3 id="adding-data-to-the-map">Adding data to the map</h3>
+<p><strong>Creating a map:</strong> <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 3H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 16H3V5h10v4h8z"></path></svg></span> Insert</em> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.1 15.3c-.1.1-.3.2-.4.3l-2.4.4 1.7 3.6c.2.4 0 .8-.4 1l-2.8 1.3c-.1.1-.2.1-.3.1-.3 0-.6-.2-.7-.4L11.2 18l-1.9 1.5c-.1.1-.3.2-.5.2-.4 0-.8-.3-.8-.8V7.5c0-.5.3-.8.8-.8.2 0 .4.1.5.2l8.7 7.4c.3.2.4.7.1 1M6 12H4V4h16v8h-1.6l2.2 1.9c.8-.3 1.3-1 1.3-1.9V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2z"></path></svg></span> New Map</em></p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_09.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_09.png"></a></p>
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/projects/add-maps-to-a-project.htm#GUID-660CA711-919A-44B0-952A-F2054937077B" target="_blank">Create a map or scene</a></p>
+<hr>
+<p><strong>Adding data to the map</strong> (lokálně uložených): <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 3H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 16H3V5h10v4h8z"></path></svg></span> Map</em> → <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.1 15.3c-.1.1-.3.2-.4.3l-2.4.4 1.7 3.6c.2.4 0 .8-.4 1l-2.8 1.3c-.1.1-.2.1-.3.1-.3 0-.6-.2-.7-.4L11.2 18l-1.9 1.5c-.1.1-.3.2-.5.2-.4 0-.8-.3-.8-.8V7.5c0-.5.3-.8.8-.8.2 0 .4.1.5.2l8.7 7.4c.3.2.4.7.1 1M6 12H4V4h16v8h-1.6l2.2 1.9c.8-.3 1.3-1 1.3-1.9V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2z"></path></svg></span> Add Data</em> → <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.1 15.3c-.1.1-.3.2-.4.3l-2.4.4 1.7 3.6c.2.4 0 .8-.4 1l-2.8 1.3c-.1.1-.2.1-.3.1-.3 0-.6-.2-.7-.4L11.2 18l-1.9 1.5c-.1.1-.3.2-.5.2-.4 0-.8-.3-.8-.8V7.5c0-.5.3-.8.8-.8.2 0 .4.1.5.2l8.7 7.4c.3.2.4.7.1 1M6 12H4V4h16v8h-1.6l2.2 1.9c.8-.3 1.3-1 1.3-1.9V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2z"></path></svg></span> Data</em> → vybrat soubor...</p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_10.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_10.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_11.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_11.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_12.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_12.png"></a></p>
+<figcaption>If the file does not appear in the structure, the dialog can be refreshed with the F5 key</figcaption>
+
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/layer-properties/add-layers-to-a-map.htm#ESRI_SECTION2_1C48753A1FD546F385580EF9197DBB8C" target="_blank">Add data from the Add Data dialog box</a></p>
+<hr>
+<p>To avoid having to go through the directory structure each time to browse the data, it's a good idea to <em>join the data directories to the project</em>.</p>
+<p><strong>Connecting a directory to a project</strong>: in the <em>Catalog Pane</em> ( <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 3H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 16H3V5h10v4h8z"></path></svg></span> View</em> → <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.1 15.3c-.1.1-.3.2-.4.3l-2.4.4 1.7 3.6c.2.4 0 .8-.4 1l-2.8 1.3c-.1.1-.2.1-.3.1-.3 0-.6-.2-.7-.4L11.2 18l-1.9 1.5c-.1.1-.3.2-.5.2-.4 0-.8-.3-.8-.8V7.5c0-.5.3-.8.8-.8.2 0 .4.1.5.2l8.7 7.4c.3.2.4.7.1 1M6 12H4V4h16v8h-1.6l2.2 1.9c.8-.3 1.3-1 1.3-1.9V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2z"></path></svg></span> Catalog Pane</em> ) right click on "<em>Folders</em>" choose <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 5h3l-1.5 2zM3 2h18a2 2 0 0 1 2 2v4c0 1.11-.89 2-2 2h-5v10c0 1.11-.89 2-2 2H3a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2m0 2v4h11V4zm18 4V4h-5v4zM3 20h11V10H3zm2-8h7v2H5zm0 4h7v2H5z"></path></svg></span> Add Folder Connection</em> → insert or select a path... → drag &amp; drop the data from the folder into the Map View</p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_05.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_05.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_04.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_04.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_06.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_06.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_23.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_23.png"></a></p>
+<figcaption>The selected folder will remain in the Catalog under "Folders". The directory does not have to be local, e.g. the H:\ drive (CTU universal network storage) can be connected this way.</figcaption>
+
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/projects/connect-to-a-folder.htm" target="_blank">Connect to a folder</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/projects/the-project-pane.htm" target="_blank">The Project Pane</a></p>
+<hr>
+<p>...the same can be done with a geodatabase. The geodatabase stores data more efficiently, but you can't store anything in it.</p>
+<p><strong>Connecting the geodatabase to the project</strong>: in the <em>Catalog Pane</em> ( <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 3H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 16H3V5h10v4h8z"></path></svg></span> View</em> → <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.1 15.3c-.1.1-.3.2-.4.3l-2.4.4 1.7 3.6c.2.4 0 .8-.4 1l-2.8 1.3c-.1.1-.2.1-.3.1-.3 0-.6-.2-.7-.4L11.2 18l-1.9 1.5c-.1.1-.3.2-.5.2-.4 0-.8-.3-.8-.8V7.5c0-.5.3-.8.8-.8.2 0 .4.1.5.2l8.7 7.4c.3.2.4.7.1 1M6 12H4V4h16v8h-1.6l2.2 1.9c.8-.3 1.3-1 1.3-1.9V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2z"></path></svg></span> Catalog Pane</em> ) right click on "<em>Databases</em>" choose <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 5h3l-1.5 2zM3 2h18a2 2 0 0 1 2 2v4c0 1.11-.89 2-2 2h-5v10c0 1.11-.89 2-2 2H3a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2m0 2v4h11V4zm18 4V4h-5v4zM3 20h11V10H3zm2-8h7v2H5zm0 4h7v2H5z"></path></svg></span> Add Database</em> → insert or select a path to a geodatabase... → drag &amp; drop the data from the folder into the Map View</p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_05.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_05.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_07.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_07.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_08.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_08.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_24.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_24.png"></a></p>
+<figcaption>The path to the selected geodatabase remains in the Catalog under "Databases". Again, the path does not have to be local only.</figcaption>
+
+<p class="button_array"><a class="md-button md-button--primary button_smaller" href="https://pro.arcgis.com/en/pro-app/latest/help/projects/connect-to-a-database.htm" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span> Connect to a database</a></p>
+<hr>
+<p><strong>Layer order</strong>: The map content (<em>Contents Pane</em>) shows all layers contained in the map. The visibility of each layer can be switched with the checkbox on the left. By changing the order of the layers in the table of contents, the order in which they are rendered in the map is changed.</p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_29.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_29.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_30.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_30.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_31.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_31.png"></a></p>
+<figcaption>Contents Pane and an example of reordering and toggling layer visibility</figcaption>
+
+<hr>
+<p><strong>Setting map properties</strong>: V <em>Contents Pane</em> (Obsah) přes pravé tl. myši na název mapy vybrat <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 5h3l-1.5 2zM3 2h18a2 2 0 0 1 2 2v4c0 1.11-.89 2-2 2h-5v10c0 1.11-.89 2-2 2H3a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2m0 2v4h11V4zm18 4V4h-5v4zM3 20h11V10H3zm2-8h7v2H5zm0 4h7v2H5z"></path></svg></span> Properties</em></p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_21.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_21.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_22.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_22.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_25.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_25.png"></a></p>
+<p>For start, these items are of interest:</p>
+<ul>
+<li>
+<p>Tab <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 17H5V7h11l3.55 5m-1.92-6.16C17.27 5.33 16.67 5 16 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h11c.67 0 1.27-.34 1.63-.85L22 12z"></path></svg></span> General</em></p>
+<ul>
+<li><strong>Name</strong></li>
+<li><strong>Reference scale</strong>: Fixes the size of the map symbology for the specified scale.
+<a align="right" class="md-button md-button--primary button_smaller" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/map-reference-scales.htm" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span> Map reference scales</a></li>
+<li><strong>Rotation</strong>: Map rotation angle</li>
+</ul>
+</li>
+<li>
+<p>Tab <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 17H5V7h11l3.55 5m-1.92-6.16C17.27 5.33 16.67 5 16 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h11c.67 0 1.27-.34 1.63-.85L22 12z"></path></svg></span> Coordinate systems</em></p>
+<ul>
+<li>Information about the map display coordinate system (separately for position and elevation).</li>
+<li style="color:#888;font-size:smaller; line-height:1.1;"><strong>WARNING</strong>, if the coordinate system of the <strong>inserted data</strong> differs from the <strong>map</strong> display system, the data is <strong>temporarily</strong> converted to the <strong>map</strong> display coordinate system. However, this is an <strong>On-the-fly</strong> transformation, which is <strong>simplified</strong> for some coordinate system combinations, and the data may not relate to each other correctly. This situation is <strong>not recommended</strong> as it can produce <strong>inaccurate results</strong> for map visualization and data analysis. <a href="https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/projection-on-the-fly-and-geographic-transformations"><strong>More information</strong></a></li>
+</ul>
+</li>
+</ul>
+<hr class="level-1">
+
+<h3 id="where-to-get-data">Where to get data</h3>
+<p><strong>Locally stored files</strong>: access via system path, e.g.:</p>
+<p align="center" class="button_array" style="font-size:smaller;line-height:1.1; column-gap:50px;"><code>C:\Users\Student1\Documents\Geodatabase.gdb\Layer1</code>
+<code>\\\\data.fsv.cvut.cz\Shares\K155\Public\data\PragueRoads.gdb</code></p>
+<p id="data_online"><strong>Data downloadable from the web</strong>: download from any source to a local disk in the form of files, same access as with locally stored files (see above)</p>
+<p class="button_array"><a class="md-button md-button--primary server_name external_link_icon_small" href="https://ec.europa.eu/eurostat/en/" target="_blank">Eurostat</a>
+<a class="md-button md-button--primary server_name external_link_icon_small" href="https://ec.europa.eu/statistical-atlas/viewer/?mids=BKGCNT,BKNUTS2,C13M03,CNTOVL&amp;o=1,1,1,0.7&amp;ch=CH_CENSUS_AGE&amp;center=46.17701,21.37986,4&amp;lcis=C13M03&amp;" target="_blank">Statistical Atlas (Eurostat)</a>
+<a class="md-button md-button--primary server_name external_link_icon_small" href="https://guides.libraries.psu.edu/c.php?g=376207&amp;p=5296088" target="_blank">Finding GIS Data</a></p>
+<p style="color:#888"><strong>Connecting streaming data</strong>: <em>will be part of future exercises</em></p>
+<ul>
+<li style="color:#888;font-size:smaller; line-height:1.1;">connection of data services via URL, does not require manual local storage, there are multiple standards for providing these services</li>
+</ul>
+<hr class="level-1">
+
+<h3 id="map-controls">Map controls</h3>
+<p><strong>Explore Tool</strong>: Panning Movement in the map and pop-ups, see Fig.</p>
+<ul>
+<li><strong>Pop-up</strong>: It is one of the basic elements of the graphical environment of GIS applications. Its (most common) purpose is to provide a quick preview of information about a given feature by clicking on its geometry. However, the form of the window is configurable and the editing tools very variable. By default, the pop-up displays a listing of attributes in table form (Figure).
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/pop-ups.htm" target="_blank">Pop-ups</a></li>
+<li><strong>Map scale</strong>: Indicates the size of the map features compared to their size in reality. In the corner of the map window (fig.) you can select predefined values from the drop-down menu or set any custom value.
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/map-scales-and-scale-properties.htm" target="_blank">Map scales and scale properties</a></li>
+</ul>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_13.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_13.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_16.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_16.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_26.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_26.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_27.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_27.png"></a></p>
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/navigation-in-arcgis-pro.htm" target="_blank">Navigation</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/get-started/navigate-your-data.htm" target="_blank">Navigate maps and scenes</a></p>
+<hr>
+<!--               ↓↓↓ odkazuje na to link ze cviceni 2! -->
+<p><strong id="select-tool">Select Tool</strong>: Panning the map and selecting features interactively (using cursor). To deselect (clear selection), see Fig.</p>
+<ul>
+<li><strong>Add features to selection</strong>: <code>Shift + click</code></li>
+<li><strong>Remove features from selection</strong>: <code>Ctrl + click</code></li>
+</ul>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_14.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_14.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_17.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_17.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_18.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_18.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_32.png" data-title="Deselect (clear selection)" data-desc-position="bottom"><img alt="" data-description="" data-title="Deselect (clear selection)" src="../../assets/cviceni1/img_32.png"></a></p>
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-interactively.htm" target="_blank">Select features interactively</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/editing/select-features-for-editing.htm" target="_blank">Select features for editing</a></p>
+<hr>
+<p><strong>Measure Tool</strong>: Interactive measurement of distances, angles, etc.</p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_15.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_15.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_19.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_19.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_20.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_20.png"></a></p>
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/measure.htm" target="_blank">Measure</a></p>
+<hr class="level-1">
+
+<p align="center"><strong>Additional resources:</strong></p>
+<p class="button_array"><a class="md-button md-button--primary server_name external_link_icon_small" href="https://pro.arcgis.com/en/pro-app/latest/get-started/arcgis-pro-keyboard-shortcuts.htm" target="_blank"><span>pro.arcgis.com</span><br>ArcGIS Pro keyboard shortcuts</a>
+<a class="md-button md-button--primary server_name" href="https://www.esri.com/content/dam/esrisites/en-us/media/pdf/g526942-arcgis-pro-kybrd-shrtct-FINAL.pdf" target="_blank"><span><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914z"></path></svg></span> PDF</span><br>ArcGIS Pro shortcuts</a></p>
+<hr class="level-1">
+
+<h3 id="attribute-table">Attribute table</h3>
+<p>The attribute table is a <strong>supplement to the spatial data</strong> – it enriches each element (geometry) with <strong>additional information</strong> (called attributes). This information is crucial for GIS work, because geometry alone (without attributes) does not give us much information. The attribute table is therefore part of every (vector) layer.</p>
+<p>The table contains columns - called fields, and rows - called records. Each element thus contains the values of all attributes - see the example below.</p>
+<!-- ![](../assets/cviceni1/img_37.png)
+{: .process_container}
+
+<figcaption>Atributová tabulka</figcaption>
+
+Otevřít atributovou tabulku
+
+Vybrat záznamy
+
+Zjistit počet prvků / počet vybraných prvků
+
+Přidat pole / editovat pole -->
+
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/data/tables/tables-in-arcgis-pro.htm" target="_blank">Tables</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/data/tables/open-tabular-data.htm" target="_blank">Open tabular data</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/data/tables/interact-with-a-table.htm" target="_blank">Interact with a table</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/data/tables/select-records-in-a-table-interactively.htm" target="_blank">Select records in a table interactively</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/data/tables/edit-an-active-table.htm" target="_blank">Edit an active table</a></p>
+<!--
+<hr class="level-1">
+
+## Úlohy k procvičení
+
+!!! task-fg-color "Úloha"
+
+    - Zadání
+        - Zobrazte v mapovém okně zadané vrstvy z geoportálu, mapa musí mít __zadané měřítko__, __natočení__ a __projekci__ (souř. systém), vrstvy musí mít __správné pořadí__ a __výběrem označené zadané prvky__. Dále nad mapou zobrazte __vyskakovací okno__ (pop-up) zadaného prvku a správně určete __vzdálenost mezi zadanými prvky__.
+        - Použijte data z geoportálu &nbsp;[:material-open-in-new: Geoportal data.Brno](https://data.brno.cz/explore){ .md-button .md-button--primary .button_smaller target="_blank"}&nbsp; – konkrétně datovou vrstvu obsahující __`zastávky MHD`__ a __`trasy linek MHD`__, výstupní formát libovolný (doporučujeme __`Shapefile`__ nebo __`Souborová geodatabáze`__)
+
+    - Výstupy
+        - Screenshot mapy splňující všechny výše popsané vlastnosti
+        - Screenshot pop-upu nad zadaným prvkem
+        - Napsat vzdálenost mezi konkrétními dvěma prvky
+
+    - Individuální zadání
+        - DODĚLAT -->
+
+<p><br><br><br><br><br><br><br><br><br><br><br></p>
+<!-- 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+<hr class="level-1">
+
+<span style="font-size:50px;text-transform:uppercase;font-weight:800;">Test nadpisů:</span>
+
+# Nadpis 1
+
+## Nadpis 2
+
+### Nadpis 3
+
+#### Nadpis 4
+
+##### Nadpis 5
+
+###### Nadpis 6
+
+...další text...
+
+ -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
