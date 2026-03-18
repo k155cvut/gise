@@ -7,7 +7,9 @@ title: Practical 5
 ## Georeferencing
 Raster data is obtained from many sources, such as satellite images, aerial cameras, and scanned maps. Unlike modern satellite images and aerial cameras that tend to have relatively accurate location information and might need only slight adjustments to line up all your GIS data, scanned maps and historical data usually do not contain any spatial reference information. In these cases you need to use the process of georeferencing. 
 
-Georeferencing is the process of assigning real-world geographic coordinates to a raster image or a scanned map, enabling it to be accurately placed within a spatial reference system. This process involves matching identifiable points on the image with corresponding locations on a reference dataset, such as a satellite image or a vector map. Georeferencing is essential in cartography and GIS, as it allows historical maps, aerial photographs, or other spatial data to be integrated with modern geographic information for analysis, visualization, and decision-making.
+Georeferencing is the process of assigning real-world geographic coordinates to a raster image or a scanned map, enabling it to be accurately placed within a spatial reference system. This process involves matching identifiable points on the image with corresponding locations on a reference dataset, such as a satellite image or a vector map. For control points you should select features that are stable and easy to identify in both datasets such as churches, bridges, road intersections, river confluences, or long-standing public buildings. The points should be spread across the whole map sheet rather than concentrated in one corner.
+
+Georeferencing is essential in cartography and GIS, as it allows historical maps, aerial photographs, or other spatial data to be integrated with other GIS layers for analysis, visualization, and decision-making.
 
 
 <figure markdown>
@@ -74,10 +76,10 @@ __Sources:__
 <hr class="level-1">
 
 ## Assignment 03
-!!! abstract "Digitalization of old maps"
+!!! abstract "Vectorization of an old map"
     **TASK:**
 
-    Digitize a part of the map of old Prague using modern tools. First, georeference the archive material. Then vectorize this map and create a simple map layout.
+    Create a simple map reconstructing part of Prague in the early 20th century. In the map, distinguish at least four types of features: water bodies, green areas, built-up areas, and public spaces/streets. The map must include labels for at least one feature from each category, with label styling adapted to the feature type.
 
     <br>
     In technical report answer following questions:
@@ -119,7 +121,7 @@ __Sources:__
     - On the *Georeference* tab, click *Add Control Points*. Now try to find at least 4 identical points (control points) on the image *(source)* and the reference map *(target)*. These points should be spread out throughout the image to obtain the best possible registration (For example churches, old bridges, islands, towers...).
     - After collecting all points, on the *Georeference* tab, click *Save* and _Close georeference_.
 
-    **Step 2:** **Vectorization**
+    **Step 2:** **Vectorization nad Labeling**
 
     - Create new geodatabase _(Catalog-New-File geodatabase)_.
     - Create new dataset _(Catalog-Geodatabase-New-Dataset)_.
