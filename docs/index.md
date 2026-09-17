@@ -36,10 +36,6 @@ This course is an intro to this topic. While the lectures take you through the b
 
     __share__ data to the web (_ArcGIS Online_ system, web mapping applications)
 
--   :material-cog-counterclockwise:{ .xl }
-
-    create models for __automated processing__ (_ModelBuilder_)
-
 
 </div>
 
@@ -64,41 +60,16 @@ This course is an intro to this topic. While the lectures take you through the b
 - De Smith, M.J., Goodchild, M.F. and Longley, P.A. (2015) Geospatial Analysis A Comprehensive Guide to Principles, Techniques, and Software Tools.
 - P. A. Burrough, Rachael McDonnell (1998) Principles of Geographical Information Systems. Oxford University Press.
 
-## Lectures {: style="margin-bottom:0;"}
-
-attendance recommended
-{: style="opacity:50%;margin-top:0;"}
-
-![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-1.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} 
-[__prof. Ing. Jiří Cajthaml, Ph.D.__](https://geomatics.fsv.cvut.cz/en/employees/jiri-cajthaml/)__&nbsp;__{style="margin-left:1rem;"}![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} 
-[__Ing. Tomáš Janata, Ph.D.__](https://geomatics.fsv.cvut.cz/en/employees/tomas-janata/)
-
-<!--
-1. &nbsp;
-2. &nbsp;
-3. &nbsp;
-4. &nbsp;
-5. &nbsp;
-6. &nbsp;
-7. &nbsp;
-8. &nbsp;
-9. &nbsp;
-10. &nbsp;
--->
-
-## Practicals {: style="margin-bottom:0;"}
-
-attendance required
-{: style="opacity:50%;margin-top:0;"}
+## Lectures & Practicals {: style="margin-bottom:0;"}
 
 ![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-16.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} 
 [__Mgr. Petra Justová, Ph.D.__](https://geomatics.fsv.cvut.cz/en/employees/petra-justova/)__&nbsp;__{style="margin-left:1rem;"}![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"}
-[__Ing. Jan Koudelka__](https://geomatics.fsv.cvut.cz/en/employees/jan-koudelka/)__&nbsp;__{style="margin-left:1rem;"}![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"}
-[__Ing. Vojtěch Müller__](https://geomatics.fsv.cvut.cz/en/employees/vojtech-muller/)
+[__Ing. Jan Koudelka__](https://geomatics.fsv.cvut.cz/en/employees/jan-koudelka/)__&nbsp;__{style="margin-left:1rem;"}![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-13.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"}
+[__Ing. Josef Münzberger__](https://geomatics.fsv.cvut.cz/en/employees/josef-munzberger/)
 
 ## Schedule (2025) {: style="margin-bottom:0;"}
 
-[![](./assets/index/Schedule2025.png){.off-glb .no-filter style="width: 600px;"}](https://kos.cvut.cz/schedule/course/155GISE/semester/B251){target="_blank"}
+[![](./assets/index/Schedule2026.png){.off-glb .no-filter style="width: 600px;"}](https://kos.cvut.cz/schedule/course/155GISE/semester/B251){target="_blank"}
 
 ---
 
