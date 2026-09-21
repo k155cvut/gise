@@ -229,7 +229,7 @@ __Creating a map:__ _:material-tab: Insert_{: .outlined} :octicons-arrow-right-2
 
 ---
 
-__Adding data to the map__ (lokálně uložených): _:material-tab: Map_{: .outlined} → _:material-button-cursor: Add Data_{: .outlined} → _:material-button-cursor: Data_{: .outlined} → vybrat soubor...
+__Adding data to the map__ (locally stored): _:material-tab: Map_{: .outlined} → _:material-button-cursor: Add Data_{: .outlined} → _:material-button-cursor: Data_{: .outlined} → select file...
 
 ![](../assets/cviceni1/img_10.png)
 ![](../assets/cviceni1/arrow.svg){: .off-glb .process_icon}
@@ -299,7 +299,7 @@ __Layer order__: The map content (_Contents Pane_) shows all layers contained in
 
 ---
 
-__Setting map properties__: V _Contents Pane_ (Obsah) přes pravé tl. myši na název mapy vybrat _:material-form-dropdown: Properties_{: .outlined}
+__Setting map properties__: In the _Contents Pane_ (Contents) right-click on the map name and select _:material-form-dropdown: Properties_{: .outlined}
 
 ![](../assets/cviceni1/img_21.png)
 ![](../assets/cviceni1/arrow.svg){: .off-glb .process_icon}

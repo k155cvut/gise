@@ -74,7 +74,7 @@ title: Practical 2
 [<span>learn.arcgis.com</span><br>Map projections Overview](https://storymaps.arcgis.com/stories/b73977ee4f87499b9bdc6818ffb95ccd){ .md-button .md-button--primary .server_name .external_link_icon_small target="\_blank"}
 {: .button_array}
 
-## Web Mercator distortion
+## Web Mercator distortion 
 
 The Web Mercator projection, an adapted version of the Mercator projection, has become the default map projection for web mapping. Unlike its predecessor, it employs a spherical formula consistently across all scales. Major online map providers, such as Google Maps, CARTO, Mapbox, OpenStreetMap, Esri, and others, widely employ this projection.
 
