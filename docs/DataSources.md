@@ -1,4 +1,9 @@
 # Data sources
+## How to get to disk H?
+First option: Go to *This PC* (on your computer) --> *Map network drive* --> write this: *\\\data.fsv.cvut.cz\Users\?login?\Home* --> instead of *?login?* write your CTU login (without @student....).
+
+Second option: Go to this [LINK](https://webdata.fsv.cvut.cz) and use your CTU login.
+
 ## Natural Earth Data
 Natural Earth is a public domain map dataset available at 1:10m, 1:50m, and 1:110 million scales. Featuring tightly integrated vector and raster data, with Natural Earth you can make a variety of visually pleasing, well-crafted maps with cartography or GIS software.
 

@@ -80,6 +80,8 @@ The Web Mercator projection, an adapted version of the Mercator projection, has 
 
 The primary advantage of the Mercator projection, and consequently the Web Mercator, is its preservation of direction, providing users with the valuable knowledge that north is consistently oriented upwards. Despite even distortion throughout most areas, as one moves away from the equator, distortion intensifies, causing significant stretching toward the poles. Consequently, the Web Mercator projection is unsuitable for polar displays. Due to these apparent distortions, it is not recommended for spatial analysis or area calculations.
 
+The UN has approved replacing the Mercator projection with the Equal Earth projection in 2026. Read more [*HERE*](https://www.seznamzpravy.cz/clanek/zahranicni-mapa-sveta-bude-i-po-oprave-dal-lhat-jen-jinak-nez-doted-315113)
+
 <iframe style="filter:none !important;margin-top:.6rem;" width="100%" height="500" frameborder="0" allowfullscreen src="https://www.thetruesize.com/#?borders=1~!MTU2ODg0MjU.NDY3MTc3NQ*MzEyNTI5MDA(NjIzOTIyOA~!CONTIGUOUS_US*MTAwMjQwNzU.MjUwMjM1MTc(MTc1)MQ~!IN*NTI2NDA1MQ.Nzg2MzQyMQ)MA~!CN*OTkyMTY5Nw.NzMxNDcwNQ(MjI1)Mg"></iframe>
 
 <iframe style="filter:none !important;margin-top:.6rem;" width="100%" height="500" frameborder="0" allowfullscreen src="https://developers.arcgis.com/javascript/latest/sample-code/client-projection/live/"></iframe>
@@ -115,9 +117,8 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
     ??? tip "How-To"
         To calculate the total area of the selected country in each projection you have to do following steps:
         
-        1. Use the *Project* tool to project spatial data to PCS.
-        2. In the attribute table, add a new field for each projection (e.g. *area_merc*, *area_bonne*, *area_cube*, etc.). 
-        3. Use the *Calculate Geometry* tool to calculate the area of the selected country in all desired projections.
+        1. In the attribute table, add a new field for each projection (e.g. *area_merc*, *area_bonne*, *area_cube*, etc.). 
+        2. Use the *Calculate Geometry* tool to calculate the area of the selected country in all desired projections.
 
           <figure markdown>
             ![Setting the Calculate Geometry tool](../assets/cviceni2/CalculateGeometry2.png "Setting the Calculate Geometry tool"){ width=400px }
@@ -136,7 +137,7 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
          
     **SUBMISSION FORM:**
 
-    - technical report + 1 map in PDF format (submit by 12/10, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
+    - technical report + 1 map in PDF format (submit by 11/10, send to <a href="mailto:koudeja2@cvut.cz">koudeja2@cvut.cz</a>)
 
     [:material-download: Technical report template :material-layers:](../assets/cviceni2/technical_report.doc){ .md-button .md-button--primary .button_smaller }
       {: .button_array style="justify-content:flex-start;"}
@@ -145,10 +146,11 @@ The primary advantage of the Mercator projection, and consequently the Web Merca
 
     **INSTRUCTIONS:**
 
-    - Set the projection of Map *(Properties-Coordinate Systems)* and add *world-administrative-boundaries* layer.
+    - Create new project in ArcGIS Pro and add *world-administrative-boundaries* layer.
     - Use *Definition Query *to filter the features to work only with your area of interest.
     - Use optional symbolization of the layer.
     -	Duplicate the original map and create several additional maps and change the projection in each map to a different one.
+    - Calculate the area of ​​the country in individual projections.
     - Add all map frames to layout and make sure each has the same scale.
     - In *New Layout* (A3 Portrait) insert the Map Title, Scale and Credits
     - Label each shape with the name of the map projection used and its total area in the given projection.
