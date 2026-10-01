@@ -5,6 +5,13 @@ title: Practical 2
 
 # Map projections
 
+## Theory
+[:material-download: Mathematical Cartography :material-layers:](../assets/cviceni2/CART_lect_01.pdf){ .md-button .md-button--primary .button_smaller }
+{: .button_array style="justify-content:flex-start;"}
+
+[:material-download: Mathematical Cartography II :material-layers:](../assets/cviceni2/CART_lect_02_old.pdf){ .md-button .md-button--primary .button_smaller }
+{: .button_array style="justify-content:flex-start;"}
+
 ## Basic terms
 
 <div class="grid_container">
