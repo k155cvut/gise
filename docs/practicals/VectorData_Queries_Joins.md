@@ -3,7 +3,7 @@ icon: material/numeric-3-box
 title: Practical 3
 ---
 
-# Vector data, attribute queries, spatial queries
+# Working with vector data: queries, joins and spatial relationships
 
 __Spatial data__ is any type of data that directly or indirectly references a specific geographical area or location. A location can be represented not only by a combination of coordinates (X + Y, latitude + longitude, etc.), but also by, for example, an address (of arbitrary detail). The two most common data formats used to store (geo)spatial data are vector and raster.
 
@@ -343,14 +343,124 @@ Spatial Query is a method of selecting/filtering elements of one layer based on 
 
 <!-- <figcaption markdown>zdroj: [Select By Location graphic examples](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-by-location-graphical-examples.htm)</figcaption> -->
 
-
+__Resources:__
+{: align=center }
 [:material-open-in-new: Select features by location](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-by-location.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
 [:material-open-in-new: Select Layer By Location (Data Management)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-layer-by-location.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
 [:material-open-in-new: Select By Location graphic examples](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-by-location-graphical-examples.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
 {: align=center style="display:flex; justify-content:center; align-items:center; column-gap:20px; row-gap:10px; flex-wrap:wrap;"}
 
-<br><br><br><br><br><br>
+<hr class="level-1">
 
-<!-- ## Zadání domácího úkolu k semestrální práci -->
+## Attribute and spatial join
+
+Through a common field, known as a <strong>key</strong>, you can associate records in one table with records in another table. For example, you can associate a table of parcel ownership information with the parcels layer, because they share a parcel identification field. You can make these associations in several ways. Joins can also be based on spatial location.
+
+Joins information are stored in the layer's properties, so they can be applied only to tables that are opened from a map or scene. To access join information, right-click the layer and click *Properties* to open the *Layer Properties* dialog box, and click the *Joins* tab.
+
+
+### Join the attributes from a table
+Typically, you'll join a table of data to a layer based on the value of a field that can be found in both tables. The name of the field does not have to be the same, but the data type must be the same; you join numbers to numbers, strings to strings, and so on. You can perform a join using the *Add Join* geoprocessing tool. When performing an attribute join, the joined fields are dynamically added to the existing table. Field properties (such as aliases, visibility, and number formatting) are maintained when a join is added or removed.
+
+![](../assets/cviceni5/join.gif){ .no-filter .off-glb}
+{: align=center}
+
+!!! note-grey "Note"
+
+    When joining tables, the default option is to **keep all records**. If a record in the target table doesn't have a match in the join table, that record is given null values for all the fields being appended into the target table from the join table.
+
+    ![](../assets/cviceni5/keepallrecords.gif){ .no-filter .off-glb}
+    {: align=center}
+
+    With the **keep only matching records** option, if a record in the target table doesn't have a match in the join table, that record is removed from the resultant target table. If the target table is the attribute table of a layer, features that don't have data joined to them are not shown on the map.
+
+    ![](../assets/cviceni5/keeponlymatching.gif){ .no-filter .off-glb}
+    {: align=center}
+
+
+
+### Join data by location spatially
+When the layers on your map don't share a common attribute field, you can join them using the *Spatial Join* geoprocessing tool, which joins the attributes of two layers based on the location of the features in the layers.
+
+With a spatial join, you can complete any of the following common workflows:
+
+* Find the nearest feature
+* Find what is inside a polygon
+* Find what intersects a feature
+
+Join by location, or spatial join, uses spatial associations between the layers involved to append fields from one layer to another. Depending on the type of association, you can append the attributes or an aggregate (minimum, maximum, mean, and so on) of numeric attributes from a matched feature to the target features. Spatial joins by default are different from attribute-driven joins in that they are **not dynamic** and require you to save the results to a new output layer.
+
+__Resources:__
+{: align=center }
+
+[<span>pro.arcgis.com</span><br>Join the attributes from a table](https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#GUID-39C9610A-6A73-4985-ADB8-7354EA9DB8BF){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Join data by location (spatially)](https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#GUID-7B11EAA4-35E0-4B8D-AFB6-4A435761574B){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>learn.arcgis.com</span><br>Remove join](https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#ESRI_SECTION1_6507320BCB1E45219A88F1AA0A24F7B9){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: .button_array}
+
+<hr class="level-1">
+
+
+## Assignment 02
+!!! abstract "Exploring European regions"
+    **TASK:**
+
+    Explore statistical data of the NUTS 2 regions in your country using attribute and spatial queries.
+
+    Create a polygon layer of NUTS regions in GeoJSON format containing the following attributes:
+    - NUTS 2 ID, NUTS 2 name, country code, population, unemployment rate, GDP, number of airports and airport density (number of airports per km²)
+    - for each characteristic (population, unemployment rate, and GDP), add a text attribute indicating whether each region is below or above the mean value for that characteristic.
+
+    Create a table in CSV format containing the following information for EU countries and their NUTS 2 regions:
+    - country name,
+    - total number of NUTS 2 regions,
+    - mean, minimum and maximum values of the following indicators: population, unemployment rate, GDP per capita.
+
+    In the technical report, answer all questions listed in the Instructions section. You may supplement your written answers with figures or tables (screenhots are sufficient). For each question, briefly describe the procedure used to obtain the answer.
+
+    <br>
+    **DATA SOURCES:**
+    
+      [:material-download: DATA :material-layers:](../assets/cviceni3/GISE_ex03_data.zip){ .md-button .md-button--primary .button_smaller }
+        {: .button_array style="justify-content:flex-start;"}
+    
+    **SUBMISSION FORM:**
+
+    - technical report + geojson + csv table (submit by 25/10, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
+
+    [:material-download: Technical report template :material-layers:](../assets/cviceni2/technical_report.doc){ .md-button .md-button--primary .button_smaller }
+      {: .button_array style="justify-content:flex-start;"}
+
+    <br>
+
+    **WORKFLOW:**
+    
+    **- TBA**
+    
+<!--    - Join
+        1. Download prepared data, which include a geodatabase and a shapefile. Connect the geodatabase to your project and add country polygon feature layer and country table to the map.
+        2. Join data from table to data in polygon feature layer. *(Add Join)*
+    - Attribute Query
+        1. Add Rivers layer from geodatabase
+        2. Choose one river that flows through at least two countries.
+        3. Remove all other rivers (Select by Attributes)
+    - Spatial Query
+        1. Select all the countries through which this river passes. (Select by Location)
+        2. Delete all other countries. (Select by Location)
+        3. Add Cities layer from geodatabase.
+        4. Select all cities in your countries. (Select by Location)
+        5. Delete all other cities. (Select by Location)
+    - Spatial Join
+        1. Join Name from countries into cities. (Spatioal Join)
+    - Share Data
+        1. Save data as Shapefile (Feature Class To Shapefile)
+        2. Make ZIP file with data -->
+
+
+__Supplemental exercise:__
+{: align=center }
+
+[<span>learn.arcgis.com</span><br>Join tabular data to a spatial layer](https://learn.arcgis.com/en/projects/join-tabular-data-to-a-spatial-layer/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: align=center}
 
 

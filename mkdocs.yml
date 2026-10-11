@@ -4,8 +4,8 @@ nav:
   - Practicals:
       - Introduction to ArcGIS, spatial data, data sources: practicals/Introduction.md
       - Map projections: practicals/MapProjections.md
-      - Vector data, attribute queries, spatial queries: practicals/VectorData.md
-      - Join external data, spatial join: practicals/JoinExternalData.md
+      - Vector data (queries, joins and spatial relationships): practicals/VectorData_Queries_Joins.md
+      #- Join external data, spatial join: practicals/JoinExternalData.md
       - Raster data, Georeferencing, Editing and Creating Vector Data: practicals/georeferencing_vectorization.md
       - Geoprocessing tools: practicals/GeoprocessingTools.md
       - Terrain analysis, map algebra: practicals/TerrainAnalysis.md
