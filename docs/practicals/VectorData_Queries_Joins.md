@@ -407,16 +407,36 @@ __Resources:__
 
     Explore statistical data of the NUTS 2 regions in your country using attribute and spatial queries.
 
-    Create a polygon layer of NUTS regions in GeoJSON format containing the following attributes:
-    - NUTS 2 ID, NUTS 2 name, country code, population, unemployment rate, GDP, number of airports and airport density (number of airports per km²)
-    - for each characteristic (population, unemployment rate, and GDP), add a text attribute indicating whether each region is below or above the mean value for that characteristic.
+    1. **Create a thematic geodatabase** named `YourSurname_CountryName_as03.gdb` **containing the following layers / tables**:
 
-    Create a table in CSV format containing the following information for EU countries and their NUTS 2 regions:
-    - country name,
-    - total number of NUTS 2 regions,
-    - mean, minimum and maximum values of the following indicators: population, unemployment rate, GDP per capita.
+        - **a polygon layer of NUTS 2 regions located within your selected country**
+          (**Required attributes:** NUTS 2 ID, NUTS 2 name, country code, population, population category, unemployment rate, unemployment rate category, GDP, GDP category, number of airports, airport density (airports per km²), area, area category)
+        - **a polygon layer of NUTS 2 regions neighbouring your selected country**
+          (**Required attributes:** NUTS 2 ID, NUTS 2 name, country code, population, population category, unemployment rate, unemployment rate category, GDP, GDP category, number of airports, airport density (airports per km²), area, area category)
+        - **a point layer of airports located within your selected country**
+          (**Required attributes:** ID, type, name, lat_deg, long_deg, elevation_ft, country ID, NUTS 2 ID, NUTS 2 name)
+        - **a point layer of airports located within 100 km of the borders of your selected country**
+          (**Required attributes:** ID, type, name, lat_deg, long_deg, elevation_ft, country ID, NUTS 2 ID, NUTS 2 name)
+        - **a table summarising the following numerical information about NUTS 2 regions for individual EU countries** *(region names do not need to be included!)*:
+          count, min_area, max_area, avg_area, min_pop, max_pop, avg_pop, min_ur, max_ur, avg_ur, min_gdp, max_gdp, avg_gdp)
 
-    In the technical report, answer all questions listed in the Instructions section. You may supplement your written answers with figures or tables (screenhots are sufficient). For each question, briefly describe the procedure used to obtain the answer.
+    
+    2. **Create a map poster** named `YourSurname_CountryName_as03.pdf` **containing**:
+
+        - **A map showing airports located within your selected country.** Airports must be distinguished by colour according to their type (small / medium / large). Use shaded relief and NUTS 2 region boundaries as the map background.
+        - **A map showing one selected statistical indicator (unemployment rate / GDP per capita) **using an areal mapping method. Use two colours to distinguish NUTS 2 regions according to whether the value of the selected indicator is above or below the EU average.
+        - A text section containing written answers / comments on the following questions related to the maps:
+
+              - map of airports:
+
+                    - How many airports are located within your selected country?
+                    - How many airports are located within 100 km of the country border?
+                    - List the names of the NUTS 2 regions within your country with the highest and lowest airport density.
+
+              - map of selected statistical indicator (unemployment rate / GDP per capita)_
+
+                    - How many NUTS 2 regions border your selected country? Which countries do these regions belong to?
+                    - List the names of the NUTS 2 regions within your country with the highest and lowest values of the selected indicator.
 
     <br>
     **DATA SOURCES:**
@@ -426,16 +446,8 @@ __Resources:__
     
     **SUBMISSION FORM:**
 
-    - technical report + geojson + csv table (submit by 25/10, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
+    - gdb + map poster in PDF (submit by 25/10, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
 
-    [:material-download: Technical report template :material-layers:](../assets/cviceni2/technical_report.doc){ .md-button .md-button--primary .button_smaller }
-      {: .button_array style="justify-content:flex-start;"}
-
-    <br>
-
-    **WORKFLOW:**
-    
-    **- TBA**
     
 <!--    - Join
         1. Download prepared data, which include a geodatabase and a shapefile. Connect the geodatabase to your project and add country polygon feature layer and country table to the map.
@@ -462,5 +474,7 @@ __Supplemental exercise:__
 
 [<span>learn.arcgis.com</span><br>Join tabular data to a spatial layer](https://learn.arcgis.com/en/projects/join-tabular-data-to-a-spatial-layer/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 {: align=center}
+
+
 
 
