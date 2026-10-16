@@ -1,0 +1,1392 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../MapProjections/">
+      
+      
+        <link rel="next" href="../georeferencing_vectorization/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Practical 3 - Geographic Information Systems (155GISE)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#working-with-vector-data-queries-joins-and-spatial-relationships" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Geographic Information Systems (155GISE)" class="md-header__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Geographic Information Systems (155GISE)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Practical 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Course information
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Introduction/" class="md-tabs__link">
+          
+  
+  
+  Practicals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../DataSources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data sources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Geographic Information Systems (155GISE)" class="md-nav__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Geographic Information Systems (155GISE)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practicals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Practicals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduction/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to ArcGIS, spatial data, data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MapProjections/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Map projections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector data (queries, joins and spatial relationships)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector data (queries, joins and spatial relationships)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#spatial-data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial data types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribute-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribute queries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spatial-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial queries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribute-and-spatial-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribute and spatial join
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attribute and spatial join">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#join-the-attributes-from-a-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Join the attributes from a table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-data-by-location-spatially" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Join data by location spatially
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assignment 02
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../georeferencing_vectorization/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Raster data, Georeferencing, Editing and Creating Vector Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GeoprocessingTools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Geoprocessing tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TerrainAnalysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14 4-8V7H9v2h4l-4 8z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain analysis, map algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WMS_AGOL/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Web map services, ArcGIS Online
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataSources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="working-with-vector-data-queries-joins-and-spatial-relationships">Working with vector data: queries, joins and spatial relationships</h1>
+<p><strong>Spatial data</strong> is any type of data that directly or indirectly references a specific geographical area or location. A location can be represented not only by a combination of coordinates (X + Y, latitude + longitude, etc.), but also by, for example, an address (of arbitrary detail). The two most common data formats used to store (geo)spatial data are vector and raster.</p>
+<h2 id="spatial-data-types">Spatial data types</h2>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3v6h2.95l2 6H6v6h6v-4.59L17.41 11H22V5h-6v4.57L10.59 15H9.06l-2-6H8V3M4 5h2v2H4m14 0h2v2h-2M8 17h2v2H8Z"></path></svg></span> <strong>Vector data</strong></p>
+<hr>
+<ul>
+<li>
+<p>represent elements of the real world using basic geometric elements: <strong>points, lines and surfaces</strong> (called polygons)</p>
+</li>
+<li>
+<p>the detail of the data is determined by the <strong>detail of the coordinates of the vertices</strong> of the geometric feature</p>
+</li>
+<li>
+<p>suitable for modelling and analysis of <strong>discrete objects</strong> (e.g. location of points, land cover categories)</p>
+</li>
+<li>
+<p>suitable for <strong>map creation, length measurements, geometric calculations</strong></p>
+</li>
+<li>
+<p>possible problems with <strong>topology</strong> (gaps and overlaps)</p>
+</li>
+<li>
+<p>basic vector data formats are <strong>Esri Shapefile, GeoJSON, GeoPackage</strong> or <strong>KML/GML</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4v4h4V4zm6 0v4h4V4zm0 6v4h4v-4zm0 6v4h4v-4zm-2 4v-4h-4v4zm-6 0v-4H4v4zm0-6v-4H4v4zm0-6V4H4v4zm2 6h4v-4h-4zM4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4c-1.08 0-2-.9-2-2V4a2 2 0 0 1 2-2"></path></svg></span> <strong>Raster data</strong></p>
+<hr>
+<ul>
+<li>
+<p>represent real world elements in the form of a regular grid made up of  <strong>pixels</strong> (from <em>picture element</em>)</p>
+</li>
+<li>
+<p>the detail of the data is determined by the <strong>spatial resolution</strong> of the grid, i.e. the <strong>size</strong> of the <strong>pixel</strong> edge (in meters)</p>
+</li>
+<li>
+<p>suitable for modeling and analysis of <strong>continuous phenomena</strong> (elevation, temperature, precipitation)</p>
+</li>
+<li>
+<p>used for <strong>image data</strong> (e.g. satellite imagery)</p>
+</li>
+<li>
+<p>raster datasets can become potentially very large</p>
+</li>
+<li>
+<p>basic raster data formats are <strong>GeoTIFF, JPEG, PNG</strong> or <strong>GIF</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni3/VectorVsRaster.png" data-desc-position="bottom"><img alt="Difference in graphical representation of vector and raster data" src="../../assets/cviceni3/VectorVsRaster.png" title="Difference in graphical representation of vector and raster data" width="600px"></a>
+  </p>
+<figcaption>Difference in graphical representation of vector and raster data (Geletič et al. 2019)</figcaption>
+</figure>
+<hr class="level-1">
+
+<h2 id="attribute-queries">Attribute queries</h2>
+<p>Attribute Query is a method of selecting/filtering elements based on <strong>attribute values</strong>. It complements the interactive feature selection method from practical 1. The basis is a selection rule - called <strong>Expression</strong>. ArcGIS Pro allows you to build expressions interactively using a dialog, but to use the full potential of expressions, it is recommended to use SQL code.
+<br><br></p>
+<p><strong>Attribute query</strong> (over map data): <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 3H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 16H3V5h10v4h8z"></path></svg></span> Map</em> → <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.1 15.3c-.1.1-.3.2-.4.3l-2.4.4 1.7 3.6c.2.4 0 .8-.4 1l-2.8 1.3c-.1.1-.2.1-.3.1-.3 0-.6-.2-.7-.4L11.2 18l-1.9 1.5c-.1.1-.3.2-.5.2-.4 0-.8-.3-.8-.8V7.5c0-.5.3-.8.8-.8.2 0 .4.1.5.2l8.7 7.4c.3.2.4.7.1 1M6 12H4V4h16v8h-1.6l2.2 1.9c.8-.3 1.3-1 1.3-1.9V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2z"></path></svg></span> Select By Attributes</em> → fill in the dialog...
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-using-attributes.htm" target="_blank">Select features using attributes</a></p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_33.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_33.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_34.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_34.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_35.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_35.png"></a></p>
+<figcaption>
+<p>The <code>Input Rows</code> field is automatically prepopulated with the layer selected in the map content</p>
+</figcaption>
+<p>Using the <img alt="" class="off-glb" src="../../assets/cviceni1/img_36.png" style="vertical-align: -20%;margin:0px 5px;"> you can change the notation between the interactive dialog entry and the SQL expression.</p>
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/write-a-query-in-the-query-builder.htm" target="_blank">Introduction to query expressions</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/construct-and-modify-queries.htm" target="_blank">Construct and modify queries</a></p>
+<style>
+  details.page_color_admonition summary:first-child::before {background-color:var(--md-primary-fg-color) !important;}
+  /* details.page_color_admonition summary:first-child         {color:#009485 !important;} */
+  details.page_color_admonition summary:first-child::after  {color:var(--md-primary-fg-color) !important;}
+  details.page_color_admonition {border-color: var(--md-primary-fg-color) !important;margin:50px 0px;}
+  details.page_color_admonition summary {background-color: #4051b51a !important;}
+</style>
+
+<!--
+<details class="task-fg-color page_color_admonition" open="">
+  <summary>Example to try<div style="display:inline-block; border-left: 1px solid var(--md-admonition-fg-color); height:.9rem;vertical-align:-20%;margin:0px 20px"></div><span style="font-weight:normal;">testing attribute queries on real data</span></summary>
+  <iframe style="filter:none !important;margin-top:.6rem;" width="100%" height="500" frameborder="0" allowfullscreen src="https://geo.fsv.cvut.cz/data/hoffmann/appqueryGISE/"></iframe>
+  <hr class="level-1" style="margin-top:5px !important; margin-bottom:0px !important;">
+  <div style="margin-top:10px;margin-left:10px;font-weight:bold;font-size:larger;">Layer attributes scheme:</div>
+
+  <div class="table_small_padding">
+  <table>
+    <tr>
+      <th>attribute</th>
+      <th>data type</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td>FEATURECLA</td>
+      <td><code>String</code></td>
+      <td>Populated places classification</td>
+    </tr>
+    <tr>
+      <td>NAME</td>
+      <td><code>String</code></td>
+      <td>Name of the populated place</td>
+    </tr>
+    <tr>
+      <td>WORLDCITY</td>
+      <td><code>Integer</code></td>
+      <td>Whether the place is classified as a World city, <br><code>0=no</code>, <code>1=yes</code></td>
+    </tr>
+    <tr>
+      <td>MEGACITY</td>
+      <td><code>Integer</code></td>
+      <td>Whether the place is classified as a Mega city, <br><code>0=no</code>, <code>1=yes</code></td>
+    </tr>
+    <tr>
+      <td>SOV0NAME</td>
+      <td><code>String</code></td>
+      <td>Name of the sovereign country</td>
+    </tr>
+    <tr>
+      <td>ADM0NAME</td>
+      <td><code>String</code></td>
+      <td>Name of the admin country</td>
+    </tr>
+    <tr>
+      <td>ADM1NAME  </td>
+      <td><code>String</code></td>
+      <td>Name of the First-level administrative devision in a country</td>
+    </tr>
+    <tr>
+      <td>LATITUDE</td>
+      <td><code>Double</code></td>
+      <td>Latitude</td>
+    </tr>
+    <tr>
+      <td>LONGITUDE</td>
+      <td><code>Double</code></td>
+      <td>Longitude</td>
+    </tr>
+    <tr>
+      <td>POP_MAX</td>
+      <td><code>Double</code></td>
+      <td>Estimate of inhabitants of the place <b>with</b> urban agglomeration</td>
+    </tr>
+    <tr>
+      <td>POP_MIN</td>
+      <td><code>Double</code></td>
+      <td>Estimate of inhabitants of the place <b>without</b> urban agglomeration</td>
+    </tr>
+    <tr>
+      <td>TIMEZONE</td>
+      <td><code>String</code></td>
+      <td>Name of the timezone</td>
+    </tr>
+  </table>
+  </div>
+</details> -->
+
+<hr class="level-1">
+
+<h2 id="spatial-queries">Spatial queries</h2>
+<p>Spatial Query is a method of selecting/filtering elements of one layer based on their relative position with elements of another layer. The function uses as input the <strong><code>layer of selected elements</code></strong>, the <strong><code>layer for overlay analysis</code></strong> a the <strong><code>relationship for overlay analysis</code></strong>.</p>
+<!-- ![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_01.svg){ .off-glb .no-filter }
+![](https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_02.svg){ .off-glb .no-filter }
+{: .process_container style="flex-wrap:wrap; row-gap: 10px;"} -->
+
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_01.svg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_01.svg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_02.svg" data-desc-position="bottom"><img alt="" class="no-filter" src="https://geo.fsv.cvut.cz/data/cehak/155SGEA/img_02.svg"></a></p>
+<div class="table_headerless table_small_padding table_centered centered_tab_labels">
+<!-- trik: vlastnosti tabulky pro vsechny podrizene -->
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Select POINTS...</label><label for="__tabbed_1_2">Select LINES...</label><label for="__tabbed_1_3">Select POLYGONS...</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">...using POINTS</label><label for="__tabbed_2_2">...using LINES</label><label for="__tabbed_2_3">...using POLYGONS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-1ECFFABC-3608-4BB4-86A8-FD6FA0F16C13-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-1ECFFABC-3608-4BB4-86A8-FD6FA0F16C13-web.gif" style="filter:none !important;"></a></p>
+<p></p><table style="width:unset;">
+    <tbody><tr><td>Intersect</td><td>A</td></tr>
+    <tr><td>Intersect (DBMS)</td><td>A</td></tr>
+    <tr><td>Contains</td><td>A</td></tr>
+    <tr><td>Contains Clementini</td><td>A</td></tr>
+    <tr><td>Within</td><td>A</td></tr>
+    <tr><td>Within Clementini</td><td>A</td></tr>
+    <tr><td>Are identical to</td><td>A</td></tr>
+    <tr><td>Have their center in</td><td>A</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-171AD80E-550B-4017-AEB7-1A681D722F60-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-171AD80E-550B-4017-AEB7-1A681D722F60-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+    <tbody><tr><td>Intersect</td><td>A, C</td></tr>
+    <tr><td>Intersect (DBMS)</td><td>A, C</td></tr>
+    <tr><td>Within</td><td>A, C</td></tr>
+    <tr><td>Completely within</td><td>A</td></tr>
+    <tr><td>Within Clementini</td><td>A</td></tr>
+    <tr><td>Have their center in</td><td>A, C</td></tr>
+    <tr><td>Boundary touches</td><td>C</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-12153063-E9B3-42E5-A786-E3FAF6BB004E-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-12153063-E9B3-42E5-A786-E3FAF6BB004E-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C</td></tr>
+  <tr><td>Within</td><td>A, C</td></tr>
+  <tr><td>Completely within</td><td>A</td></tr>
+  <tr><td>Within Clementini</td><td>A</td></tr>
+  <tr><td>Have their center in</td><td>A, C</td></tr>
+  <tr><td>Boundary touches</td><td>C</td></tr>
+</tbody></table><p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">...using POINTS</label><label for="__tabbed_3_2">...using LINES</label><label for="__tabbed_3_3">...using POLYGONS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-FD60FA73-31CD-4BD7-B03C-06806851BC9E-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-FD60FA73-31CD-4BD7-B03C-06806851BC9E-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D</td></tr>
+  <tr><td>Contains</td><td>A, C, D</td></tr>
+  <tr><td>Completely contains</td><td>A, D</td></tr>
+  <tr><td>Contains Clementini</td><td>A, D</td></tr>
+  <tr><td>Have their center in</td><td>D</td></tr>
+  <tr><td>Boundary touches</td><td>C</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-09D6FB47-31A3-47C3-A8B8-19BB659EBA8A-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-09D6FB47-31A3-47C3-A8B8-19BB659EBA8A-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J</td></tr>
+  <tr><td>Contains</td><td>G, H</td></tr>
+  <tr><td>Completely contains</td><td>G</td></tr>
+  <tr><td>Contains Clementini</td><td>G, H</td></tr>
+  <tr><td>Within</td><td>F, H</td></tr>
+  <tr><td>Completely within</td><td>F</td></tr>
+  <tr><td>Within Clementini</td><td>F, H</td></tr>
+  <tr><td>Are identical to</td><td>H</td></tr>
+  <tr><td>Boundary touches</td><td>C, E</td></tr>
+  <tr><td>Share a line segment with</td><td>F, G, H, I, J</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-54663F11-5B47-46A5-82C1-37FD1FDDC835-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-54663F11-5B47-46A5-82C1-37FD1FDDC835-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+  <tr><td>Within</td><td>A, D, G, H, I, O</td></tr>
+  <tr><td>Completely within</td><td>A</td></tr>
+  <tr><td>Within Clementini</td><td>A, D, G, H, I</td></tr>
+  <tr><td>Boundary touches</td><td>F, G, H, I, K, L, M, N, O</td></tr>
+  <tr><td>Share a line segment with</td><td>G, I, J, K, M, O</td></tr>
+  <tr><td>Crossed by the outline of</td><td>C, E, H, L, N</td></tr>
+  <tr><td>Have their center in</td><td>A, C, D, E, G, H, I, J, O</td></tr>
+</tbody></table><p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">...using POINTS</label><label for="__tabbed_4_2">...using LINES</label><label for="__tabbed_4_3">...using POLYGONS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-0973BB65-5DAE-461A-8B84-E58332CDA443-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-0973BB65-5DAE-461A-8B84-E58332CDA443-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, B</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, B</td></tr>
+  <tr><td>Contains</td><td>A, B</td></tr>
+  <tr><td>Completely contains</td><td>A</td></tr>
+  <tr><td>Contains Clementini</td><td>A</td></tr>
+  <tr><td>Have their center in</td><td>A, D</td></tr>
+  <tr><td>Boundary touches</td><td>B</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-EFDE4E93-532E-4D6E-BB29-9BBFC783CEC7-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-EFDE4E93-532E-4D6E-BB29-9BBFC783CEC7-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+  <tr><td>Contains</td><td>A, D, G, H, I, O</td></tr>
+  <tr><td>Completely contains</td><td>A</td></tr>
+  <tr><td>Contains Clementini</td><td>A, D, G, H, I</td></tr>
+  <tr><td>Boundary touches</td><td>F, G, H, I, K, L, M, N, O</td></tr>
+  <tr><td>Share a line segment with</td><td>G, I, J, K, M, O</td></tr>
+  <tr><td>Crossed by the outline of</td><td>C, E, H, L, N</td></tr>
+  <tr><td>Have their center in</td><td>E, I, L</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-7802EBC1-8E73-4071-AE12-4445AB1C24B5-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-7802EBC1-8E73-4071-AE12-4445AB1C24B5-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J, K, M</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J, K, M</td></tr>
+  <tr><td>Contains</td><td>C, E, H, M</td></tr>
+  <tr><td>Completely contains</td><td>C</td></tr>
+  <tr><td>Contains Clementini</td><td>C, E, H, M</td></tr>
+  <tr><td>Within</td><td>F, G, H, M</td></tr>
+  <tr><td>Completely within</td><td>F</td></tr>
+  <tr><td>Within Clementini</td><td>F, G, H, M</td></tr>
+  <tr><td>Are identical to</td><td>H, M</td></tr>
+  <tr><td>Boundary touches</td><td>D, E, G, H, I, J, M</td></tr>
+  <tr><td>Share a line segment with</td><td>D, H, I, M</td></tr>
+  <tr><td>Crossed by the outline of</td><td>A, E, G, J, K</td></tr>
+  <tr><td>Have their center in</td><td>C, E, F, G, H, K, L</td></tr>
+</tbody></table><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- <figcaption markdown>zdroj: [Select By Location graphic examples](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-by-location-graphical-examples.htm)</figcaption> -->
+
+<p align="center" style="display:flex; justify-content:center; align-items:center; column-gap:20px; row-gap:10px; flex-wrap:wrap;"><strong>Resources:</strong>
+{: align=center }
+<a class="md-button md-button--primary button_smaller" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-by-location.htm" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span> Select features by location</a>
+<a class="md-button md-button--primary button_smaller" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-layer-by-location.htm" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span> Select Layer By Location (Data Management)</a>
+<a class="md-button md-button--primary button_smaller" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-by-location-graphical-examples.htm" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span> Select By Location graphic examples</a></p>
+<hr class="level-1">
+
+<h2 id="attribute-and-spatial-join">Attribute and spatial join</h2>
+<p>Through a common field, known as a <strong>key</strong>, you can associate records in one table with records in another table. For example, you can associate a table of parcel ownership information with the parcels layer, because they share a parcel identification field. You can make these associations in several ways. Joins can also be based on spatial location.</p>
+<p>Joins information are stored in the layer's properties, so they can be applied only to tables that are opened from a map or scene. To access join information, right-click the layer and click <em>Properties</em> to open the <em>Layer Properties</em> dialog box, and click the <em>Joins</em> tab.</p>
+<h3 id="join-the-attributes-from-a-table">Join the attributes from a table</h3>
+<p>Typically, you'll join a table of data to a layer based on the value of a field that can be found in both tables. The name of the field does not have to be the same, but the data type must be the same; you join numbers to numbers, strings to strings, and so on. You can perform a join using the <em>Add Join</em> geoprocessing tool. When performing an attribute join, the joined fields are dynamically added to the existing table. Field properties (such as aliases, visibility, and number formatting) are maintained when a join is added or removed.</p>
+<p align="center"><img alt="" class="no-filter off-glb" src="../../assets/cviceni5/join.gif"></p>
+<div class="admonition note-grey">
+<p class="admonition-title">Note</p>
+<p>When joining tables, the default option is to <strong>keep all records</strong>. If a record in the target table doesn't have a match in the join table, that record is given null values for all the fields being appended into the target table from the join table.</p>
+<p align="center"><img alt="" class="no-filter off-glb" src="../../assets/cviceni5/keepallrecords.gif"></p>
+<p>With the <strong>keep only matching records</strong> option, if a record in the target table doesn't have a match in the join table, that record is removed from the resultant target table. If the target table is the attribute table of a layer, features that don't have data joined to them are not shown on the map.</p>
+<p align="center"><img alt="" class="no-filter off-glb" src="../../assets/cviceni5/keeponlymatching.gif"></p>
+</div>
+<h3 id="join-data-by-location-spatially">Join data by location spatially</h3>
+<p>When the layers on your map don't share a common attribute field, you can join them using the <em>Spatial Join</em> geoprocessing tool, which joins the attributes of two layers based on the location of the features in the layers.</p>
+<p>With a spatial join, you can complete any of the following common workflows:</p>
+<ul>
+<li>Find the nearest feature</li>
+<li>Find what is inside a polygon</li>
+<li>Find what intersects a feature</li>
+</ul>
+<p>Join by location, or spatial join, uses spatial associations between the layers involved to append fields from one layer to another. Depending on the type of association, you can append the attributes or an aggregate (minimum, maximum, mean, and so on) of numeric attributes from a matched feature to the target features. Spatial joins by default are different from attribute-driven joins in that they are <strong>not dynamic</strong> and require you to save the results to a new output layer.</p>
+<p align="center"><strong>Resources:</strong></p>
+<p class="button_array"><a class="md-button md-button--primary server_name external_link_icon_small" href="https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#GUID-39C9610A-6A73-4985-ADB8-7354EA9DB8BF" target="_blank"><span>pro.arcgis.com</span><br>Join the attributes from a table</a>
+<a class="md-button md-button--primary server_name external_link_icon_small" href="https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#GUID-7B11EAA4-35E0-4B8D-AFB6-4A435761574B" target="_blank"><span>pro.arcgis.com</span><br>Join data by location (spatially)</a>
+<a class="md-button md-button--primary server_name external_link_icon_small" href="https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#ESRI_SECTION1_6507320BCB1E45219A88F1AA0A24F7B9" target="_blank"><span>learn.arcgis.com</span><br>Remove join</a></p>
+<hr class="level-1">
+
+<h2 id="assignment-02">Assignment 02</h2>
+<div class="admonition abstract">
+<p class="admonition-title">Exploring European regions</p>
+<p><strong>TASK:</strong></p>
+<p>Explore statistical data of the NUTS 2 regions in your country using attribute and spatial queries.</p>
+<ol>
+<li>
+<p><strong>Create a thematic geodatabase</strong> named <code>YourSurname_CountryName_as03.gdb</code> <strong>containing the following layers / tables</strong>:</p>
+<ul>
+<li><strong>a polygon layer of NUTS 2 regions located within your selected country</strong>
+  (<strong>Required attributes:</strong> NUTS 2 ID, NUTS 2 name, country code, population, population category, unemployment rate, unemployment rate category, GDP, GDP category, number of airports, airport density (airports per km²), area, area category)</li>
+<li><strong>a polygon layer of NUTS 2 regions neighbouring your selected country</strong>
+  (<strong>Required attributes:</strong> NUTS 2 ID, NUTS 2 name, country code, population, population category, unemployment rate, unemployment rate category, GDP, GDP category, number of airports, airport density (airports per km²), area, area category)</li>
+<li><strong>a point layer of airports located within your selected country</strong>
+  (<strong>Required attributes:</strong> ID, type, name, lat_deg, long_deg, elevation_ft, country ID, NUTS 2 ID, NUTS 2 name)</li>
+<li><strong>a point layer of airports located within 100 km of the borders of your selected country</strong>
+  (<strong>Required attributes:</strong> ID, type, name, lat_deg, long_deg, elevation_ft, country ID, NUTS 2 ID, NUTS 2 name)</li>
+<li><strong>a table summarising the following numerical information about NUTS 2 regions for individual EU countries</strong> <em>(region names do not need to be included!)</em>:
+  count, min_area, max_area, avg_area, min_pop, max_pop, avg_pop, min_ur, max_ur, avg_ur, min_gdp, max_gdp, avg_gdp)</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a map poster</strong> in A3 format named <code>YourSurname_CountryName_as03.pdf</code> <strong>containing</strong>:</p>
+<ul>
+<li><strong>A map showing airports located within your selected country.</strong> Airports must be distinguished by colour according to their type (small / medium / large). Use shaded relief and NUTS 2 region boundaries as the map background.</li>
+<li>**A map showing one selected statistical indicator (unemployment rate / GDP per capita) **using an areal mapping method. Use two colours to distinguish NUTS 2 regions according to whether the value of the selected indicator is above or below the EU average.</li>
+<li>
+<p><strong>A text section containing written answers / comments on the following questions</strong> related to the maps:</p>
+<ul>
+<li>
+<p>map of airports:</p>
+<div class="highlight"><pre><span></span><code>- How many airports are located within your selected country?
+- How many airports are located within 100 km of the country border?
+- List the names of the NUTS 2 regions within your country with the highest and lowest airport density.
+</code></pre></div>
+</li>
+<li>
+<p>map of selected statistical indicator (unemployment rate / GDP per capita)_</p>
+<div class="highlight"><pre><span></span><code>- How many NUTS 2 regions border your selected country? Which countries do these regions belong to?
+- List the names of the NUTS 2 regions within your country with the highest and lowest values of the selected indicator.
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><br>
+<strong>DATA SOURCES:</strong></p>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="../../assets/cviceni3/GISE_ex03_data.zip"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"></path></svg></span> DATA <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span></a></p>
+<p><strong>SUBMISSION FORM:</strong></p>
+<ul>
+<li>gdb + map poster in PDF (submit by 01/11, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)</li>
+</ul>
+<p><strong>INSTRUCTIONS:</strong></p>
+<ol>
+<li>
+<p>Add the <code>NUTS_RG_03M_2024_4326_LEVL_2.shp</code> layer to the map and explore the contents of its attribute table.</p>
+</li>
+<li>
+<p>Join the data from <code>NUTS2_statistics.csv</code> to the NUTS 2 regions layer (<em>Add Join</em>). Export the layer with the joined data as a new feature layer with an appropriate name, for example <code>NUTS02_statistics</code> (<em>Data → Export Features</em>).</p>
+</li>
+<li>
+<p>In the new <code>NUTS02_statistics</code> layer, create four new text fields:</p>
+<ul>
+<li><code>pop_cat</code> – population category</li>
+<li><code>ur_cat</code> – unemployment rate category</li>
+<li><code>GDP_cat</code> – GDP category</li>
+<li><code>area_cat</code> – area category</li>
+</ul>
+<p>For each NUTS 2 region, assign either <code>"above avg"</code> or <code>"below avg"</code> depending on whether the value of the corresponding indicator is above or below the mean value for all NUTS 2 regions in the EU. (<em>Add Field</em>, <em>Select By Attributes</em>, and <em>Calculate Field</em>)</p>
+</li>
+<li>
+<p>Create a summary table for individual EU countries containing the minimum, maximum, and average values of the following statistical indicators (<em>Attribute Table → Summarize</em>):</p>
+<ul>
+<li>population</li>
+<li>unemployment rate</li>
+<li>GDP per capita</li>
+<li>area</li>
+</ul>
+</li>
+<li>
+<p>From the <code>NUTS02_statistics</code> layer, select only the NUTS 2 regions belonging to your selected country using (<em>Select By Attributes</em>). Export the selected features to a new layer (<em>Data → Export Features</em>).</p>
+</li>
+<li>
+<p>Add the airport data from <code>eu-airports_filtered.csv</code> to the map (<em>XY Table To Point</em>).</p>
+</li>
+<li>
+<p>From the airport layer, use <em>Select By Location</em> to select:</p>
+<ul>
+<li>all airports located within your selected country;</li>
+<li>all airports located within 100 km of the border of your selected country (excluding airports located inside your country!)</li>
+</ul>
+<p>Export both spatial selections as separate point layers (<em>Data → Export Features</em>).</p>
+<p>Then use <em>Spatial Join</em> to add the NUTS 2 region name and NUTS 2 ID to both airport layers according to the region in which each airport is located.</p>
+</li>
+<li>
+<p>From the <code>NUTS02_statistics</code> layer containing the NUTS 2 regions of all EU countries, use <em>Select By Location</em> to select the NUTS 2 regions that border your selected country.</p>
+<p>Export the spatial selection as a separate polygon layer using (<em>Data → Export Features</em>).</p>
+</li>
+<li>
+<p>For both the NUTS 2 regions within your selected country and the neighbouring NUTS 2 regions, use <em>Spatial Join</em> to calculate the number of airports located in each region (<em>Spatial Join → New Field → Count</em>). Then add and calculate a new attribute representing airport density (number of airports per km²).</p>
+</li>
+<li>
+<p>Create an A3 map poster according to the assignment requirements. Choose portrait or landscape orientation depending on the shape and extent of your selected country.</p>
+</li>
+</ol>
+</div>
+<!--    - Join
+        1. Download prepared data, which include a geodatabase and a shapefile. Connect the geodatabase to your project and add country polygon feature layer and country table to the map.
+        2. Join data from table to data in polygon feature layer. *(Add Join)*
+    - Attribute Query
+        1. Add Rivers layer from geodatabase
+        2. Choose one river that flows through at least two countries.
+        3. Remove all other rivers (Select by Attributes)
+    - Spatial Query
+        1. Select all the countries through which this river passes. (Select by Location)
+        2. Delete all other countries. (Select by Location)
+        3. Add Cities layer from geodatabase.
+        4. Select all cities in your countries. (Select by Location)
+        5. Delete all other cities. (Select by Location)
+    - Spatial Join
+        1. Join Name from countries into cities. (Spatioal Join)
+    - Share Data
+        1. Save data as Shapefile (Feature Class To Shapefile)
+        2. Make ZIP file with data -->
+
+<p align="center"><strong>Supplemental exercise:</strong></p>
+<p align="center"><a class="md-button md-button--primary server_name external_link_icon_small" href="https://learn.arcgis.com/en/projects/join-tabular-data-to-a-spatial-layer/" target="_blank"><span>learn.arcgis.com</span><br>Join tabular data to a spatial layer</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
