@@ -421,11 +421,11 @@ __Resources:__
           count, min_area, max_area, avg_area, min_pop, max_pop, avg_pop, min_ur, max_ur, avg_ur, min_gdp, max_gdp, avg_gdp)
 
     
-    2. **Create a map poster** named `YourSurname_CountryName_as03.pdf` **containing**:
+    2. **Create a map poster** in A3 format named `YourSurname_CountryName_as03.pdf` **containing**:
 
         - **A map showing airports located within your selected country.** Airports must be distinguished by colour according to their type (small / medium / large). Use shaded relief and NUTS 2 region boundaries as the map background.
         - **A map showing one selected statistical indicator (unemployment rate / GDP per capita) **using an areal mapping method. Use two colours to distinguish NUTS 2 regions according to whether the value of the selected indicator is above or below the EU average.
-        - A text section containing written answers / comments on the following questions related to the maps:
+        - **A text section containing written answers / comments on the following questions** related to the maps:
 
               - map of airports:
 
@@ -446,7 +446,52 @@ __Resources:__
     
     **SUBMISSION FORM:**
 
-    - gdb + map poster in PDF (submit by 25/10, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
+    - gdb + map poster in PDF (submit by 01/11, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
+
+    
+    **INSTRUCTIONS:**
+
+    1. Add the `NUTS_RG_03M_2024_4326_LEVL_2.shp` layer to the map and explore the contents of its attribute table.
+
+    2. Join the data from `NUTS2_statistics.csv` to the NUTS 2 regions layer (*Add Join*). Export the layer with the joined data as a new feature layer with an appropriate name, for example `NUTS02_statistics` (*Data → Export Features*).
+
+    3. In the new `NUTS02_statistics` layer, create four new text fields:
+
+        - `pop_cat` – population category
+        - `ur_cat` – unemployment rate category
+        - `GDP_cat` – GDP category
+        - `area_cat` – area category
+
+        For each NUTS 2 region, assign either `"above avg"` or `"below avg"` depending on whether the value of the corresponding indicator is above or below the mean value for all NUTS 2 regions in the EU. (*Add Field*, *Select By Attributes*, and *Calculate Field*)
+
+    4. Create a summary table for individual EU countries containing the minimum, maximum, and average values of the following statistical indicators (*Attribute Table → Summarize*):
+
+        - population
+        - unemployment rate
+        - GDP per capita
+        - area
+
+
+    5. From the `NUTS02_statistics` layer, select only the NUTS 2 regions belonging to your selected country using (*Select By Attributes*). Export the selected features to a new layer (*Data → Export Features*).
+
+    6. Add the airport data from `eu-airports_filtered.csv` to the map (*XY Table To Point*).
+
+    7. From the airport layer, use *Select By Location* to select:
+
+        - all airports located within your selected country;
+        - all airports located within 100 km of the border of your selected country (excluding airports located inside your country!)
+
+        Export both spatial selections as separate point layers (*Data → Export Features*).
+
+        Then use *Spatial Join* to add the NUTS 2 region name and NUTS 2 ID to both airport layers according to the region in which each airport is located.
+
+    8. From the `NUTS02_statistics` layer containing the NUTS 2 regions of all EU countries, use *Select By Location* to select the NUTS 2 regions that border your selected country.
+
+        Export the spatial selection as a separate polygon layer using (*Data → Export Features*).
+
+    9. For both the NUTS 2 regions within your selected country and the neighbouring NUTS 2 regions, use *Spatial Join* to calculate the number of airports located in each region (*Spatial Join → New Field → Count*). Then add and calculate a new attribute representing airport density (number of airports per km²).
+
+    10. Create an A3 map poster according to the assignment requirements. Choose portrait or landscape orientation depending on the shape and extent of your selected country.
 
     
 <!--    - Join
