@@ -51,7 +51,7 @@ __Resources:__
     
     **SUBMISSION FORM:**
 
-    - 1 map in PDF format (submit by 16/03, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
+    - 1 map in PDF format (send to <a href="mailto:josef.munzberger@fsv.cvut.cz">josef.munzberger@fsv.cvut.cz</a>)
     
     <br>
     **INSTRUCTIONS:**
