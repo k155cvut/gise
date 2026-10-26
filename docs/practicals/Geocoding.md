@@ -114,7 +114,11 @@ __Resources:__
     <br>
     ![Static tour map](../assets/cviceni9/Elton.png){ width=800px }
     {: align=center}
-
     <br>
-    ![Animated result](../assets/cviceni9/Elton.mp4){ width=800px }
-    {: align=center}
+    
+<div style="text-align: center;">
+  <video width="800" controls style="max-width: 100%;">
+    <source src="../assets/cviceni9/Elton.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
