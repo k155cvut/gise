@@ -4,12 +4,10 @@ title: Practical 9
 ---
 # Geocoding
 
-**Spatial data** is any type of data that directly or indirectly references a specific geographical area or location. A location can be represented not only by a combination of coordinates (X + Y, latitude + longitude, etc.), but also by, for example, an address (of arbitrary detail). The two most common data formats used to store (geo)spatial data are vector and raster.
-
-Finding places on a map is an integral part of a GIS. **Geocoding** is the process of transforming a description of a location (such as a pair of coordinates, an address, or a name of a place) to a location on the earth's surface. You can geocode by providing one location description at a time to zoom to a location on a map or convert an entire table that can be used for spatial analysis. When you *geocode* a table of addresses, you use a locator to create point features that represent the locations of the addresses.
+Finding places on a map is an integral part of a GIS. *Geocoding* is the process of transforming a description of a location (such as a pair of coordinates, an address, or a name of a place) to a location on the earth's surface. You can geocode by providing one location description at a time to zoom to a location on a map or convert an entire table that can be used for spatial analysis. When you *geocode* a table of addresses, you use a locator to create point features that represent the locations of the addresses.
 
 <figure markdown>
-![Geocoding process](../assets/Geocoding/GeoCoding.png "Geocoding process"){ width=400px }
+![Geocoding process](../assets/cviceni3/GeoCoding.png "Geocoding process"){ width=400px }
     <figcaption>Geocoding process [*(ArcMap, 2025)*](https://desktop.arcgis.com/en/arcmap/latest/manage-data/geocoding/geocoding-a-table-of-addresses-about.htm)</figcaption> 
 </figure>
 
@@ -27,15 +25,15 @@ __Resources:__
     
     <br>
     <figure markdown>
-    ![Geoparsing process](../assets/Geocoding/GeoParsing.png "Geoparsing process"){ width=400px }
+    ![Geoparsing process](../assets/cviceni3/GeoParsing.png "Geoparsing process"){ width=400px }
     <figcaption>Geoparsing process [*(Leppämäki, 2022)*](https://blogs.helsinki.fi/digital-geography/2022/05/16/geoparsing-how-to-gain-location-information-from-finnish-texts/)</figcaption> 
     </figure>
 
 
 
-<source src="../assets/Geocoding/Elton.mp4" type="video/mp4">
+<source src="../assets/cviceni9/Elton.mp4" type="video/mp4">
 
-## Assignment 05
+## Assignment 02
 !!! abstract "My favourite artist tour"
     **TASK:**
 
@@ -67,8 +65,8 @@ __Resources:__
         
         <br>
 
-        ![Import data from web](../assets/Geocoding/WikiToExcel.png "Import data from web"){ width=400px }
-        ![Final table](../assets/Geocoding/ExcelEditTable.png "Final table"){ width=400px }
+        ![Import data from web](../assets/cviceni3/WikiToExcel.png "Import data from web"){ width=400px }
+        ![Final table](../assets/cviceni3/ExcelEditTable.png "Final table"){ width=400px }
         {: .process_container}
 
         <br>
@@ -77,7 +75,7 @@ __Resources:__
 
         <br>
         <figure markdown>
-        ![Geocoding guide in ArcGIS Pro](../assets/Geocoding/GeocodeTable.png "Geocoding guide in ArcGIS Pro"){ width=200px }
+        ![Geocoding guide in ArcGIS Pro](../assets/cviceni3/GeocodeTable.png "Geocoding guide in ArcGIS Pro"){ width=200px }
         <figcaption>Geocoding guide in ArcGIS Pro</figcaption> 
         </figure>
 
@@ -92,7 +90,7 @@ __Resources:__
 
             <br>
             <figure markdown>
-            ![Geocoding guide in ArcGIS Pro](../assets/Geocoding/GeocodedTable.png "Geocoding guide in ArcGIS Pro"){ width=800px }
+            ![Geocoding guide in ArcGIS Pro](../assets/cviceni3/GeocodedTable.png "Geocoding guide in ArcGIS Pro"){ width=800px }
             <figcaption>Geocoding guide in ArcGIS Pro</figcaption> 
             </figure>
         
@@ -114,7 +112,5 @@ __Resources:__
     - Export *Layout* in PDF Format
 
     <br>
-    ![](../assets/Geocoding/Elton.png){ width=800px }
+    ![](../assets/cviceni9/Elton.png){ width=800px }
     {: align=center}
-
-    
