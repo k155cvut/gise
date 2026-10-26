@@ -112,5 +112,9 @@ __Resources:__
     - Export *Layout* in PDF Format
 
     <br>
-    ![](../assets/cviceni9/Elton.png){ width=800px }
+    ![Static tour map](../assets/cviceni9/Elton.png){ width=800px }
+    {: align=center}
+
+    <br>
+    ![Animated result](../assets/cviceni9/Elton.mp4){ width=800px }
     {: align=center}
