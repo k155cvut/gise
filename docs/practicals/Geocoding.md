@@ -114,4 +114,3 @@ __Resources:__
     <br>
     ![Static tour map](../assets/cviceni9/Elton.png){ width=800px }
     {: align=center}
-    <br>
