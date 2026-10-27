@@ -256,7 +256,15 @@ div.table_centered .md-typeset__scrollwrap {text-align: center;}
   }
 
 
+/* Results table */
+.md-typeset .results-table th,
+.md-typeset .results-table td {
+  white-space: nowrap;
+}
 
+.md-typeset .green-check {
+  color: #4caf50;
+}
 
 
 
