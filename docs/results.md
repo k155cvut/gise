@@ -1,5 +1,5 @@
 # Results
-
+<div class="results-table" markdown="1">
 | Student       | Assignment 1                     | Assignment 2     | Assignment 3     | Assignment 4     | Assignment 5     | Assignment 6     | Assignment 7                     | Overall         |
 | ------------- | -------------------------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | -------------------------------- | --------------- |
 | `CASSAING`    | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-close:                 | :material-close: |
@@ -13,3 +13,4 @@
 | `RASMUSSEN`   | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `SOLLID`      | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `TUDOR`       | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
+</div>
