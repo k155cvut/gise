@@ -13,5 +13,3 @@
 | `RASMUSSEN`   | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `SOLLID`      | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `TUDOR`       | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
-
-{ .results-table }
