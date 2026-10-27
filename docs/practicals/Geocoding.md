@@ -33,7 +33,7 @@ __Resources:__
 
 <source src="../assets/cviceni9/Elton.mp4" type="video/mp4">
 
-## Assignment 02
+## Assignment 07
 !!! abstract "My favourite artist tour"
     **TASK:**
 
