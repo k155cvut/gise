@@ -13,6 +13,7 @@ nav:
       #- Editing nad creating vector data, topology, map layout: practicals/CreatingVectorData_EditingTools_GISE_WS2024.md
       - Geocoding: practicals/Geocoding.md
   - Data sources: DataSources.md
+  - Results: results.md
 plugins:
   - search
   - glightbox:
