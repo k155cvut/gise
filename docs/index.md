@@ -176,10 +176,10 @@ attendance recommended
 | 21.09. | [Course introduction, ArcGIS Pro basics, spatial data, attribute table](https://k155cvut.github.io/gise/practicals/Introduction) | JM | |
 | 28.09. | <span class="schedule-cancel">— no class —</span> | — | — |
 | 05.10. | [Map Projections in Detail](https://k155cvut.github.io/gise/practicals/MapProjections) | JK | <span class="schedule-deadline"><a href="https://k155cvut.github.io/gise/practicals/MapProjections/#assignment-01">Assignment 01 · due 18/10</a></span> |
-| 12.10. | [Vector data (attribute and location queries)](https://k155cvut.github.io/gise/practicals/VectorData/) | PJ | <span class="schedule-deadline"><a href="https://k155cvut.github.io/gise/practicals/JoinExternalData/#assignment-02">Assignment 02 · due 25/10</a></span> |
-| 19.10. | [Join external data, Data sources, Spatial join](https://k155cvut.github.io/gise/practicals/JoinExternalData/) | PJ | |
-| 26.10. | Geocoding | JM | |
-| 02.11. | [Raster data, Georeferencing, Editing and Creating Vector Data](https://k155cvut.github.io/gise/practicals/georeferencing_vectorization/) | PJ | <span class="schedule-deadline"><a href="https://k155cvut.github.io/gise/practicals/georeferencing_vectorization/#assignment-03">Assignment 03 · due 15/11</a></span> |
+| 12.10. | [Vector data (queries, joins and spatial relationships) 1](https://k155cvut.github.io/gise/practicals/VectorData_Queries_Joins/) | PJ |  |
+| 19.10. | [Vector data (queries, joins and spatial relationships) 2](https://k155cvut.github.io/gise/practicals/VectorData_Queries_Joins/) | JK | <span class="schedule-deadline"><a href="https://k155cvut.github.io/gise/practicals/VectorData_Queries_Joins/#assignment-02">Assignment 02 · due 01/11</a></span> |
+| 26.10. | [Geocoding](https://k155cvut.github.io/gise/practicals/Geocoding) | JM | <span class="schedule-deadline"><a href="https://k155cvut.github.io/gise/practicals/Geocoding/#assignment-07">Assignment 07 · due 08/11</a></span> |
+| 02.11. | [Raster data, Georeferencing, Editing and Creating Vector Data](https://k155cvut.github.io/gise/practicals/georeferencing_vectorization/) | JK | <span class="schedule-deadline"><a href="https://k155cvut.github.io/gise/practicals/georeferencing_vectorization/#assignment-03">Assignment 03 · due 15/11</a></span> |
 | 09.11. | [Geoprocessing tools](https://k155cvut.github.io/gise/practicals/GeoprocessingTools/) | PJ | <span class="schedule-deadline"><a href="https://k155cvut.github.io/gise/practicals/GeoprocessingTools/#assignment-04">Assignment 04 · due 22/11</a></span> |
 | 16.11. | <span class="schedule-cancel">— no class —</span> | — | — |
 | 19.11. | Elevation models (DEM, DSM, DTM), Terrain analysis, [Map Algebra](https://k155cvut.github.io/gise/practicals/TerrainAnalysis/) | PJ | <span class="schedule-deadline"><a href="https://k155cvut.github.io/gise/practicals/TerrainAnalysis/#assignment-05">Assignment 05 · due 06/12</a></span> |
