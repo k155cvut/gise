@@ -103,7 +103,7 @@ __Sources:__
     <br>
     **SUBMISSION FORM:**
 
-    - technical report + 1 map in PDF format (submit by 09/11, send to <a href="mailto:koudeja2@student.cvut.cz">koudeja2@student.cvut.cz</a>)
+    - technical report + 1 map in PDF format (submit by 09/11, send to <a href="mailto:koudeja2@cvut.cz">koudeja2@cvut.cz</a>)
 
     [:material-download: Technical report template :material-layers:](../assets/cviceni2/technical_report.doc){ .md-button .md-button--primary .button_smaller }
       {: .button_array style="justify-content:flex-start;"}
