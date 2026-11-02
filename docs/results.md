@@ -4,7 +4,7 @@
 | ------------- | -------------------------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | -------------------------------- | --------------- |
 | `CASSAING`    | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-close:                 | :material-close: |
 | `DIMPLE`      | :material-close:                 | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-close:                 | :material-close: |
-| `FRANCISCO`   | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-close:                 | :material-close: |
+| `FRANCISCO`   | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:                 | :material-close: |
 | `GRENSEMANN`  | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `HOFEN`       | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `KARRAN`      | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
