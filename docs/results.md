@@ -8,8 +8,8 @@
 | `HOFEN`       | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `KARRAN`      | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `KY`          | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
-| `LEMAN`       | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
+| `LEMAN`       | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `RASMUSSEN`   | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
-| `SOLLID`      | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
+| `SOLLID`      | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `TUDOR`       | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 </div>
