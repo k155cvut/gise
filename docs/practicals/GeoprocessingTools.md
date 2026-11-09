@@ -5,6 +5,158 @@ title: Practical 6
 
 # Geoprocessing tools
 
+Geoprocessing tools are used for data analysis, modification, and processing. They allow us to perform spatial operations such as selecting features according to their relative location, creating new layers, combining or modifying data, and deriving new information. Geoprocessing tools make it easier to solve spatial tasks that would be time-consuming or very difficult to perform manually.
+
+
+<div class="centered_tab_labels gallery-tabs" markdown>
+
+=== "select"
+
+    [**_SELECT_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/select.htm)<br>
+    Selects features from a dataset that meet specified conditions, such as attribute queries or spatial criteria.
+
+    ![Example of the Select tool](../assets/Geoprocessing/select_ai.png){: style="width: 50%;" }
+
+=== "clip"
+
+    [**_CLIP_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/clip.htm)<br>
+    Extracts a part of one dataset based on the boundaries of another dataset. The result is a new dataset containing only the areas inside the clip features. _CLIP_ can be performed using polygon, line, and point layers; see the tool documentation for details.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Example of the Clip tool](../assets/Geoprocessing/clip_esri.png)
+
+      <figcaption markdown>
+        source: [Clip (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/clip.html?tabs=dialog)
+      </figcaption>
+
+    </figure>
+
+=== "buffer"
+
+    [**_BUFFER_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm)<br>
+    Creates zones around input geographic features at a specified distance. These zones can be used, for example, to analyse the influence of a particular feature on its surroundings.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Example of the Buffer tool](../assets/Geoprocessing/buffer_doc.png)
+
+    <figcaption markdown>
+      source: [Buffer (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm)
+    </figcaption>
+
+    </figure>
+
+=== "dissolve"
+
+    [**_DISSOLVE_**](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/dissolve.html?tabs=dialog)<br>
+    Aggregates features according to a specified attribute, reducing the number of features and creating larger units (for example, merging polygons of the same type).
+
+    <figure class="gallery-figure" markdown>
+
+      ![Example of the Dissolve tool](../assets/Geoprocessing/dissolve_county_esri.png)
+
+      <figcaption markdown>
+      source: [Dissolve (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/dissolve.html?tabs=dialog)
+      </figcaption>
+
+    </figure>
+
+=== "intersect"
+
+    [**_INTERSECT_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/intersect.htm)<br>
+    Combines two or more input layers and creates new features where their geometries overlap.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Example of the Intersect tool](../assets/Geoprocessing/intersect_esri.gif)
+
+      <figcaption markdown>
+      source: [Intersect (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/intersect.html?tabs=dialog)
+      </figcaption>
+
+    </figure>
+
+=== "erase"
+
+    [**_ERASE_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm)<br>
+    Removes parts of one layer that overlap with another input layer, leaving the remaining geometry.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Example of the Erase tool](../assets/Geoprocessing/erase_esri.gif)
+
+      <figcaption markdown>
+      source: [Erase (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm)
+      </figcaption>
+
+    </figure>
+
+=== "merge"
+
+    [**_MERGE_**](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/merge.html?)<br>
+    Combines multiple input layers of the same geometry type (points, lines, or polygons) into a single new layer while preserving the geometry of the individual features.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Example of the Merge tool](../assets/Geoprocessing/merge_esri.png)
+
+      <figcaption markdown>
+      source: [Merge (Data Management Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/merge.html?)
+      </figcaption>
+
+    </figure>
+
+=== "union"
+
+    [**_UNION_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)<br>
+    Combines the geometries and attributes of two or more layers into a new layer. The result contains areas representing all combinations of the input features.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Example of the Union tool](../assets/Geoprocessing/union_esri.gif)
+
+      <figcaption markdown>
+      source: [Union (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)
+      </figcaption>
+
+    </figure>
+
+=== "sym. difference"
+
+    [**_SYMMETRICAL DIFFERENCE_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm)<br>
+    Creates a new layer containing features that occur in either one of the input layers, but not in their overlapping area.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Example of the Symmetrical Difference tool](../assets/Geoprocessing/symdiff_esri.gif)
+
+      <figcaption markdown>
+      source: [Symmetrical Difference (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm)
+      </figcaption>
+
+    </figure>
+
+=== "count overlapping"
+
+    [**_COUNT OVERLAPPING FEATURES_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm)<br>
+    Counts the number of overlapping features and stores the result in a new layer or attribute table.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Example of the Count Overlapping Features tool](../assets/Geoprocessing/countoverlappingfeatures_esri.png)
+
+      <figcaption markdown>
+      source: [Count Overlapping Features (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm)
+      </figcaption>
+
+    </figure>
+
+</div>
+
+<hr class="level-1">
+
+<!--
 **Geoprocessing tools** in ArcGIS Pro are essential functions used to perform spatial analysis and data management tasks. They allow users to process geographic data through operations ranging from basic operations like [***spatial overlaying***](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/an-overview-of-the-overlay-toolset.htm) to advanced analyses such as [***terrain modeling***](https://pro.arcgis.com/en/pro-app/latest/help/data/terrain-dataset/terrain-dataset-in-arcgis-pro.htm). Each tool takes input data, applies a specific operation, and produces an output dataset that can be visualised or used for further analysis. Tools can be run individually from the [***Geoprocessing pane***](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geoprocessing/basics/find-geoprocessing-tools.htm) or combined into automated workflows using [***ModelBuilder***](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geoprocessing/modelbuilder/what-is-modelbuilder-.htm) or [***Python scripts***](https://pro.arcgis.com/en/pro-app/latest/arcpy/geoprocessing_and_python/using-tools-in-python.htm). Geoprocessing is at the core of spatial problem solving, helping users transform raw geographic data into meaningful information and to reveal valuable insights by uncovering previously unseen spatial patterns and relationships.
 
 ## Basic geoprocessing tools
@@ -57,13 +209,13 @@ ModelBuilder is a visual programming environment that allows users to create, ed
 Python can be used to automate the execution of geoprocessing tools as well as provide the ability to create your own geoprocessing tools, either as a script tool or as a Python toolbox tool.
 
 ![](../assets/Geoprocessing/Python.png){ .no-filter .off-glb }
-{: align=center}
+{: align=center} -->
 
 ## Assignment 04
 !!! abstract "Noise map of Czechia"
     **TASK:**
 
-    Make a map showing two types of noise zones in Czechia. Distinguish the zones by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports).
+    Make a map poster showing two types of noise zones in Czechia. Distinguish the zones by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports).
 
     Within Czechia, define areas of high and increased noise zones, according to the following criteria:
 
@@ -83,7 +235,7 @@ Python can be used to automate the execution of geoprocessing tools as well as p
     </figure>
 
     <br>
-    In technical report answer following questions:
+    In a map poster answer following questions:
     
     - What proportion of Czechia (in %) lies within the high-noise zone?
     - What proportion of Czechia (in %) is affected by noise from both roads and airports?
@@ -98,11 +250,8 @@ Python can be used to automate the execution of geoprocessing tools as well as p
          
     **SUBMISSION FORM:**
 
-    - technical report + map in PDF format (submit by 23/11, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
+    - map poster in PDF format (submit by 22/11, send to <a href="mailto:petra.justova@fsv.cvut.cz">petra.justova@fsv.cvut.cz</a>)
 
-    [:material-download: Technical report template :material-layers:](../assets/cviceni2/technical_report.doc){ .md-button .md-button--primary .button_smaller }
-      {: .button_array style="justify-content:flex-start;"}
-    
 
 
     **INSTRUCTIONS:**
