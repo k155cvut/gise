@@ -10,13 +10,6 @@ Geoprocessing tools are used for data analysis, modification, and processing. Th
 
 <div class="centered_tab_labels gallery-tabs" markdown>
 
-=== "select"
-
-    [**_SELECT_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/select.htm)<br>
-    Selects features from a dataset that meet specified conditions, such as attribute queries or spatial criteria.
-
-    ![Example of the Select tool](../assets/Geoprocessing/select_ai.png){: style="width: 50%;" }
-
 === "clip"
 
     [**_CLIP_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/clip.htm)<br>
