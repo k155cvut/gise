@@ -3,7 +3,6 @@
 | Student       | Assignment 1                     | Assignment 2     | Assignment 3     | Assignment 4     | Assignment 5     | Assignment 6     | Assignment 7                     | Overall         |
 | ------------- | -------------------------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | -------------------------------- | --------------- |
 | `CASSAING`    | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
-| `DIMPLE`      | :material-close:                 | :material-close:                 | :material-close:                 | :material-close: | :material-close: | :material-close: | :material-close:                 | :material-close: |
 | `FRANCISCO`   | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `GRENSEMANN`  | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
 | `HOFEN`       | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-check:{ .green-check } | :material-close: | :material-close: | :material-close: | :material-check:{ .green-check } | :material-close: |
