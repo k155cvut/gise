@@ -85,7 +85,7 @@ __Sources:__
     In technical report answer following questions:
     
     - How has the extent of built-up area changed?
-    - Why is digitalization important today?
+    - Why is digitalization in cartography important today?
 
 
     <br>
