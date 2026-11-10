@@ -205,10 +205,10 @@ Python can be used to automate the execution of geoprocessing tools as well as p
 {: align=center} -->
 
 ## Assignment 04
-!!! abstract "Noise map of Czechia"
+!!! abstract "Noise zones in Czechia"
     **TASK:**
 
-    Make a map poster showing two types of noise zones in Czechia. Distinguish the zones by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports).
+    Make a map poster with two maps showing two types of noise zones in Czechia. Distinguish the zones by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports).
 
     Within Czechia, define areas of high and increased noise zones, according to the following criteria:
 
@@ -222,12 +222,6 @@ Python can be used to automate the execution of geoprocessing tools as well as p
         - at a distance of 10–20 km from an airport
         - at a distance of 3–6 km from highways
 
-    <figure markdown>
-      ![Noise map of Czechia](../assets/Geoprocessing/NoiseMap.png "Noise map of Czechia"){ width=600px }
-      <figcaption>Noise map of Czechia</figcaption>
-    </figure>
-
-    <br>
     In a map poster answer following questions:
     
     - What proportion of Czechia (in %) lies within the high-noise zone?
@@ -250,11 +244,21 @@ Python can be used to automate the execution of geoprocessing tools as well as p
     **INSTRUCTIONS:**
 
     - Create buffers around airports and roads according to the specified criteria *(Buffer)*
-    - Create a layer in which noisy areas are geometrically distinguished by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports) *(Union, Dissolve)*
+    - Create two layers in which noisy areas are geometrically distinguished by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports) *(Union, Dissolve)*
     - Clip layers to the boundaries of Czechia *(Clip)*
-    - Set the symbolization of all layers properly. 
-    - In *New Layout* (A4 Landscape) insert the Map Title, Scale and Credits.
+    - Set the symbology of both layers properly to distinguished the noise areas by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports). *(Symbology)*
+    - In *New Layout* (A3 or A4 Portrait) insert the Map Title, Scale and Credits. Do not forget to add the text with answering following questions:
+    
+        - What proportion of Czechia (in %) lies within the high-noise zone?
+        - What proportion of Czechia (in %) is affected by noise from both roads and airports?
+        - What proportion of Czechia (in %) lies within the normal-noise zone?
+    
     - Export *Layout* in PDF Format
+
+      <figure markdown>
+          ![Noise map of Czechia](../assets/Geoprocessing/NoiseMap02.png "Noise in Czechia"){ width=400px }
+          <figcaption>Noise in Czechia</figcaption>
+        </figure>
 
 <!--
 ## Workflow
