@@ -247,7 +247,7 @@ Python can be used to automate the execution of geoprocessing tools as well as p
     - Create two layers in which noisy areas are geometrically distinguished by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports) *(Union, Dissolve)*
     - Clip layers to the boundaries of Czechia *(Clip)*
     - Set the symbology of both layers properly to distinguished the noise areas by noise level (increased vs. high) and by noise source (roads vs. airports vs. roads + airports). *(Symbology)*
-    - In *New Layout* (A3 or A4 Portrait) insert the Map Title, Scale and Credits. Do not forget to add the text with answering following questions:
+    - In *New Layout* (A3 / A4 Portrait) insert the Map Title, Scale and Credits. Do not forget to add the text with answering following questions:
     
         - What proportion of Czechia (in %) lies within the high-noise zone?
         - What proportion of Czechia (in %) is affected by noise from both roads and airports?
