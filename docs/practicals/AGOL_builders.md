@@ -116,6 +116,8 @@ Open the Hosted Feature Layer item and inspect:
 - **Visualization** – default representation,
 - **Settings** – editing, export and other layer capabilities.
 
+<hr/>
+
 # ArcGIS Vector Tile Style Editor
 
 A **basemap** provides geographic context for thematic information. In web cartography, the basemap should support the thematic layers rather than compete with them visually.
@@ -144,6 +146,10 @@ Save the resulting style to your ArcGIS Online content.
 
 ???+ question "Cartographic decision"
     Which basemap elements are essential for interpreting the spatial distribution of natural hazards, and which can be visually suppressed or removed?
+
+<hr/>
+
+# Web Map
 
 ## Create a Web Map
 
@@ -174,6 +180,7 @@ Save the map as:
 ```text
 NOAA Natural Hazard Events
 ```
+<hr/>
 
 # ArcGIS Instant App
 
@@ -203,6 +210,8 @@ Natural Hazard Events Through Time
 
 ???+ note-fg-color "Numeric slider vs. time slider"
     The Slider template can animate data using a **numeric field in one or more layers**. Using the numeric year attribute avoids the need to construct complete date values for historical records where month or day may be unknown.
+
+<hr/>
 
 # ArcGIS StoryMap
 
