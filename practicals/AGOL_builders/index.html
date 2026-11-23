@@ -1,0 +1,1213 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Geocoding/">
+      
+      
+        <link rel="next" href="../../DataSources/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Practical 10 - Geographic Information Systems (155GISE)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arcgis-online" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Geographic Information Systems (155GISE)" class="md-header__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Geographic Information Systems (155GISE)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Practical 10
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Course information
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Introduction/" class="md-tabs__link">
+          
+  
+  
+  Practicals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../DataSources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data sources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../results/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Results
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Geographic Information Systems (155GISE)" class="md-nav__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Geographic Information Systems (155GISE)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practicals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Practicals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduction/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to ArcGIS, spatial data, data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MapProjections/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Map projections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VectorData_Queries_Joins/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector data (queries, joins and spatial relationships)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../georeferencing_vectorization/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Raster data, Georeferencing, Editing and Creating Vector Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GeoprocessingTools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Geoprocessing tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TerrainAnalysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14 4-8V7H9v2h4l-4 8z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain analysis, map algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WMS_AGOL/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Web map services, ArcGIS Online
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Geocoding/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Geocoding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Web GIS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Web GIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#arcgis-online-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ArcGIS Online content
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-noaa-event-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparing NOAA event data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparing NOAA event data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-the-tsv-files-into-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import the TSV files into Excel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-data-to-arcgis-online" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing data to ArcGIS Online
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing data to ArcGIS Online">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-has-been-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What has been created?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataSources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="arcgis-online">ArcGIS Online</h1>
+<p>In a typical web GIS workflow, individual components build on each other:</p>
+<p><strong>data → web layer → web map → application</strong></p>
+<ul>
+<li><strong>Data</strong> are the source geographic and attribute information.</li>
+<li>A <strong>web layer</strong> makes the geographic data available through ArcGIS Online and can be reused in multiple maps and applications.</li>
+<li>A <strong>web map</strong> combines one or more web layers with their symbology, pop-ups, filters and other map settings.</li>
+<li>A <strong>web application</strong> uses a web map or web layers and adds a user interface and tools designed for a particular purpose.</li>
+</ul>
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni1/AGOL_workflow.svg" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni1/AGOL_workflow.svg" width="800px"></a></p>
+<details class="note-fg-color" open="open">
+<summary>Why separate data, maps and applications?</summary>
+<p>One dataset can be reused in several web maps, and one web map can be used in several applications. Changes to a shared data source can therefore propagate to multiple outputs without creating unnecessary copies of the data.</p>
+</details>
+<h2 id="arcgis-online-content">ArcGIS Online content</h2>
+<p>Items stored in ArcGIS Online can represent different parts of a web GIS project. During this practical, we will mainly work with:</p>
+<ul>
+<li><strong>Hosted Feature Layers</strong> – vector data hosted in ArcGIS Online,</li>
+<li><strong>Hosted Feature Layer Views</strong> – alternative interfaces to an existing Hosted Feature Layer,</li>
+<li><strong>Web Maps</strong> – map compositions combining layers, symbology and map configuration,</li>
+<li><strong>Applications</strong> – user-facing interfaces built on top of web maps and web layers.</li>
+</ul>
+<p>The aim of this practical is to prepare and publish datasets so that they can be <strong>managed efficiently and reused in subsequent web maps and applications</strong>.</p>
+<details class="note-fg-color" open="open">
+<summary>Browser-based workflow</summary>
+<p>This practical uses a fully browser-based workflow and does not require ArcGIS Pro. ArcGIS Online is, however, a proprietary cloud GIS platform and publishing hosted layers requires an organisational account with appropriate privileges.</p>
+</details>
+<h2 id="preparing-noaa-event-data">Preparing NOAA event data</h2>
+<p>We will use three datasets from the <a class="color_def underlined_dotted external_link_icon" href="https://www.ngdc.noaa.gov/hazel/view/hazards/" target="_blank"><strong>NOAA Natural Hazards database</strong></a>:</p>
+<ul>
+<li><strong>Earthquake Events</strong></li>
+<li><strong>Volcano Events</strong></li>
+<li><strong>Tsunami Events</strong></li>
+</ul>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="https://www.ngdc.noaa.gov/hazel/view/hazards/earthquake/event-data/">Earthquake Events <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.9 17.39c-.26-.8-1.01-1.39-1.9-1.39h-1v-3a1 1 0 0 0-1-1H8v-2h2a1 1 0 0 0 1-1V7h2a2 2 0 0 0 2-2v-.41a7.984 7.984 0 0 1 2.9 12.8M11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.22.21-1.79L9 15v1a2 2 0 0 0 2 2m1-16A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://www.ngdc.noaa.gov/hazel/view/hazards/volcano/event-search/">Volcano Events <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 8h-7l-2 5H6l-4 9h20zm-5-7h2v4h-2zm3.12 4.47 2.83-2.83 1.41 1.41-2.82 2.83zM7.64 4.05l1.41-1.41 2.83 2.82-1.41 1.42z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://www.ngdc.noaa.gov/hazel/view/hazards/tsunami/event-search/">Tsunami Events <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12h2v2h-2c-1.38 0-2.74-.35-4-1-2.5 1.3-5.5 1.3-8 0-1.26.65-2.63 1-4 1H2v-2h2c1.39 0 2.78-.47 4-1.33 2.44 1.71 5.56 1.71 8 0 1.22.86 2.61 1.33 4 1.33m0-6h2v2h-2c-1.38 0-2.74-.35-4-1-2.5 1.3-5.5 1.3-8 0-1.26.65-2.63 1-4 1H2V6h2c1.39 0 2.78-.47 4-1.33 2.44 1.71 5.56 1.71 8 0C17.22 5.53 18.61 6 20 6m0 12h2v2h-2c-1.38 0-2.74-.35-4-1-2.5 1.3-5.5 1.3-8 0-1.26.65-2.63 1-4 1H2v-2h2c1.39 0 2.78-.47 4-1.33 2.44 1.71 5.56 1.71 8 0 1.22.86 2.61 1.33 4 1.33"></path></svg></span></a></p>
+<p>Open each search interface, leave the search filters empty, run the search and download the resulting dataset as a tab-separated text file (<code>.tsv</code>).</p>
+<h3 id="import-the-tsv-files-into-excel">Import the TSV files into Excel</h3>
+<p>Do <strong>not</strong> open the downloaded TSV files by double-clicking or drag-and-drop. Instead:</p>
+<ol>
+<li>Open Excel and select <strong>Data → From Text/CSV</strong>.</li>
+<li>Select the downloaded <code>.tsv</code> file.</li>
+<li>Check that the delimiter is <strong>Tab</strong> and the encoding is <strong>UTF-8</strong>.</li>
+<li>Use <strong>Transform Data</strong> and review the detected field types.</li>
+<li>Remove the first data row containing the export search parameters.</li>
+<li>Remove the empty <code>Search Parameters</code> column.</li>
+<li>Keep missing values empty – <strong>do not replace them with zeros</strong>.</li>
+<li>Export the cleaned table as <strong>CSV UTF-8</strong>.</li>
+</ol>
+<details class="warning" open="open">
+<summary>Check automatic data conversion</summary>
+<p>Spreadsheet software may automatically interpret decimal values such as <code>7.3</code> as dates. Always import the TSV file using <strong>Data → From Text/CSV</strong> and verify the detected data types before loading the table.</p>
+</details>
+<details class="warning" open="open">
+<summary>Missing value ≠ zero</summary>
+<p>An empty value means that the information is unknown or unavailable. A value of <code>0</code> means that the phenomenon was measured and its value was zero. Replacing missing values with zeros would therefore change the meaning of the data.</p>
+</details>
+<p>Use simple filenames, for example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Earthquake_Events.csv
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Volcano_Events.csv
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Tsunami_Events.csv
+</code></pre></div>
+<h2 id="publishing-data-to-arcgis-online">Publishing data to ArcGIS Online</h2>
+<p>ArcGIS Online can publish spatial data directly from common file formats without using desktop GIS software. We will publish the three cleaned CSV files as point Hosted Feature Layers using their latitude and longitude attributes.</p>
+<p>Sign in to <a class="color_def underlined_dotted external_link_icon" href="https://www.arcgis.com/" target="_blank"><strong>ArcGIS Online</strong></a> using your organisational account.</p>
+<p>Create a folder named <code>Practical_01</code> in <strong>Content → My content</strong> and publish all three CSV files as separate Hosted Feature Layers.</p>
+<p>For each dataset:</p>
+<ol>
+<li>Click <strong>New item → Your device</strong> and select the corresponding CSV file.</li>
+<li>Choose <strong>Add file and create a hosted layer or table</strong>.</li>
+<li>Review the detected fields and their data types.</li>
+<li>For location information, select <strong>Latitude and longitude</strong>.</li>
+<li>Check that the appropriate latitude and longitude fields are used.</li>
+<li>Review numeric fields such as year, magnitude, VEI, casualties and damage.</li>
+<li>Add an appropriate title and tags.</li>
+<li>Save the item into the <code>Practical_01</code> folder.</li>
+</ol>
+<p>Use the following titles:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Earthquake Events
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Volcano Events
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Tsunami Events
+</code></pre></div>
+<details class="note-fg-color" open="open">
+<summary>CSV field types</summary>
+<p>CSV files do not store an explicit field schema. ArcGIS Online therefore estimates field types from the data. Always verify the detected types before publishing, especially for sparse numeric attributes containing many empty values.</p>
+</details>
+<h3 id="what-has-been-created">What has been created?</h3>
+<p>After publishing all three datasets, inspect <strong>My content</strong>. For each uploaded CSV, ArcGIS Online creates a source file item and a Hosted Feature Layer.</p>
+<p>Open the Hosted Feature Layer item and inspect:</p>
+<ul>
+<li><strong>Overview</strong> – item description, tags, credits and sharing,</li>
+<li><strong>Data</strong> – attribute table and fields,</li>
+<li><strong>Visualization</strong> – default representation,</li>
+<li><strong>Settings</strong> – editing, export and other layer capabilities.</li>
+</ul>
+<hr>
+
+<h1 id="arcgis-vector-tile-style-editor">ArcGIS Vector Tile Style Editor</h1>
+<p>A <strong>basemap</strong> provides geographic context for thematic information. In web cartography, the basemap should support the thematic layers rather than compete with them visually.</p>
+<p>ArcGIS Vector Tile Style Editor (VTSE) allows you to create a custom style based on an existing vector basemap. The underlying vector tiles remain the same, while colours, labels and other visual properties can be customised.</p>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="https://vtse.arcgis.com/">Vector Tile Style Editor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 12a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 17.5 9a1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5m-3-4A1.5 1.5 0 0 1 13 6.5 1.5 1.5 0 0 1 14.5 5 1.5 1.5 0 0 1 16 6.5 1.5 1.5 0 0 1 14.5 8m-5 0A1.5 1.5 0 0 1 8 6.5 1.5 1.5 0 0 1 9.5 5 1.5 1.5 0 0 1 11 6.5 1.5 1.5 0 0 1 9.5 8m-3 4A1.5 1.5 0 0 1 5 10.5 1.5 1.5 0 0 1 6.5 9 1.5 1.5 0 0 1 8 10.5 1.5 1.5 0 0 1 6.5 12M12 3a9 9 0 0 0-9 9 9 9 0 0 0 9 9 1.5 1.5 0 0 0 1.5-1.5c0-.39-.15-.74-.39-1-.23-.27-.38-.62-.38-1a1.5 1.5 0 0 1 1.5-1.5H16a5 5 0 0 0 5-5c0-4.42-4.03-8-9-8"></path></svg></span></a></p>
+<h2 id="create-a-custom-basemap">Create a custom basemap</h2>
+<p>Create a custom vector basemap suitable for displaying global natural-hazard events.</p>
+<p>Your basemap should:</p>
+<ul>
+<li>provide sufficient geographic context at global and regional scales,</li>
+<li>remain visually subordinate to the thematic event layers,</li>
+<li>use restrained colours,</li>
+<li>keep labels readable but unobtrusive,</li>
+<li>avoid unnecessary visual detail,</li>
+<li>maintain sufficient contrast with all three event layers.</li>
+</ul>
+<p>Use <strong>Quick Edit</strong> for broad visual changes and the detailed layer editor when individual feature classes or labels need further refinement.</p>
+<p>Save the resulting style to your ArcGIS Online content.</p>
+<details class="question" open="open">
+<summary>Cartographic decision</summary>
+<p>Which basemap elements are essential for interpreting the spatial distribution of natural hazards, and which can be visually suppressed or removed?</p>
+</details>
+<hr>
+
+<h1 id="web-map">Web Map</h1>
+<h2 id="create-a-web-map">Create a Web Map</h2>
+<p>Open <strong>Map Viewer</strong> and create a new map containing:</p>
+<ul>
+<li>your custom VTSE basemap,</li>
+<li><code>Earthquake Events – App</code>,</li>
+<li><code>Volcano Events – App</code>,</li>
+<li><code>Tsunami Events – App</code>.</li>
+</ul>
+<h3 id="configure-the-thematic-layers">Configure the thematic layers</h3>
+<p>Design the three event layers so that they are clearly distinguishable but visually coherent.</p>
+<p>Consider using quantitative attributes where appropriate, for example:</p>
+<ul>
+<li>earthquake magnitude,</li>
+<li>volcanic explosivity index (<code>VEI</code>),</li>
+<li>a quantitative tsunami attribute such as intensity or maximum run-up.</li>
+</ul>
+<p>Configure meaningful <strong>pop-ups</strong> for all three layers. Show only useful attributes and use understandable aliases and number formatting.</p>
+<details class="note-fg-color" open="open">
+<summary>Map before app</summary>
+<p>Configure symbology, pop-ups and the initial map extent in the <strong>Web Map</strong> rather than treating the application builder as the primary place for cartographic design. The Web Map will be reused by multiple applications.</p>
+</details>
+<p>Save the map as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>NOAA Natural Hazard Events
+</code></pre></div>
+<hr>
+
+<h1 id="arcgis-instant-app">ArcGIS Instant App</h1>
+<p>We will use an <strong>ArcGIS Instant Apps – Slider</strong> application to explore how the three types of events are distributed through time.</p>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="https://www.arcgis.com/apps/instantgallery/index.html">ArcGIS Instant Apps <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 5H3V4h18z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://doc.arcgis.com/en/instant-apps/latest/create-apps/slider.htm">Slider documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 13c-1.86 0-3.41 1.28-3.86 3H2v2h2.14c.45 1.72 2 3 3.86 3s3.41-1.28 3.86-3H22v-2H11.86c-.45-1.72-2-3-3.86-3m0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2M19.86 6c-.45-1.72-2-3-3.86-3s-3.41 1.28-3.86 3H2v2h10.14c.45 1.72 2 3 3.86 3s3.41-1.28 3.86-3H22V6zM16 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg></span></a></p>
+<h2 id="configure-the-slider-app">Configure the Slider app</h2>
+<ol>
+<li>Open the <code>NOAA Natural Hazard Events</code> Web Map.</li>
+<li>Create an application using <strong>Instant Apps</strong>.</li>
+<li>Select the <strong>Slider</strong> template.</li>
+<li>Configure a <strong>numeric slider</strong> using the numeric year attribute.</li>
+<li>Apply the slider to all three event layers.</li>
+<li>Configure the slider so that users can interactively explore changes in the distribution of events through time.</li>
+<li>Enable only interface elements that support the purpose of the application, such as the legend, layer list or pop-ups.</li>
+<li>Review the title, description and sharing settings.</li>
+<li>Publish the application.</li>
+</ol>
+<p>Use a title such as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Natural Hazard Events Through Time
+</code></pre></div>
+<details class="note-fg-color" open="open">
+<summary>Numeric slider vs. time slider</summary>
+<p>The Slider template can animate data using a <strong>numeric field in one or more layers</strong>. Using the numeric year attribute avoids the need to construct complete date values for historical records where month or day may be unknown.</p>
+</details>
+<hr>
+
+<h1 id="arcgis-storymap">ArcGIS StoryMap</h1>
+<p>The Instant App provides an <strong>exploratory view</strong> of the full dataset. We will now complement it with a <strong>curated narrative</strong> highlighting selected major events.</p>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="https://storymaps.arcgis.com/">ArcGIS StoryMaps <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg></span></a></p>
+<p>Create a StoryMap that combines a short narrative with selected event locations and the interactive Instant App.</p>
+<h2 id="map-tours">Map Tours</h2>
+<p>Prepare a short Map Tour, e.g.:</p>
+<ul>
+<li><strong>Top 5 Earthquake Events</strong></li>
+<li><strong>Top 5 Tsunami Events</strong></li>
+<li><strong>Top 5 Volcano Events</strong></li>
+</ul>
+<p>Instructions:</p>
+<ol>
+<li>Choose a meaningful quantitative criterion for selecting the five events.</li>
+<li>State the criterion clearly in the StoryMap.</li>
+<li>For each event, include:</li>
+<li>event name or location,</li>
+<li>year,</li>
+<li>the quantitative value used for ranking,</li>
+<li>a short explanatory text,</li>
+<li>an appropriate image where available.</li>
+</ol>
+<details class="question" open="open">
+<summary>What does Top 5 mean?</summary>
+<p>A ranking is meaningful only when the criterion is explicit. The most powerful earthquake, the deadliest earthquake and the most damaging earthquake are not necessarily the same event. Choose a criterion that can be justified from the available attributes.</p>
+</details>
+<h2 id="embed-the-instant-app">Embed the Instant App</h2>
+<p>Below the curated Map Tours, add a short transition explaining that the selected events represent only a small part of the complete dataset.</p>
+<p>Embed the published <strong>Natural Hazard Events Through Time</strong> Instant App so that readers can explore the full data interactively.</p>
+<details class="note-fg-color" open="open">
+<summary>Narrative + exploration</summary>
+<p>The StoryMap and Instant App serve different purposes. The Map Tours provide a <strong>curated narrative</strong>, while the embedded Instant App provides an <strong>exploratory interface</strong> to the complete dataset.</p>
+</details>
+<h2 id="output">Output</h2>
+<p>At the end of the practical, you should have the following ArcGIS Online items:</p>
+<ol>
+<li>a custom <strong>vector basemap style</strong> created in VTSE,</li>
+<li>a <strong>Web Map</strong> containing the three NOAA event layers,</li>
+<li>a <strong>Slider Instant App</strong> filtering the three event layers by year,</li>
+<li>a <strong>StoryMap</strong> containing <em>Top 5</em> Map Tour and the embedded Instant App.</li>
+</ol>
+<div class="admonition abstract">
+<p class="admonition-title">Final workflow</p>
+<p><strong>NOAA application Views → custom VTSE basemap → Web Map → Slider Instant App → StoryMap</strong></p>
+<p>The same Web Map and data will be reused in the next practical when creating an <strong>Experience Builder application</strong> and an <strong>ArcGIS Dashboard</strong>.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

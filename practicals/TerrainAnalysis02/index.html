@@ -1,0 +1,1277 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Terrain analysis, raster data and map algebra - Geographic Information Systems (155GISE)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#terrain-analysis-raster-data-and-map-algebra" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Geographic Information Systems (155GISE)" class="md-header__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Geographic Information Systems (155GISE)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Terrain analysis, raster data and map algebra
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Course information
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Introduction/" class="md-tabs__link">
+          
+  
+  
+  Practicals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../DataSources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data sources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../results/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Results
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Geographic Information Systems (155GISE)" class="md-nav__button md-logo" aria-label="Geographic Information Systems (155GISE)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Geographic Information Systems (155GISE)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practicals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Practicals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduction/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to ArcGIS, spatial data, data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MapProjections/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Map projections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VectorData_Queries_Joins/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector data (queries, joins and spatial relationships)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../georeferencing_vectorization/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Raster data, Georeferencing, Editing and Creating Vector Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GeoprocessingTools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Geoprocessing tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TerrainAnalysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14 4-8V7H9v2h4l-4 8z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain analysis, map algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WMS_AGOL/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Web map services, ArcGIS Online
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Geocoding/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Geocoding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AGOL_builders/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Web GIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataSources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="terrain-analysis-raster-data-and-map-algebra">Terrain analysis, raster data and map algebra</h1>
+<p>In this practical, we will focus on <strong>raster data</strong>, <strong>digital elevation models (DEM)</strong>, basic <strong>terrain analysis</strong>, <strong>interpolation</strong>, and <strong>map algebra</strong>. These concepts are widely used in environmental modelling, hydrology, landscape analysis, visibility studies, risk assessment, and many other GIS applications.</p>
+<p>The practical combines a short theoretical introduction with <strong>Assignment 05 – Areas of avalanche risk in the Krkonoše National Park</strong>.</p>
+<hr>
+<hr class="level-1">
+
+<h2 id="raster-data-basic-concepts">Raster data – basic concepts</h2>
+<p>A <strong>raster</strong> is a data structure composed of cells arranged in rows and columns. Each cell stores a value representing a phenomenon at a particular location.</p>
+<p>Raster data are especially suitable for representing <strong>continuous phenomena</strong> such as elevation, temperature, rainfall, or pollution, but they can also represent <strong>categorical information</strong> such as land cover classes.</p>
+<ul>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/what-is-raster-data.htm"><strong>Raster data</strong></a> – spatial data represented as a matrix of cells or pixels.</li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/cell-size-of-raster-data.htm"><strong>Pixel / cell</strong></a> – the basic spatial element of a raster. Each cell stores one value per raster band.</li>
+<li><strong>Spatial resolution / cell size</strong> – the ground size represented by one raster cell. A raster with a cell size of 2 m contains more spatial detail than a raster with a cell size of 100 m.</li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/analysis/raster-functions/resample-function.htm"><strong>Resampling</strong></a> – changing the spatial resolution or alignment of a raster. Common methods include Nearest Neighbor, Bilinear Interpolation and Cubic Convolution.</li>
+<li><strong>Bit</strong> – the smallest unit of digital information; it can have a value of <code>0</code> or <code>1</code>.</li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/bit-depth-capacity-for-raster-dataset-cells.htm"><strong>Pixel depth / bit depth</strong></a> – the number of bits used to store the value of one cell in one band. Bit depth determines the range of possible cell values. For example, an unsigned 8-bit raster can store <span class="arithmatex">\(2^8 = 256\)</span> values (<code>0–255</code>), while an unsigned 16-bit raster can store <code>0–65,535</code>.</li>
+<li><strong>Pixel type / data type</strong> – specifies how raster values are stored, for example unsigned integer, signed integer or floating point. Continuous elevation data are frequently stored as floating-point values.</li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/gathering-basic-raster-dataset-information-pro-.htm"><strong>Band</strong></a> – one spatially coincident layer within a raster dataset. A grayscale raster usually contains one band; an RGB image contains three bands (red, green, blue), while multispectral satellite imagery may contain many bands covering different wavelength ranges.</li>
+<li><strong>NoData</strong> – a special raster value indicating that no valid information is available for a cell.</li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/raster-pyramids.htm"><strong>Raster pyramids</strong></a> – lower-resolution copies of raster data used to speed up visualization at smaller map scales.</li>
+<li><strong>Continuous raster</strong> – raster whose values represent a continuously varying phenomenon, such as elevation or temperature.</li>
+<li><strong>Categorical raster</strong> – raster whose cell values represent discrete classes, such as land cover categories.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Basic information about a raster dataset can be found in ArcGIS Pro under <strong>Layer Properties → Source → Raster Information</strong>, where you can inspect cell size, number of bands, pixel type, bit depth, NoData value and other properties.</p>
+</div>
+<hr>
+<h2 id="common-types-of-raster-data">Common types of raster data</h2>
+<p>Raster data can represent measured values, images, classified thematic data, or surfaces derived from other datasets.</p>
+<div class="centered_tab_labels gallery-tabs">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><em>DEM</em></label><label for="__tabbed_1_2"><em>hillshade</em></label><label for="__tabbed_1_3"><em>scanned map</em></label><label for="__tabbed_1_4"><em>orthophoto</em></label><label for="__tabbed_1_5"><em>satellite imagery</em></label><label for="__tabbed_1_6"><em>CLC raster</em></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Digital Elevation Model (DEM)</strong> represents elevation values. Each cell contains an elevation value for a particular location.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://gisgeography.com/wp-content/uploads/2022/04/SRTM-DEM-300x161.jpg" data-desc-position="bottom"><img alt="Example of a DEM" src="https://gisgeography.com/wp-content/uploads/2022/04/SRTM-DEM-300x161.jpg"></a></p>
+<p></p><figcaption markdown="">
+source: <a href="https://gisgeography.com/free-global-dem-data-sources/">GIS Geography – Free Global DEM Data Sources</a>
+</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p><strong>Hillshade</strong> is a raster derived from an elevation model. It simulates illumination of the terrain from a specified direction and creates the visual impression of relief.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_hillshade_illus-08C15.png" data-desc-position="bottom"><img alt="Example of a hillshade output" src="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_hillshade_illus-08C15.png"></a></p>
+<p></p><figcaption markdown="">
+source: <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/hillshade.htm">Hillshade – ArcGIS Pro</a>
+</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p>A <strong>scanned map</strong> is a digital image of an analogue map. It is usually a single-band or RGB raster. To use it together with other GIS data, it generally needs to be <strong>georeferenced</strong>.</p>
+<p>Example: <a href="https://commons.wikimedia.org/wiki/File:Sheet_446._Hirschfelde_(Bohmen)._Herausgegeben_vom_topogr._Bureau_des_Konigl._Sachs._Generalstabes._Karte_des_Deutschen_Reiches._(IA_dr_sheet-446-hirschfelde-bohmen-herausgegeben-vom-topogr-bureau-des-konig-5820446).jpg">historical scanned topographic map – Wikimedia Commons</a></p>
+</div>
+<div class="tabbed-block">
+<p>An <strong>orthophoto</strong> is an aerial photograph that has been geometrically corrected so that distances and positions can be measured similarly to a map.</p>
+<p>Orthophotos are commonly used as detailed background imagery for mapping, change detection, digitising and visual interpretation.</p>
+<p>Example source: <a href="https://geoportal.cuzk.cz/">ČÚZK Geoportal / orthophoto</a></p>
+</div>
+<div class="tabbed-block">
+<p><strong>Satellite imagery</strong> usually consists of several spectral bands. Different combinations of bands can be used to create natural-colour or false-colour images and to derive information about vegetation, water, soil, built-up areas and other phenomena.</p>
+<p>Example source: <a href="https://browser.dataspace.copernicus.eu/">Copernicus Browser</a></p>
+</div>
+<div class="tabbed-block">
+<p><strong>CORINE Land Cover (CLC)</strong> is an example of a <strong>categorical thematic raster</strong>. Each raster cell contains a code representing a land cover / land use category.</p>
+<p>CLC provides a harmonised pan-European inventory with <strong>44 thematic classes</strong>. CLC 2018 is available both as vector data and as a <strong>100 m raster</strong>.</p>
+<p>Example: <a href="https://land.copernicus.eu/en/products/corine-land-cover/clc2018?tab=mapview">CORINE Land Cover 2018 – map and download</a></p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<h2 id="digital-elevation-models-dem">Digital Elevation Models (DEM)</h2>
+<p>A <strong>Digital Elevation Model (DEM)</strong> is a digital representation of elevation. The term is often used as a general term for digital representations of terrain or surface height.</p>
+<p>Two important types of elevation models are:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Meaning</th>
+<th>Represents</th>
+<th>Buildings and vegetation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DTM</strong></td>
+<td>Digital Terrain Model</td>
+<td>bare-earth terrain surface</td>
+<td>removed</td>
+</tr>
+<tr>
+<td><strong>DSM</strong></td>
+<td>Digital Surface Model</td>
+<td>top surface visible to the sensor</td>
+<td>included</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dtm-vs-dsm">DTM vs. DSM</h3>
+<p>A <strong>DTM</strong> represents the elevation of the ground surface. Buildings, trees and other objects above the ground are removed as far as possible.</p>
+<p>A <strong>DSM</strong> represents the uppermost surface detected by the sensor. It therefore includes buildings, tree canopies and other objects above the ground.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Terminology is not completely standardised between data providers. Always check the metadata of a particular elevation product to determine what the dataset actually represents.</p>
+</div>
+<p>Typical applications:</p>
+<ul>
+<li><strong>DTM</strong> – hydrological modelling, slope analysis, geomorphology, engineering, flood modelling, terrain profiles.</li>
+<li><strong>DSM</strong> – visibility analysis in urban areas, building-height studies, solar potential, vegetation structure, 3D city modelling.</li>
+</ul>
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/generate-elevation-data-using-the-dems-wizard.htm"><strong>Illustrated DTM / DSM comparison – ArcGIS Pro</strong></a></p>
+<h3 id="how-are-elevation-data-acquired">How are elevation data acquired?</h3>
+<p>Elevation data can be collected using several methods:</p>
+<ul>
+<li><strong>ground surveying / GNSS</strong> – direct measurement of elevations at individual locations;</li>
+<li><strong>photogrammetry</strong> – extraction of 3D information from overlapping aerial or satellite images;</li>
+<li><strong>LiDAR / laser scanning</strong> – laser pulses are used to measure distances to the Earth's surface and objects above it; the result is usually a dense point cloud;</li>
+<li><strong>radar interferometry (InSAR)</strong> – elevation is derived from differences between radar observations, for example in the SRTM mission;</li>
+<li><strong>digitised contour lines and spot heights</strong> – existing cartographic elevation information can be converted into a continuous elevation surface using interpolation.</li>
+</ul>
+<h3 id="common-elevation-data-representations">Common elevation-data representations</h3>
+<p>Elevation information can be distributed in several forms:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1"><em>raster</em></label><label for="__tabbed_2_2"><em>LiDAR point cloud</em></label><label for="__tabbed_2_3"><em>TIN</em></label><label for="__tabbed_2_4"><em>vector elevation data</em></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>A regular grid where each cell contains an elevation value.</p>
+<p>Typical formats include <strong>GeoTIFF</strong>, Esri raster datasets and cloud-optimised GeoTIFFs.</p>
+<p>Raster DEMs are particularly convenient for terrain analysis because many algorithms operate directly on neighbouring cells.</p>
+</div>
+<div class="tabbed-block">
+<p>A large collection of points with X, Y and Z coordinates acquired by laser scanning.</p>
+<p>Common formats are <strong>LAS</strong> and compressed <strong>LAZ</strong>.</p>
+<p>Point clouds may contain classifications distinguishing ground, vegetation, buildings and other objects. A DTM or DSM can subsequently be derived from the point cloud.</p>
+</div>
+<div class="tabbed-block">
+<p>A <strong>Triangulated Irregular Network (TIN)</strong> represents a surface by non-overlapping triangles connecting irregularly distributed elevation points.</p>
+<p>TINs can efficiently preserve important terrain breaklines and changes in relief while using a variable density of points.</p>
+</div>
+<div class="tabbed-block">
+<p>Elevation can also be stored as <strong>contour lines</strong>, <strong>spot heights</strong>, breaklines or other vector features. A continuous elevation model can be created from these data using interpolation.</p>
+</div>
+</div>
+</div>
+<hr>
+<h3 id="where-can-you-find-dem-data">Where can you find DEM data?</h3>
+<p>Several global, European and national portals provide elevation data. Always check <strong>spatial resolution, vertical accuracy, reference system, acquisition method and whether the dataset represents a DTM or DSM</strong> before using it.</p>
+<ul>
+<li><a href="https://gisgeography.com/free-global-dem-data-sources/">GIS Geography – Free Global DEM Data Sources</a> – overview of several global DEM products, including SRTM and ASTER.</li>
+<li><a href="https://www.opendem.info/">OpenDEM</a> – portal and search tools for freely available elevation datasets from different countries.</li>
+<li><a href="https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM">Copernicus DEM</a> – global Copernicus Digital Elevation Model products.</li>
+<li><a href="https://earthexplorer.usgs.gov/">USGS EarthExplorer</a> – access to SRTM and other elevation datasets.</li>
+<li><a href="https://geoportal.cuzk.cz/">ČÚZK Geoportal</a> – detailed elevation data for Czechia, including DMR and DMP products.</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=tywhaVH3l9Y"><strong>Video: introduction to digital elevation models</strong></a></p>
+<hr>
+<h2 id="terrain-analysis">Terrain analysis</h2>
+<p><strong>Terrain analysis</strong> refers to GIS methods used to describe and interpret the shape of the Earth's surface. Most terrain-analysis tools use a DEM as input and calculate new raster values from the elevation and the spatial relationships between neighbouring cells.</p>
+<p>Typical outputs include slope, aspect, curvature, hillshade and visibility.</p>
+<div class="centered_tab_labels gallery-tabs">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:6"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><input id="__tabbed_3_5" name="__tabbed_3" type="radio"><input id="__tabbed_3_6" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1"><em>slope</em></label><label for="__tabbed_3_2"><em>aspect</em></label><label for="__tabbed_3_3"><em>hillshade</em></label><label for="__tabbed_3_4"><em>viewshed</em></label><label for="__tabbed_3_5"><em>curvature</em></label><label for="__tabbed_3_6"><em>contours</em></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/slope.htm"><strong>SLOPE</strong></a><br>
+Calculates the <strong>steepness of the terrain</strong> for each raster cell. The result can be expressed in <strong>degrees</strong> or <strong>percent rise</strong>.</p>
+<p>Low values represent flat terrain; high values represent steep slopes.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_slope_illus-AC091.png" data-desc-position="bottom"><img alt="Example of Slope output" src="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_slope_illus-AC091.png"></a></p>
+<p></p><figcaption markdown="">
+source: <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/slope.htm">Slope – ArcGIS Pro</a>
+</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/aspect.htm"><strong>ASPECT</strong></a><br>
+Calculates the <strong>compass direction of the steepest downhill slope</strong> for each cell.</p>
+<p>Aspect is normally expressed in degrees from <code>0°</code> to <code>360°</code>, measured clockwise from north. Flat cells have no downslope direction.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_aspect_illus-DE694.png" data-desc-position="bottom"><img alt="Example of Aspect output" src="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_aspect_illus-DE694.png"></a></p>
+<p></p><figcaption markdown="">
+source: <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/aspect.htm">Aspect – ArcGIS Pro</a>
+</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/hillshade.htm"><strong>HILLSHADE</strong></a><br>
+Creates a <strong>shaded-relief raster</strong> by modelling illumination from a specified azimuth and altitude.</p>
+<p>Hillshade is mainly a visualisation technique. Output values usually range from <code>0</code> (darkest) to <code>255</code> (brightest).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_hillshade_illus-08C15.png" data-desc-position="bottom"><img alt="Example of Hillshade output" src="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_hillshade_illus-08C15.png"></a></p>
+<p></p><figcaption markdown="">
+source: <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/hillshade.htm">Hillshade – ArcGIS Pro</a>
+</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/viewshed.htm"><strong>VIEWSHED</strong></a><br>
+Determines which locations on a surface are <strong>visible from one or more observer locations</strong>.</p>
+<p>The output raster records visibility of individual cells. Visibility results depend on the elevation model, observer height and other analysis parameters.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_viewshed_illus-E91A8.png" data-desc-position="bottom"><img alt="Example of Viewshed output" src="https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/images/sa_surface_viewshed_illus-E91A8.png"></a></p>
+<p></p><figcaption markdown="">
+source: <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/viewshed.htm">Viewshed – ArcGIS Pro</a>
+</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/surface-parameters.htm"><strong>SURFACE PARAMETERS / CURVATURE</strong></a><br>
+Describes how the surface bends. Curvature can help identify convex and concave parts of the terrain and is useful in geomorphology, hydrology and erosion studies.</p>
+</div>
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/contour.htm"><strong>CONTOUR</strong></a><br>
+Creates contour lines connecting locations of equal elevation. Contours provide a vector representation of the shape and elevation of the terrain.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>ArcGIS Pro also provides the <strong>Surface Parameters</strong> tool, which offers newer implementations of slope, aspect and curvature calculations and allows the analysis neighbourhood to be adjusted. The traditional <strong>Slope</strong> and <strong>Aspect</strong> tools are still widely used and are used in this assignment.</p>
+</div>
+<hr>
+<h2 id="reclassification-and-map-algebra">Reclassification and map algebra</h2>
+<h3 id="reclassification">Reclassification</h3>
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/reclassify.htm"><strong>Reclassify</strong></a> replaces ranges or individual raster values with new values.</p>
+<p>For example, a slope raster can be converted into two categories:</p>
+<ul>
+<li><code>0</code> – slope does not meet the criterion,</li>
+<li><code>1</code> – slope meets the criterion.</li>
+</ul>
+<p>Reclassification is useful when several different raster criteria need to be combined in a model.</p>
+<h3 id="map-algebra">Map algebra</h3>
+<p><strong>Map algebra</strong> is a framework for performing cell-by-cell operations on raster data. It allows multiple raster layers to be combined using mathematical expressions, logical conditions and raster functions.</p>
+<p>For example, if several reclassified raster layers contain only <code>0</code> and <code>1</code>, they can be multiplied to identify locations where <strong>all criteria are satisfied simultaneously</strong>.</p>
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/raster-calculator.htm"><strong>Raster Calculator</strong></a> provides an interface for writing map-algebra expressions in ArcGIS Pro.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Raster layers used together in map algebra should ideally have the same <strong>coordinate system, cell size, extent and cell alignment</strong>. Analysis environment settings such as <strong>Snap Raster</strong>, <strong>Cell Size</strong> and <strong>Processing Extent</strong> can be used to control these properties.</p>
+</div>
+<hr>
+<h2 id="interpolation">Interpolation</h2>
+<p><strong>Interpolation</strong> estimates unknown values at unsampled locations using values measured at known locations. In GIS, interpolation is commonly used to create continuous raster surfaces from point measurements such as elevation, temperature, precipitation, pollution or wind speed.</p>
+<p><strong>Extrapolation</strong> refers to estimating values outside the area covered by the input observations.</p>
+<h3 id="interpolation-methods">Interpolation methods</h3>
+<div class="centered_tab_labels gallery-tabs">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><input id="__tabbed_4_4" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1"><em>IDW</em></label><label for="__tabbed_4_2"><em>spline</em></label><label for="__tabbed_4_3"><em>natural neighbor</em></label><label for="__tabbed_4_4"><em>kriging</em></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/how-idw-works.htm"><strong>IDW (Inverse Distance Weighted)</strong></a><br>
+The value of each output cell is calculated as a weighted average of surrounding measured points. The influence of a point decreases with distance, controlled mainly by the <strong>Power</strong> parameter.</p>
+<p>IDW does not normally create values outside the range of the input measurements. If no sample point is located at a local peak or valley bottom, the method cannot fully reconstruct that extreme. Typical circular or "bull's-eye" patterns may appear around measured points.</p>
+</div>
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/how-spline-works.htm"><strong>SPLINE</strong></a><br>
+Spline fits a smooth surface through the input points while minimising surface curvature.</p>
+<p>The result is generally smooth and may exceed the minimum and maximum values of the input points. <strong>Regularized</strong> spline creates a smoother and more flexible surface, while <strong>Tension</strong> produces a more constrained surface. Spline is less suitable where nearby points contain very different values.</p>
+</div>
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/how-natural-neighbor-works.htm"><strong>NATURAL NEIGHBOR</strong></a><br>
+Natural Neighbor interpolation derives weights from the geometry of <strong>Thiessen (Voronoi) polygons</strong>.</p>
+<p>It uses only the nearest surrounding points, is a local method and requires relatively few parameters. It does not extrapolate beyond the convex hull of the input points.</p>
+</div>
+<div class="tabbed-block">
+<p><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/how-kriging-works.htm"><strong>KRIGING</strong></a><br>
+Kriging is a <strong>geostatistical interpolation method</strong>. The weights depend not only on distance but also on the spatial autocorrelation of the measured values, described by a <strong>semivariogram</strong>.</p>
+<p>Kriging can provide both an estimated surface and information about prediction uncertainty. <strong>Ordinary Kriging</strong> is a common starting point for many datasets.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There is no universally "best" interpolation method. The appropriate method depends on the phenomenon, point density and distribution, spatial autocorrelation, required accuracy and intended use of the output.</p>
+</div>
+<hr>
+<h1 id="assignment-05">Assignment 05</h1>
+<h2 id="areas-of-avalanche-risk-in-the-krkonose-national-park">Areas of avalanche risk in the Krkonoše National Park</h2>
+<p><strong>TASK:</strong></p>
+<p>Based on the analysis of provided data, make a map showing the areas of avalanche risk in <a href="https://en.wikipedia.org/wiki/Krkono%C5%A1e_National_Park">the Krkonoše National Park</a>.</p>
+<p>Areas of avalanche risk are defined according to the following criteria:</p>
+<ol>
+<li><strong>Elevation</strong><ul>
+<li>the highest third of the national park</li>
+</ul>
+</li>
+<li><strong>Slope / inclination</strong><ul>
+<li>more than 30°</li>
+</ul>
+</li>
+<li><strong>Land cover</strong><ul>
+<li>land cover code = <code>2.X.X</code> or <code>3.X.X</code> (except for <code>3.1.1</code>, <code>3.1.2</code>, and <code>3.1.3</code>)</li>
+</ul>
+</li>
+<li><strong>Wind speed</strong><ul>
+<li>the windier half of the national park</li>
+</ul>
+</li>
+</ol>
+<p>In the technical report, answer the following questions:</p>
+<ul>
+<li>What proportion of the Krkonoše National Park (in %) lies within the zone most at risk of avalanches?</li>
+<li>What proportion of the Krkonoše National Park (in %) lies outside the avalanche-risk zone (i.e. the sum of all criteria is 0)?</li>
+</ul>
+<p><strong>DATA SOURCES:</strong></p>
+<ul>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/exploring-digital-elevation-models.htm">Digital elevation model (DEM)</a></li>
+<li>Wind speed measurements</li>
+<li><a href="https://land.copernicus.eu/en/products/corine-land-cover">CORINE Land Cover (CLC)</a></li>
+<li>Czechia protected land areas</li>
+</ul>
+<p><a href="../../assets/TerrainAnalysis/AvalancheRisk.gdb.zip"><strong>Data for avalanche risk map</strong></a></p>
+<p><strong>SUBMISSION FORM:</strong></p>
+<ul>
+<li>technical report + map in PDF format (submit by <strong>07/12</strong>, send to <code>petra.justova@fsv.cvut.cz</code>)</li>
+</ul>
+<p><a href="../../assets/cviceni2/technical_report.doc"><strong>Technical report template</strong></a></p>
+<hr>
+<h2 id="instructions">Instructions</h2>
+<h3 id="1-explore-input-data">1. Explore input data</h3>
+<p>First, explore the input data. Always check the data type, coordinate system, raster properties and attribute tables before starting the analysis.</p>
+<ul>
+<li><code>DMR</code> is a raster storing elevation above sea level for Czechia.</li>
+<li><code>CzechProtected</code> is a polygon feature layer containing polygons of parts of the Krkonoše National Park.</li>
+<li><code>windSpeed</code> is a point feature layer of measurement stations in Czechia with average measured wind speed.</li>
+<li><code>CORINE</code> is a classified raster containing land cover / land use classes.</li>
+</ul>
+<h3 id="2-data-preparation">2. Data preparation</h3>
+<p>Clip both rasters to the extent of the Krkonoše National Park using <strong>Extract by Mask</strong>.</p>
+<h3 id="3-terrain-analysis">3. Terrain analysis</h3>
+<p>In the following steps, terrain-analysis tools and subsequent reclassification will be used to calculate and classify elevation and slope. You will then reclassify the CORINE Land Cover raster and interpolate the wind-speed measurements.</p>
+<h4 id="slope">Slope</h4>
+<p>Use the <strong>Slope</strong> tool to calculate terrain steepness. Use the raster extracted by the national park boundary as the input.</p>
+<p>The output should be similar to the following figure:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni7/Obr%C3%A1zek2.png" data-desc-position="bottom"><img alt="Slope output" src="../../assets/cviceni7/Obr%C3%A1zek2.png"></a></p>
+<p>Use <strong>Reclassify</strong> to convert the slope raster into two categories:</p>
+<ul>
+<li><code>0°–30°</code> → <code>0</code></li>
+<li><code>30°–90°</code> → <code>1</code></li>
+</ul>
+<p>Value <code>0</code> represents areas that do not meet the avalanche-risk criterion.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni7/Obr%C3%A1zek3.png" data-desc-position="bottom"><img alt="Reclassification of slope" src="../../assets/cviceni7/Obr%C3%A1zek3.png"></a></p>
+<h4 id="elevation">Elevation</h4>
+<p>Similarly, reclassify the extracted DEM to identify the <strong>highest third of the national park</strong>.</p>
+<p>In the example below, the highest third of the Krkonoše National Park is shown in violet.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni7/Obr%C3%A1zek4.png" data-desc-position="bottom"><img alt="Reclassified elevation" src="../../assets/cviceni7/Obr%C3%A1zek4.png"></a></p>
+<p>At this point, you should have two reclassified raster layers: <strong>elevation</strong> and <strong>slope</strong>.</p>
+<h4 id="corine-land-cover">CORINE Land Cover</h4>
+<p>Reclassify the CORINE Land Cover raster according to the criteria given in the assignment.</p>
+<p>Use the land cover codes stored in the raster attribute table. For more information about individual CLC classes, see the <a href="https://land.copernicus.eu/content/corine-land-cover-nomenclature-guidelines/docs/pdf/CLC2018_Nomenclature_illustrated_guide_20190510.pdf">CLC illustrated nomenclature guidelines</a>.</p>
+<h4 id="wind-speed-interpolation">Wind speed – interpolation</h4>
+<p>The wind-speed data are stored as points, while the final analysis requires raster layers. Therefore, create a continuous raster surface from the point measurements using an appropriate <strong>interpolation method</strong>.</p>
+<p>For this task, <strong>Inverse Distance Weighted (IDW)</strong> is a suitable option.</p>
+<ul>
+<li>Use the wind-speed attribute as the <strong>Z value field</strong>.</li>
+<li>Define the <strong>Output cell size</strong> so that it is consistent with the other raster layers used in the analysis.</li>
+<li>Interpolate the wind-speed surface for the complete input point dataset first and clip the result to the national park afterwards.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not clip the measurement points to the national park before interpolation. Points outside the park may still influence estimates close to the park boundary. Interpolate first, then clip the output raster.</p>
+</div>
+<p>Reclassify the interpolated wind-speed raster to identify the <strong>windier half of the national park</strong>.</p>
+<h3 id="4-combine-the-criteria">4. Combine the criteria</h3>
+<p>You should now have four reclassified raster layers containing values <code>0</code> and <code>1</code>:</p>
+<ul>
+<li>elevation,</li>
+<li>slope,</li>
+<li>land cover,</li>
+<li>wind speed.</li>
+</ul>
+<p>Use <strong>Raster Calculator</strong> to combine them and identify areas where <strong>all four avalanche-risk criteria are satisfied simultaneously</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni7/Obr%C3%A1zek5.png" data-desc-position="bottom"><img alt="Raster Calculator" src="../../assets/cviceni7/Obr%C3%A1zek5.png"></a></p>
+<p>Think about which mathematical operation will produce:</p>
+<ul>
+<li><code>1</code> only where all four criteria are satisfied,</li>
+<li><code>0</code> wherever at least one criterion is not satisfied.</li>
+</ul>
+<p>An example of the final avalanche-risk raster is shown below:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni7/Obr%C3%A1zek6.png" data-desc-position="bottom"><img alt="Avalanche risk" src="../../assets/cviceni7/Obr%C3%A1zek6.png"></a></p>
+<h3 id="alternative-different-levels-of-avalanche-risk">Alternative: different levels of avalanche risk</h3>
+<p>Instead of creating only a binary raster, you can also calculate different levels of avalanche risk.</p>
+<p>If you <strong>sum</strong> the four reclassified rasters instead of multiplying them, the result will contain five possible values:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>0, 1, 2, 3, 4
+</code></pre></div>
+<p>These values indicate how many of the four criteria are satisfied at each location.</p>
+<p>Set an appropriate raster symbology to visualize increasing avalanche risk.</p>
+<h3 id="5-visualize-the-results">5. Visualize the results</h3>
+<ul>
+<li>Set an appropriate symbology for the avalanche-risk classes.</li>
+<li>Create a <strong>New Layout – A4 Landscape</strong>.</li>
+<li>Add:<ul>
+<li>map title,</li>
+<li>scale,</li>
+<li>credits / data sources.</li>
+</ul>
+</li>
+<li>Export the final layout to <strong>PDF</strong>.</li>
+</ul>
+<hr>
+<h2 id="useful-links">Useful links</h2>
+<h3 id="raster-data">Raster data</h3>
+<ul>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/what-is-raster-data.htm">Raster data in ArcGIS Pro</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/raster-dataset-properties.htm">Raster dataset properties</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/bit-depth-capacity-for-raster-dataset-cells.htm">Bit-depth capacity for raster cells</a></li>
+</ul>
+<h3 id="terrain-analysis_1">Terrain analysis</h3>
+<ul>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/an-overview-of-the-surface-tools.htm">Surface toolset – ArcGIS Pro</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/how-surface-parameters-works.htm">How Surface Parameters works</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/slope.htm">Slope</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/aspect.htm">Aspect</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/hillshade.htm">Hillshade</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/viewshed.htm">Viewshed</a></li>
+</ul>
+<h3 id="interpolation-and-map-algebra">Interpolation and map algebra</h3>
+<ul>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/understanding-interpolation-analysis.htm">Understanding interpolation analysis</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/comparing-interpolation-methods.htm">Comparing interpolation methods</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/help/analysis/spatial-analyst/mapalgebra/an-overview-of-map-algebra.htm">Introduction to map algebra</a></li>
+<li><a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/raster-calculator.htm">Raster Calculator</a></li>
+</ul>
+<hr>
+<p>Back to top</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
